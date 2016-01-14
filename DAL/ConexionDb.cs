@@ -15,7 +15,7 @@ namespace DAL
 
         public ConexionDb()
         {
-            con = new SqlConnection("Data Source = DJM-THE-1-PC\\SQLEXPRESS; Initial Catalog = FinanzasPersonales; Integrated Security = true");
+            con = new SqlConnection("Data Source = JOSE\\SQLEXPRESS; Initial Catalog = FinanzasPersonales; Integrated Security = true");
             Cmd = new SqlCommand();
         }
 
