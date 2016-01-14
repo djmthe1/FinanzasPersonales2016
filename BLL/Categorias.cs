@@ -4,14 +4,35 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL;
 
 namespace BLL
 {
     public class Categorias : ClaseMaestra
     {
+        public int CategoriaID { get; set; }
+        public string Descripcion { get; set; }
+
+        public Categorias()
+        {
+            this.CategoriaID = 0;
+            this.Descripcion = "";
+        }
         public override bool Insertar()
         {
-            throw new NotImplementedException();
+             bool retorno = false;
+            ConexionDb conexion = new ConexionDb();
+            try
+            {
+                retorno = conexion.Ejecutar(string.Format("Insert Into Categorias(Descripcion) values('{0}')",this.Descripcion));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
+            return retorno;
 
         }
 
@@ -32,7 +53,13 @@ namespace BLL
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Orden by  " + Orden;
+
+            return conexion.ObtenerDatos("Select " + Campos +
+                " From Cuentas Where " + Condicion + "" + ordenFinal);
         }
     }
 }
