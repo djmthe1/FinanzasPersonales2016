@@ -12,6 +12,7 @@ namespace BLL
         public override bool Insertar()
         {
             throw new NotImplementedException();
+
         }
 
         public override bool Editar()
