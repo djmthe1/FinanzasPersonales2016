@@ -29,7 +29,7 @@ namespace BLL
             this.Monto = monto;
             this.Observacion = observacion;
             this.UsuarioId = usuarioId;
-    }
+        }
 
         public Transferencias()
         {

@@ -68,7 +68,7 @@ namespace FinanzasPersonales.Registros
 
         private void textBoxObservacion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122))
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122 || (e.KeyChar == 32)))
                 e.Handled = false;
             else
                 e.Handled = true;

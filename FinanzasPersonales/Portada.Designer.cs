@@ -1,6 +1,6 @@
 ﻿namespace FinanzasPersonales
 {
-    partial class Form1
+    partial class Portada
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.buttonTransferencias = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // Form1
+            // buttonTransferencias
+            // 
+            this.buttonTransferencias.Location = new System.Drawing.Point(13, 13);
+            this.buttonTransferencias.Name = "buttonTransferencias";
+            this.buttonTransferencias.Size = new System.Drawing.Size(97, 42);
+            this.buttonTransferencias.TabIndex = 0;
+            this.buttonTransferencias.Text = "Transferencias";
+            this.buttonTransferencias.UseVisualStyleBackColor = true;
+            this.buttonTransferencias.Click += new System.EventHandler(this.buttonTransferencias_Click);
+            // 
+            // Portada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 315);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Controls.Add(this.buttonTransferencias);
+            this.Name = "Portada";
+            this.Text = "Portada";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button buttonTransferencias;
     }
 }
 
