@@ -32,12 +32,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CategoriaIDTextBox = new System.Windows.Forms.TextBox();
+            this.BuscarButton = new System.Windows.Forms.Button();
             this.DescripcionTextBox = new System.Windows.Forms.TextBox();
+            this.CategoriaIDTextBox = new System.Windows.Forms.TextBox();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
-            this.BuscarButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,14 +75,18 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Registro de Categorias.";
-            
             // 
-            // CategoriaIDTextBox
+            // BuscarButton
             // 
-            this.CategoriaIDTextBox.Location = new System.Drawing.Point(127, 31);
-            this.CategoriaIDTextBox.Name = "CategoriaIDTextBox";
-            this.CategoriaIDTextBox.Size = new System.Drawing.Size(81, 20);
-            this.CategoriaIDTextBox.TabIndex = 2;
+            this.BuscarButton.Image = ((System.Drawing.Image)(resources.GetObject("BuscarButton.Image")));
+            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BuscarButton.Location = new System.Drawing.Point(214, 23);
+            this.BuscarButton.Name = "BuscarButton";
+            this.BuscarButton.Size = new System.Drawing.Size(95, 41);
+            this.BuscarButton.TabIndex = 4;
+            this.BuscarButton.Text = "Buscar";
+            this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BuscarButton.UseVisualStyleBackColor = true;
             // 
             // DescripcionTextBox
             // 
@@ -90,6 +94,13 @@
             this.DescripcionTextBox.Name = "DescripcionTextBox";
             this.DescripcionTextBox.Size = new System.Drawing.Size(182, 20);
             this.DescripcionTextBox.TabIndex = 3;
+            // 
+            // CategoriaIDTextBox
+            // 
+            this.CategoriaIDTextBox.Location = new System.Drawing.Point(127, 31);
+            this.CategoriaIDTextBox.Name = "CategoriaIDTextBox";
+            this.CategoriaIDTextBox.Size = new System.Drawing.Size(81, 20);
+            this.CategoriaIDTextBox.TabIndex = 2;
             // 
             // NuevoButton
             // 
@@ -130,18 +141,6 @@
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.EliminarButton.UseVisualStyleBackColor = true;
-            // 
-            // BuscarButton
-            // 
-            this.BuscarButton.Image = ((System.Drawing.Image)(resources.GetObject("BuscarButton.Image")));
-            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BuscarButton.Location = new System.Drawing.Point(214, 23);
-            this.BuscarButton.Name = "BuscarButton";
-            this.BuscarButton.Size = new System.Drawing.Size(95, 41);
-            this.BuscarButton.TabIndex = 4;
-            this.BuscarButton.Text = "Buscar";
-            this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BuscarButton.UseVisualStyleBackColor = true;
             // 
             // CategoriasForm
             // 
