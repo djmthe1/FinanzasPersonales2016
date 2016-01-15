@@ -96,31 +96,28 @@ namespace BLL
 
         public override bool Buscar(int IdBuscado)
         {
-            ConexionDb conexion = new ConexionDb();
-            try
-            {
+           
                 DataTable data = new DataTable();
                 data = conexion.ObtenerDatos(String.Format("select Nombres,Apellidos,Sexo,Direccion,Telefono,Movil,Monto,Fecha from Entaradas whele EntradaId = {0} ", IdBuscado));
-                this.Nombres = data.Rows[0]["Nombres"].ToString();
-                this.Apellidos = data.Rows[0][Apellidos].ToString();
-                this.Sexo = data.Rows[0]["Sexo"].ToString();
-                this.Direccion = data.Rows[0]["Direccion"].ToString();
-                this.Telefono = data.Rows[0]["Telefono"].ToString();
-                this.Movil = data.Rows[0]["Movil"].ToString();
-                this.Monto = (float)data.Rows[0]["Monto"];
-                this.Fecha = data.Rows[0]["Fecha"].ToString();
-
-                return true;
+                if (data.Rows.Count > 0)
+                {
+                    this.Nombres = data.Rows[0]["Nombres"].ToString();
+                    this.Apellidos = data.Rows[0][Apellidos].ToString();
+                    this.Sexo = data.Rows[0]["Sexo"].ToString();
+                    this.Direccion = data.Rows[0]["Direccion"].ToString();
+                    this.Telefono = data.Rows[0]["Telefono"].ToString();
+                    this.Movil = data.Rows[0]["Movil"].ToString();
+                    this.Monto = (float)data.Rows[0]["Monto"];
+                    this.Fecha = data.Rows[0]["Fecha"].ToString();
+                }
+                    return data.Rows.Count > 0;
             }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            
+            string ordenFinal = ""; 
+            if (!Orden.Equals(""))
+                ordenFinal = " orden by  " + Orden;
             return conexion.ObtenerDatos(string.Format("select " + Campos + " from Entadas where " + Condicion + Orden));
 
         }
