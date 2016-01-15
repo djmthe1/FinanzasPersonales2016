@@ -55,14 +55,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registros\CategoriasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\CategoriasForm.designer.cs">
+      <DependentUpon>CategoriasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros\TransferenciasForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Registros\TransferenciasForm.Designer.cs">
       <DependentUpon>TransferenciasForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CategoriasForm.resx">
-      <DependentUpon>CategoriasForm.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -74,6 +80,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Registros\CategoriasForm.resx">
+      <DependentUpon>CategoriasForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registros\TransferenciasForm.resx">
       <DependentUpon>TransferenciasForm.cs</DependentUpon>
     </EmbeddedResource>
