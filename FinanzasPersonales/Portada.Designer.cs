@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonTransferencias = new System.Windows.Forms.Button();
+            this.Salidasbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonTransferencias
@@ -41,11 +42,22 @@
             this.buttonTransferencias.UseVisualStyleBackColor = true;
             this.buttonTransferencias.Click += new System.EventHandler(this.buttonTransferencias_Click);
             // 
+            // Salidasbutton
+            // 
+            this.Salidasbutton.Location = new System.Drawing.Point(13, 97);
+            this.Salidasbutton.Name = "Salidasbutton";
+            this.Salidasbutton.Size = new System.Drawing.Size(97, 41);
+            this.Salidasbutton.TabIndex = 1;
+            this.Salidasbutton.Text = "Salidas";
+            this.Salidasbutton.UseVisualStyleBackColor = true;
+            this.Salidasbutton.Click += new System.EventHandler(this.Salidasbutton_Click);
+            // 
             // Portada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 315);
+            this.Controls.Add(this.Salidasbutton);
             this.Controls.Add(this.buttonTransferencias);
             this.Name = "Portada";
             this.Text = "Portada";
@@ -56,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonTransferencias;
+        private System.Windows.Forms.Button Salidasbutton;
     }
 }
 

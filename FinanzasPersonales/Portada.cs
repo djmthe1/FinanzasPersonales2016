@@ -21,5 +21,11 @@ namespace FinanzasPersonales
             Registros.TransferenciasForm transferencias = new Registros.TransferenciasForm();
             transferencias.Show();
         }
+
+        private void Salidasbutton_Click(object sender, EventArgs e)
+        {
+            Registros.SalidasForm Salidas = new Registros.SalidasForm();
+            Salidas.Show();
+        }
     }
 }

@@ -61,6 +61,12 @@
     <Compile Include="Registros\CategoriasForm.designer.cs">
       <DependentUpon>CategoriasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros\SalidasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\SalidasForm.Designer.cs">
+      <DependentUpon>SalidasForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros\TransferenciasForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     </Compile>
     <EmbeddedResource Include="Registros\CategoriasForm.resx">
       <DependentUpon>CategoriasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\SalidasForm.resx">
+      <DependentUpon>SalidasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\TransferenciasForm.resx">
       <DependentUpon>TransferenciasForm.cs</DependentUpon>

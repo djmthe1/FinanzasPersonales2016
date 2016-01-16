@@ -34,5 +34,10 @@ namespace FinanzasPersonales
                 MessageBox.Show("Error al guardar");
             }
         }
+
+        private void BuscarButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
