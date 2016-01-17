@@ -20,10 +20,10 @@ namespace DAL
         }
 
         /// <summary>
-        /// Ejecuar comandos contra la base de datos
+        /// Ejecutar comandos contra la base de datos
         /// </summary>
         /// <param name="ComandoSql">El comando sql que se desea ejecutar</param>
-        /// <returns>Verdadero o Falso dependiendo de si ejecuto correctament o no</returns>
+        /// <returns>Verdadero o Falso dependiendo de si ejecuto correctamente o no</returns>
         public bool Ejecutar(String ComandoSql)
         {
             bool retorno = false;

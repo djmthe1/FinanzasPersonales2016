@@ -25,6 +25,19 @@ namespace FinanzasPersonales.Registros
 
         }
 
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Registro de Transferencias", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Registro de Transferencias", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void MensajeAdvertencia(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Registro de Transferencias", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
 
         private void textBoxId_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -102,27 +115,51 @@ namespace FinanzasPersonales.Registros
             int Destino = 0;
             int.TryParse(textBoxCuentaDeDestino.Text, out Destino);
             transferencias.CuentaDeDestinoId = Destino;
+            transferencias.Fecha = dateTimePickerTranferencia.Text;
             transferencias.Observacion = textBoxObservacion.Text;
         }
 
         private void buttonBuscarId_Click(object sender, EventArgs e)
         {
+            try
+            {
+                ObtenerValores();
 
+                if (transferencias.Buscar(transferencias.TransferenciaId))
+                {
+                    /*textBoxId.Text = transferencias.TransferenciaId.ToString;
+                    dateTimePickerTranferencia.Text = transferencias.Fecha;
+                    textBoxUsuario.Text = transferencias.UsuarioId.ToString;
+                    textBoxMonto.Text = transferencias.Monto.ToString;
+                    textBoxMontoCuentaOrigen.Text = transferencias.CuentaDeOrigenId.ToString;
+                    textBoxMontoCuentaDestino.Text = transferencias.CuentaDeDestinoId.ToString;
+                    textBoxObservacion.Text = transferencias.Observacion;*/
+                }
+                else
+                {
+                    MensajeAdvertencia("Id no encontrado");
+                    Limpiar();
+                }
+            }
+            catch (Exception)
+            {
+                MensajeError("Error al Buscar");
+            }
         }
 
         private void buttonBuscarIdUsuario_Click(object sender, EventArgs e)
         {
-
+            ObtenerValores();
         }
 
         private void buttonBuscarCuentaOrigen_Click(object sender, EventArgs e)
         {
-
+            ObtenerValores();
         }
 
         private void buttonBuscarCuentaDestino_Click(object sender, EventArgs e)
         {
-
+            ObtenerValores();
         }
 
         private void NuevoButton_Click(object sender, EventArgs e)
@@ -137,7 +174,35 @@ namespace FinanzasPersonales.Registros
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+                ObtenerValores();
+
+                if (transferencias.Buscar(transferencias.TransferenciaId))
+                {
+
+                    if (transferencias.Eliminar())
+                    {
+                        MensajeOk("Eliminado correctamente");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MensajeError("Error al Eliminar");
+                    }
+
+                }
+                else
+                {
+                    MensajeAdvertencia("Este Id no existe");
+                    Limpiar();
+                }
+            }
+            catch (Exception)
+            {
+                MensajeError("Error al Eliminar");
+            }
         }
     }
 }
