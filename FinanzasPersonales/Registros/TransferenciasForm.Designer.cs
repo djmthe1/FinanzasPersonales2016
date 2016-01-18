@@ -40,12 +40,12 @@
             this.labelMonto = new System.Windows.Forms.Label();
             this.labelObservacion = new System.Windows.Forms.Label();
             this.labelUsuarioId = new System.Windows.Forms.Label();
-            this.dateTimePickerTranferencia = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerTransferencia = new System.Windows.Forms.DateTimePicker();
             this.textBoxId = new System.Windows.Forms.TextBox();
             this.textBoxUsuario = new System.Windows.Forms.TextBox();
             this.textBoxMonto = new System.Windows.Forms.TextBox();
-            this.textBoxCuentaDeOrigen = new System.Windows.Forms.TextBox();
-            this.textBoxCuentaDeDestino = new System.Windows.Forms.TextBox();
+            this.textBoxCuentaDeOrigenId = new System.Windows.Forms.TextBox();
+            this.textBoxCuentaDeDestinoId = new System.Windows.Forms.TextBox();
             this.buttonBuscarId = new System.Windows.Forms.Button();
             this.buttonBuscarCuentaOrigen = new System.Windows.Forms.Button();
             this.buttonBuscarIdUsuario = new System.Windows.Forms.Button();
@@ -186,12 +186,12 @@
             this.labelUsuarioId.TabIndex = 15;
             this.labelUsuarioId.Text = "Usuario";
             // 
-            // dateTimePickerTranferencia
+            // dateTimePickerTransferencia
             // 
-            this.dateTimePickerTranferencia.Location = new System.Drawing.Point(129, 65);
-            this.dateTimePickerTranferencia.Name = "dateTimePickerTranferencia";
-            this.dateTimePickerTranferencia.Size = new System.Drawing.Size(242, 20);
-            this.dateTimePickerTranferencia.TabIndex = 2;
+            this.dateTimePickerTransferencia.Location = new System.Drawing.Point(129, 65);
+            this.dateTimePickerTransferencia.Name = "dateTimePickerTransferencia";
+            this.dateTimePickerTransferencia.Size = new System.Drawing.Size(242, 20);
+            this.dateTimePickerTransferencia.TabIndex = 2;
             // 
             // textBoxId
             // 
@@ -217,21 +217,21 @@
             this.textBoxMonto.TabIndex = 4;
             this.textBoxMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMonto_KeyPress);
             // 
-            // textBoxCuentaDeOrigen
+            // textBoxCuentaDeOrigenId
             // 
-            this.textBoxCuentaDeOrigen.Location = new System.Drawing.Point(553, 26);
-            this.textBoxCuentaDeOrigen.Name = "textBoxCuentaDeOrigen";
-            this.textBoxCuentaDeOrigen.Size = new System.Drawing.Size(40, 20);
-            this.textBoxCuentaDeOrigen.TabIndex = 6;
-            this.textBoxCuentaDeOrigen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCuentaDeOrigen_KeyPress);
+            this.textBoxCuentaDeOrigenId.Location = new System.Drawing.Point(553, 26);
+            this.textBoxCuentaDeOrigenId.Name = "textBoxCuentaDeOrigenId";
+            this.textBoxCuentaDeOrigenId.Size = new System.Drawing.Size(40, 20);
+            this.textBoxCuentaDeOrigenId.TabIndex = 6;
+            this.textBoxCuentaDeOrigenId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCuentaDeOrigen_KeyPress);
             // 
-            // textBoxCuentaDeDestino
+            // textBoxCuentaDeDestinoId
             // 
-            this.textBoxCuentaDeDestino.Location = new System.Drawing.Point(553, 143);
-            this.textBoxCuentaDeDestino.Name = "textBoxCuentaDeDestino";
-            this.textBoxCuentaDeDestino.Size = new System.Drawing.Size(40, 20);
-            this.textBoxCuentaDeDestino.TabIndex = 7;
-            this.textBoxCuentaDeDestino.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCuentaDeDestino_KeyPress);
+            this.textBoxCuentaDeDestinoId.Location = new System.Drawing.Point(553, 143);
+            this.textBoxCuentaDeDestinoId.Name = "textBoxCuentaDeDestinoId";
+            this.textBoxCuentaDeDestinoId.Size = new System.Drawing.Size(40, 20);
+            this.textBoxCuentaDeDestinoId.TabIndex = 7;
+            this.textBoxCuentaDeDestinoId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCuentaDeDestino_KeyPress);
             // 
             // buttonBuscarId
             // 
@@ -394,12 +394,12 @@
             this.Controls.Add(this.buttonBuscarIdUsuario);
             this.Controls.Add(this.buttonBuscarCuentaOrigen);
             this.Controls.Add(this.buttonBuscarId);
-            this.Controls.Add(this.textBoxCuentaDeDestino);
-            this.Controls.Add(this.textBoxCuentaDeOrigen);
+            this.Controls.Add(this.textBoxCuentaDeDestinoId);
+            this.Controls.Add(this.textBoxCuentaDeOrigenId);
             this.Controls.Add(this.textBoxMonto);
             this.Controls.Add(this.textBoxUsuario);
             this.Controls.Add(this.textBoxId);
-            this.Controls.Add(this.dateTimePickerTranferencia);
+            this.Controls.Add(this.dateTimePickerTransferencia);
             this.Controls.Add(this.labelUsuarioId);
             this.Controls.Add(this.labelObservacion);
             this.Controls.Add(this.labelMonto);
@@ -434,12 +434,12 @@
         private System.Windows.Forms.Label labelMonto;
         private System.Windows.Forms.Label labelObservacion;
         private System.Windows.Forms.Label labelUsuarioId;
-        private System.Windows.Forms.DateTimePicker dateTimePickerTranferencia;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTransferencia;
         private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.TextBox textBoxUsuario;
         private System.Windows.Forms.TextBox textBoxMonto;
-        private System.Windows.Forms.TextBox textBoxCuentaDeOrigen;
-        private System.Windows.Forms.TextBox textBoxCuentaDeDestino;
+        private System.Windows.Forms.TextBox textBoxCuentaDeOrigenId;
+        private System.Windows.Forms.TextBox textBoxCuentaDeDestinoId;
         private System.Windows.Forms.Button buttonBuscarId;
         private System.Windows.Forms.Button buttonBuscarCuentaOrigen;
         private System.Windows.Forms.Button buttonBuscarIdUsuario;
