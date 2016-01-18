@@ -7,4 +7,3 @@ create table Transferencias(
     Observacion varchar (50),
     UsuarioId int
 )
-)
