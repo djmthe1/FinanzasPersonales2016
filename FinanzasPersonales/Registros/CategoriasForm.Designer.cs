@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriasForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CategoriasGroupBox = new System.Windows.Forms.GroupBox();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.DescripcionTextBox = new System.Windows.Forms.TextBox();
             this.CategoriaIDTextBox = new System.Windows.Forms.TextBox();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.CategoriasGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -61,20 +61,20 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Descripción:";
             // 
-            // groupBox1
+            // CategoriasGroupBox
             // 
-            this.groupBox1.Controls.Add(this.BuscarButton);
-            this.groupBox1.Controls.Add(this.DescripcionTextBox);
-            this.groupBox1.Controls.Add(this.CategoriaIDTextBox);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 25);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(317, 115);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Registro de Categorias.";
+            this.CategoriasGroupBox.Controls.Add(this.BuscarButton);
+            this.CategoriasGroupBox.Controls.Add(this.DescripcionTextBox);
+            this.CategoriasGroupBox.Controls.Add(this.CategoriaIDTextBox);
+            this.CategoriasGroupBox.Controls.Add(this.label1);
+            this.CategoriasGroupBox.Controls.Add(this.label2);
+            this.CategoriasGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CategoriasGroupBox.Location = new System.Drawing.Point(12, 25);
+            this.CategoriasGroupBox.Name = "CategoriasGroupBox";
+            this.CategoriasGroupBox.Size = new System.Drawing.Size(317, 115);
+            this.CategoriasGroupBox.TabIndex = 2;
+            this.CategoriasGroupBox.TabStop = false;
+            this.CategoriasGroupBox.Text = "Categorias";
             // 
             // BuscarButton
             // 
@@ -95,6 +95,7 @@
             this.DescripcionTextBox.Name = "DescripcionTextBox";
             this.DescripcionTextBox.Size = new System.Drawing.Size(182, 20);
             this.DescripcionTextBox.TabIndex = 3;
+            this.DescripcionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripcionTextBox_KeyPress);
             // 
             // CategoriaIDTextBox
             // 
@@ -102,6 +103,8 @@
             this.CategoriaIDTextBox.Name = "CategoriaIDTextBox";
             this.CategoriaIDTextBox.Size = new System.Drawing.Size(81, 20);
             this.CategoriaIDTextBox.TabIndex = 2;
+            this.CategoriaIDTextBox.TextChanged += new System.EventHandler(this.CategoriaIDTextBox_TextChanged);
+            this.CategoriaIDTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CategoriaIDTextBox_KeyPress);
             // 
             // NuevoButton
             // 
@@ -150,12 +153,12 @@
             this.ClientSize = new System.Drawing.Size(341, 209);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.NuevoButton);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.CategoriasGroupBox);
             this.Controls.Add(this.GuardarButton);
             this.Name = "CategoriasForm";
-            this.Text = "Categorias";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Text = "Registro de Categorias";
+            this.CategoriasGroupBox.ResumeLayout(false);
+            this.CategoriasGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -164,7 +167,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox CategoriasGroupBox;
         private System.Windows.Forms.TextBox DescripcionTextBox;
         private System.Windows.Forms.TextBox CategoriaIDTextBox;
         private System.Windows.Forms.Button NuevoButton;
