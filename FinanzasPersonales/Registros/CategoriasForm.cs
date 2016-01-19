@@ -26,23 +26,40 @@ namespace FinanzasPersonales
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            if (CategoriaIDTextBox.Text.Trim() == "")
+            
+            try
             {
-                CategoriaErrorProvider.SetError(CategoriaIDTextBox, "Error debe presisar el Id.");
-                CategoriaIDTextBox.Focus();
+                if (CategoriaIDTextBox.Text.Trim() == "")
+                {
+                    CategoriaErrorProvider.SetError(CategoriaIDTextBox, "Error debe presisar el Id.");
+                    CategoriaIDTextBox.Focus();
+                }
+                else
+                {
+                    CategoriaErrorProvider.Clear();
+                }
+
+                if (CategoriaIDTextBox.TextLength > 0)
+                {
+                    CategoriaIDTextBox.Text = categoria.CategoriaID.ToString();
+                    DescripcionTextBox.Text = categoria.Descripcion.ToString();
+                }
+                else
+                {
+                    Limpiar();
+                    MessageBox.Show("Id no encontrado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                CategoriaErrorProvider.Clear();
+
+                throw ex;
             }
 
         }
 
-        private void CategoriaIDTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void CategoriaIDTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
@@ -82,6 +99,7 @@ namespace FinanzasPersonales
             {
                 MessageBox.Show("Error al guardar");
             }
+
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)

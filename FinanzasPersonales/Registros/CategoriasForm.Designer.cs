@@ -106,7 +106,6 @@
             this.CategoriaIDTextBox.Name = "CategoriaIDTextBox";
             this.CategoriaIDTextBox.Size = new System.Drawing.Size(81, 20);
             this.CategoriaIDTextBox.TabIndex = 2;
-            this.CategoriaIDTextBox.TextChanged += new System.EventHandler(this.CategoriaIDTextBox_TextChanged);
             this.CategoriaIDTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CategoriaIDTextBox_KeyPress);
             // 
             // NuevoButton
