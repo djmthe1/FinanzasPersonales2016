@@ -29,7 +29,7 @@ namespace BLL
             this.Monto = monto;
             this.Observacion = observacion;
             this.UsuarioId = usuarioId;
-    }
+        }
 
         public Transferencias()
         {
@@ -83,7 +83,7 @@ namespace BLL
                 this.Fecha = dt.Rows[0]["Fecha"].ToString();
                 this.CuentaDeOrigenId = (int)dt.Rows[0]["CuentaDeOrigenId"];
                 this.CuentaDeDestinoId = (int)dt.Rows[0]["CuentaDeDestinoId"];
-                this.Monto = (float)dt.Rows[0]["Monto"];
+                //this.Monto = (float)dt.Rows[0]["Monto"];
                 this.Observacion = dt.Rows[0]["Observacion"].ToString();
                 this.UsuarioId = (int)dt.Rows[0]["UsuarioId"];
             }
