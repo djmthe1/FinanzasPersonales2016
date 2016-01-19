@@ -65,6 +65,15 @@ namespace FinanzasPersonales
             CategoriaIDTextBox.Clear();
             DescripcionTextBox.Clear();
         }
+        private void getDatos()
+        {
+            int Id = 0;
+        }
+
+        private void NuevoButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
     }
 
 }
