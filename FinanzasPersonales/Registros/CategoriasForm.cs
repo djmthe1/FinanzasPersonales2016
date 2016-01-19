@@ -13,6 +13,7 @@ namespace FinanzasPersonales
 {
     public partial class CategoriasForm : Form
     {
+        Categorias categoria = new Categorias();
         public CategoriasForm()
         {
             InitializeComponent();
@@ -21,22 +22,19 @@ namespace FinanzasPersonales
         {
             categoria.Descripcion = DescripcionTextBox.Text;
         }
-        private void GuardarButton_Click(object sender, EventArgs e)
-        {
-            Categorias categoria = new Categorias();
-            LlenarDatos(categoria);
-            if (categoria.Insertar())
-            {
-                MessageBox.Show("Categoria guardada...","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Error al guardar");
-            }
-        }
+       
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            if (CategoriaIDTextBox.Text.Trim() == "")
+            {
+                CategoriaErrorProvider.SetError(CategoriaIDTextBox, "Error debe presisar el Id.");
+                CategoriaIDTextBox.Focus();
+            }
+            else
+            {
+                CategoriaErrorProvider.Clear();
+            }
 
         }
 
@@ -65,14 +63,38 @@ namespace FinanzasPersonales
             CategoriaIDTextBox.Clear();
             DescripcionTextBox.Clear();
         }
-        private void getDatos()
-        {
-            int Id = 0;
-        }
+        
 
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void GuardarButton_Click(object sender, EventArgs e)
+        {
+            
+            LlenarDatos(categoria);
+            if (categoria.Insertar())
+            {
+                MessageBox.Show("Categoria guardada...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error al guardar");
+            }
+        }
+
+        private void EliminarButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LlenarDatos(categoria);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriasForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,7 +39,9 @@
             this.NuevoButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
+            this.CategoriaErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.CategoriasGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CategoriaErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -146,6 +149,11 @@
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
+            // 
+            // CategoriaErrorProvider
+            // 
+            this.CategoriaErrorProvider.ContainerControl = this;
             // 
             // CategoriasForm
             // 
@@ -160,6 +168,7 @@
             this.Text = "Registro de Categorias";
             this.CategoriasGroupBox.ResumeLayout(false);
             this.CategoriasGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CategoriaErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -175,5 +184,6 @@
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button EliminarButton;
         private System.Windows.Forms.Button BuscarButton;
+        private System.Windows.Forms.ErrorProvider CategoriaErrorProvider;
     }
 }

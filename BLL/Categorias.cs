@@ -44,7 +44,7 @@ namespace BLL
             try
             {
                 bool retorno = false;
-                retorno = conexion.Ejecutar(String.Format(" Update Categorias set Descripcion = '{0}' where CategoriasId = {1} ",
+                retorno = conexion.Ejecutar(String.Format(" Update Categorias set Descripcion = '{0}' where CategoriaId = {1} ",
                 this.Descripcion));
                 return retorno;
             }
@@ -59,7 +59,7 @@ namespace BLL
             try
             {
                 bool retorno = false;
-                retorno = conexion.Ejecutar(String.Format(" Delete from Categorias where CategoriasId = {0}  "));
+                retorno = conexion.Ejecutar(String.Format(" Delete from Categorias where CategoriaId = {0}  "));
                 return retorno;
             }
             catch (Exception ex)
@@ -74,10 +74,10 @@ namespace BLL
             DataTable datatable = new DataTable();
             try
             {
-                datatable = conexion.ObtenerDatos(string.Format("selec * from Categorias where CatedoriasId=" + IdBuscado));
+                datatable = conexion.ObtenerDatos(string.Format("selec * from Categorias where CatedoriaId=" + IdBuscado));
                 if(datatable.Rows.Count > 0)
                 {
-                    this.CategoriaID = (int)datatable.Rows[0]["CategoriasId"];
+                    this.CategoriaID = (int)datatable.Rows[0]["CategoriaId"];
                     this.Descripcion = datatable.Rows[0]["Descripcion"].ToString();
                 }
 
