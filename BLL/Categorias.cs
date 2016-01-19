@@ -18,9 +18,10 @@ namespace BLL
             this.CategoriaID = 0;
             this.Descripcion = "";
         }
+
         public override bool Insertar()
         {
-             bool retorno = false;
+            bool retorno = false;
             ConexionDb conexion = new ConexionDb();
             try
             {

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DAL
 {
@@ -15,7 +16,7 @@ namespace DAL
 
         public ConexionDb()
         {
-            con = new SqlConnection("Data Source = DJM-THE-1-PC\\SQLEXPRESS; Initial Catalog = FinanzasPersonales; Integrated Security = true");
+            con = new SqlConnection(ConfigurationManager.ConnectionStrings ["ConStr"].ConnectionString );
             Cmd = new SqlCommand();
         }
 
