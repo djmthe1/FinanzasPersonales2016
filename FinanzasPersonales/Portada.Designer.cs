@@ -34,7 +34,7 @@
             // 
             // buttonTransferencias
             // 
-            this.buttonTransferencias.Location = new System.Drawing.Point(13, 13);
+            this.buttonTransferencias.Location = new System.Drawing.Point(142, 96);
             this.buttonTransferencias.Name = "buttonTransferencias";
             this.buttonTransferencias.Size = new System.Drawing.Size(97, 42);
             this.buttonTransferencias.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 315);
+            this.ClientSize = new System.Drawing.Size(523, 315);
             this.Controls.Add(this.Salidasbutton);
             this.Controls.Add(this.buttonTransferencias);
             this.Name = "Portada";

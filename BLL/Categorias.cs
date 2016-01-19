@@ -9,7 +9,10 @@ using DAL;
 namespace BLL
 {
     public class Categorias : ClaseMaestra
+
     {
+        ConexionDb conexion = new ConexionDb();
+
         public int CategoriaID { get; set; }
         public string Descripcion { get; set; }
 
@@ -22,7 +25,6 @@ namespace BLL
         public override bool Insertar()
         {
             bool retorno = false;
-            ConexionDb conexion = new ConexionDb();
             try
             {
                 retorno = conexion.Ejecutar(string.Format("Insert Into Categorias(Descripcion) values('{0}')",this.Descripcion));
@@ -39,12 +41,32 @@ namespace BLL
 
         public override bool Editar()
         {
-            throw new NotImplementedException();
+            try
+            {
+                bool retorno = false;
+                retorno = conexion.Ejecutar(String.Format(" Update Categorias set Descripcion = '{0}' where CategoriasId = {1} ",
+                this.Descripcion));
+                return retorno;
+            }
+            catch (Exception exc)
+            {
+                throw exc;
+            }
         }
 
         public override bool Eliminar()
         {
-            throw new NotImplementedException();
+            try
+            {
+                bool retorno = false;
+                retorno = conexion.Ejecutar(String.Format(" Delete from Categorias where CategoriasId = {0}  "));
+                return retorno;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
         public override bool Buscar(int IdBuscado)
@@ -54,7 +76,7 @@ namespace BLL
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            ConexionDb conexion = new ConexionDb();
+            
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " Orden by  " + Orden;
