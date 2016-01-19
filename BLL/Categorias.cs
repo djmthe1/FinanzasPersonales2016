@@ -99,7 +99,7 @@ namespace BLL
                 ordenFinal = " Orden by  " + Orden;
 
             return conexion.ObtenerDatos("Select " + Campos +
-                " From Cuentas Where " + Condicion + "" + ordenFinal);
+                " From Categorias Where " + Condicion + "" + ordenFinal);
         }
     }
 }

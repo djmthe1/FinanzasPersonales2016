@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BLL;
+using FinanzasPersonales.Consultas;
 
 namespace FinanzasPersonales
 {
@@ -20,12 +22,22 @@ namespace FinanzasPersonales
         {
             Registros.TransferenciasForm transferencias = new Registros.TransferenciasForm();
             transferencias.Show();
+            
         }
 
         private void Salidasbutton_Click(object sender, EventArgs e)
         {
             Registros.SalidasForm Salidas = new Registros.SalidasForm();
             Salidas.Show();
+        }
+ 
+ 
+
+        private void cuentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaCuentas consultaCuentas = new ConsultaCuentas();
+            consultaCuentas.MdiParent = this;
+            consultaCuentas.Show();
         }
     }
 }

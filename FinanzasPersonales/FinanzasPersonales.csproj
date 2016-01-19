@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\ConsultaCuentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaCuentas.Designer.cs">
+      <DependentUpon>ConsultaCuentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Portada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Registros\TransferenciasForm.Designer.cs">
       <DependentUpon>TransferenciasForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Consultas\ConsultaCuentas.resx">
+      <DependentUpon>ConsultaCuentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Portada.resx">
       <DependentUpon>Portada.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +156,7 @@
       <DependentUpon>FinanzasPersonalesDb.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Money.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
