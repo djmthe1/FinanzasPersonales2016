@@ -89,22 +89,35 @@ namespace FinanzasPersonales
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            
-            
-            if (CategoriaIDTextBox.Text == "")
+
+            try
             {
-                if (DescripcionTextBox.Text != "")
+
+                if (CategoriaIDTextBox.Text == "")
                 {
-                    LlenarDatos(categoria);
-                    if (categoria.Insertar())
+                    if (DescripcionTextBox.Text != "")
                     {
-                        MessageBox.Show("Categoria guardada...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LlenarDatos(categoria);
+                        if (categoria.Insertar())
+                        {
+                            MessageBox.Show("Categoria guardada...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Error al guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Introdusca la descripción!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
+                
+            }
+            catch (Exception exc)
+            {
+
+                throw exc;
             }
            
 
@@ -115,11 +128,28 @@ namespace FinanzasPersonales
             try
             {
                 LlenarDatos(categoria);
+                if (categoria.Buscar(categoria.CategoriaID))
+                {
+                    if (categoria.Eliminar())
+                    {
+                        Limpiar();
+                        MessageBox.Show("Categoria Eliminada Correctamente...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error en Eliminar Categoria!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Id no existe!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Limpiar();
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                MessageBox.Show("Error en Eliminar Categoria!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -104,7 +104,6 @@
             // 
             this.CategoriaIDTextBox.Location = new System.Drawing.Point(127, 31);
             this.CategoriaIDTextBox.Name = "CategoriaIDTextBox";
-            this.CategoriaIDTextBox.ReadOnly = true;
             this.CategoriaIDTextBox.Size = new System.Drawing.Size(81, 20);
             this.CategoriaIDTextBox.TabIndex = 2;
             this.CategoriaIDTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CategoriaIDTextBox_KeyPress);
