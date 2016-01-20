@@ -90,15 +90,23 @@ namespace FinanzasPersonales
         private void GuardarButton_Click(object sender, EventArgs e)
         {
             
-            LlenarDatos(categoria);
-            if (categoria.Insertar())
+            
+            if (CategoriaIDTextBox.Text == "")
             {
-                MessageBox.Show("Categoria guardada...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (DescripcionTextBox.Text != "")
+                {
+                    LlenarDatos(categoria);
+                    if (categoria.Insertar())
+                    {
+                        MessageBox.Show("Categoria guardada...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            else
-            {
-                MessageBox.Show("Error al guardar");
-            }
+           
 
         }
 
