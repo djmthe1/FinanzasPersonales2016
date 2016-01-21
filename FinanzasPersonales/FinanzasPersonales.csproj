@@ -82,6 +82,12 @@
     <Compile Include="Registros\CategoriasForm.designer.cs">
       <DependentUpon>CategoriasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros\Entradas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\Entradas.designer.cs">
+      <DependentUpon>Entradas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros\SalidasForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </Compile>
     <EmbeddedResource Include="Registros\CategoriasForm.resx">
       <DependentUpon>CategoriasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\Entradas.resx">
+      <DependentUpon>Entradas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\SalidasForm.resx">
       <DependentUpon>SalidasForm.cs</DependentUpon>
@@ -156,6 +165,10 @@
       <DependentUpon>FinanzasPersonalesDb.mdf</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\fail.png" />
+    <None Include="Resources\Save.png" />
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\Search.png" />
     <None Include="Resources\Money.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

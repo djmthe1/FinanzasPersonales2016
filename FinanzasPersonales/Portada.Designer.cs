@@ -47,6 +47,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.Entradasbutton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -54,7 +55,7 @@
             // 
             // buttonTransferencias
             // 
-            this.buttonTransferencias.Location = new System.Drawing.Point(116, 97);
+            this.buttonTransferencias.Location = new System.Drawing.Point(144, 96);
             this.buttonTransferencias.Name = "buttonTransferencias";
             this.buttonTransferencias.Size = new System.Drawing.Size(97, 42);
             this.buttonTransferencias.TabIndex = 0;
@@ -143,7 +144,7 @@
             // ventanaToolStripMenuItem
             // 
             this.ventanaToolStripMenuItem.Name = "ventanaToolStripMenuItem";
-            this.ventanaToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.ventanaToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.ventanaToolStripMenuItem.Text = "&Ventana";
             // 
             // ayudaToolStripMenuItem
@@ -202,11 +203,22 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 55);
             // 
+            // Entradasbutton
+            // 
+            this.Entradasbutton.Location = new System.Drawing.Point(260, 97);
+            this.Entradasbutton.Name = "Entradasbutton";
+            this.Entradasbutton.Size = new System.Drawing.Size(115, 41);
+            this.Entradasbutton.TabIndex = 6;
+            this.Entradasbutton.Text = "Entradas";
+            this.Entradasbutton.UseVisualStyleBackColor = true;
+            this.Entradasbutton.Click += new System.EventHandler(this.Entradasbutton_Click_1);
+            // 
             // Portada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 378);
+            this.Controls.Add(this.Entradasbutton);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.Salidasbutton);
@@ -250,6 +262,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem cuentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.Button Entradasbutton;
     }
 }
 
