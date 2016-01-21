@@ -30,12 +30,18 @@ namespace FinanzasPersonales
             Registros.SalidasForm Salidas = new Registros.SalidasForm();
             Salidas.Show();
         }
-
+ 
         private void cuentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConsultaCuentas consultaCuentas = new ConsultaCuentas();
             consultaCuentas.MdiParent = this;
             consultaCuentas.Show();
+        }
+
+        private void CategoriaButton_Click(object sender, EventArgs e)
+        {
+            CategoriasForm categoria = new CategoriasForm();
+            categoria.Show();
         }
 
         private void Entradasbutton_Click_1(object sender, EventArgs e)

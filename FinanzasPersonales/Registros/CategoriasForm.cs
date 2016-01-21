@@ -13,6 +13,7 @@ namespace FinanzasPersonales
 {
     public partial class CategoriasForm : Form
     {
+        Categorias categoria = new Categorias();
         public CategoriasForm()
         {
             InitializeComponent();
@@ -21,23 +22,136 @@ namespace FinanzasPersonales
         {
             categoria.Descripcion = DescripcionTextBox.Text;
         }
-        private void GuardarButton_Click(object sender, EventArgs e)
-        {
-            Categorias categoria = new Categorias();
-            LlenarDatos(categoria);
-            if (categoria.Insertar())
-            {
-                MessageBox.Show("Categoria guardada...","Mensaje",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Error al guardar");
-            }
-        }
+       
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+            
+            try
+            {
+                if (CategoriaIDTextBox.Text.Trim() == "")
+                {
+                    CategoriaErrorProvider.SetError(CategoriaIDTextBox, "Error debe presisar el Id.");
+                    CategoriaIDTextBox.Focus();
+                }
+                else
+                {
+                    CategoriaErrorProvider.Clear();
+                }
+
+                if (CategoriaIDTextBox.TextLength > 0)
+                {
+                    CategoriaIDTextBox.Text = categoria.CategoriaID.ToString();
+                    DescripcionTextBox.Text = categoria.Descripcion.ToString();
+                }
+                else
+                {
+                    Limpiar();
+                    MessageBox.Show("Id no encontrado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
 
         }
+
+       
+        private void CategoriaIDTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void DescripcionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122 || (e.KeyChar == 32)))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+        private void Limpiar()
+        {
+            CategoriaIDTextBox.Clear();
+            DescripcionTextBox.Clear();
+        }
+        
+
+        private void NuevoButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void GuardarButton_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (CategoriaIDTextBox.Text == "")
+                {
+                    if (DescripcionTextBox.Text != "")
+                    {
+                        LlenarDatos(categoria);
+                        if (categoria.Insertar())
+                        {
+                            MessageBox.Show("Categoria guardada...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Introdusca la descripción!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                
+            }
+            catch (Exception exc)
+            {
+
+                throw exc;
+            }
+           
+
+        }
+
+        private void EliminarButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LlenarDatos(categoria);
+                if (categoria.Buscar(categoria.CategoriaID))
+                {
+                    if (categoria.Eliminar())
+                    {
+                        Limpiar();
+                        MessageBox.Show("Categoria Eliminada Correctamente...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error en Eliminar Categoria!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Id no existe!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    Limpiar();
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error en Eliminar Categoria!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
+
 }
