@@ -7,7 +7,7 @@ Descripcion varchar(100))
 go
 create table Transferencias(
 	TransferenciaId int identity primary key,
-    Fecha varchar(15),
+    Fecha varchar(20),
     CuentaDeOrigenId int,
     CuentaDeDestinoId int,
     Monto float,
