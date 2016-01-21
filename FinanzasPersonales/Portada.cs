@@ -39,5 +39,11 @@ namespace FinanzasPersonales
             consultaCuentas.MdiParent = this;
             consultaCuentas.Show();
         }
+
+        private void CategoriaButton_Click(object sender, EventArgs e)
+        {
+            CategoriasForm categoria = new CategoriasForm();
+            categoria.Show();
+        }
     }
 }

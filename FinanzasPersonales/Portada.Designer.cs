@@ -47,6 +47,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.CategoriaButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -202,11 +203,22 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 55);
             // 
+            // CategoriaButton
+            // 
+            this.CategoriaButton.Location = new System.Drawing.Point(13, 158);
+            this.CategoriaButton.Name = "CategoriaButton";
+            this.CategoriaButton.Size = new System.Drawing.Size(124, 42);
+            this.CategoriaButton.TabIndex = 6;
+            this.CategoriaButton.Text = "Categorias";
+            this.CategoriaButton.UseVisualStyleBackColor = true;
+            this.CategoriaButton.Click += new System.EventHandler(this.CategoriaButton_Click);
+            // 
             // Portada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 378);
+            this.Controls.Add(this.CategoriaButton);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.Salidasbutton);
@@ -250,6 +262,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem cuentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.Button CategoriaButton;
     }
 }
 
