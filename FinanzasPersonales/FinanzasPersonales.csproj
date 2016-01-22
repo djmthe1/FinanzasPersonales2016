@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\ConsultaCategoriaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaCategoriaForm.Designer.cs">
+      <DependentUpon>ConsultaCategoriaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\ConsultaCuentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     <Compile Include="Registros\TransferenciasForm.Designer.cs">
       <DependentUpon>TransferenciasForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Consultas\ConsultaCategoriaForm.resx">
+      <DependentUpon>ConsultaCategoriaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaCuentas.resx">
       <DependentUpon>ConsultaCuentas.cs</DependentUpon>
     </EmbeddedResource>
