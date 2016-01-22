@@ -49,5 +49,12 @@ namespace FinanzasPersonales
             Registros.Entradas entrada = new Registros.Entradas();
             entrada.Show();
         }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaCategoriaForm cCategoria = new ConsultaCategoriaForm();
+            cCategoria.MdiParent = this;
+            cCategoria.Show();
+        }
     }
 }
