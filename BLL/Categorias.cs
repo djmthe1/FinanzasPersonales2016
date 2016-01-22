@@ -98,8 +98,7 @@ namespace BLL
             if (!Orden.Equals(""))
                 ordenFinal = " Orden by  " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos +
-                " From Categorias Where " + Condicion + "" + ordenFinal);
+            return conexion.ObtenerDatos("Select " + Campos +" From Categorias Where " + Condicion + Orden);
         }
     }
 }
