@@ -142,12 +142,13 @@ namespace FinanzasPersonales.Registros
                 }
         }
 
-        private void buttonBuscarIdUsuario_Click(object sender, EventArgs e)
+        private void buttonBuscarCuentaOrigen_Click(object sender, EventArgs e)
         {
             ObtenerValores();
-            if (cuentas.Buscar(cuentas.CuentaId))
+            if (cuentas.Buscar(transferencias.CuentaDeOrigenId))
             {
-                
+                textBoxDescricionCuentaOrigen.Text = cuentas.Descripcion.ToString();
+                textBoxMontoCuentaOrigen.Text = cuentas.Balance.ToString();
             }
             else
             {
@@ -156,14 +157,19 @@ namespace FinanzasPersonales.Registros
             }
         }
 
-        private void buttonBuscarCuentaOrigen_Click(object sender, EventArgs e)
-        {
-            ObtenerValores();
-        }
-
         private void buttonBuscarCuentaDestino_Click(object sender, EventArgs e)
         {
             ObtenerValores();
+            if (cuentas.Buscar(transferencias.CuentaDeDestinoId))
+            {
+                textBoxDescripcionCuentaDestino.Text = cuentas.Descripcion.ToString();
+                textBoxMontoCuentaDestino.Text = cuentas.Balance.ToString();
+            }
+            else
+            {
+                MensajeAdvertencia("Id no encontrado");
+                Limpiar();
+            }
         }
 
         private void NuevoButton_Click(object sender, EventArgs e)
