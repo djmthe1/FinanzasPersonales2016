@@ -93,7 +93,8 @@ namespace BLL
         {
 
             DataTable data = new DataTable();
-            data = conexion.ObtenerDatos(String.Format("select Nombres,Apellidos,Sexo,Direccion,Telefono,Movil,Monto,Fecha from Entaradas whele EntradaId = {0} ", IdBuscado));
+            data = conexion.ObtenerDatos(String.Format("select * from Entradas where EntradaId = {0} ", IdBuscado));
+            /*Nombres,Apellidos,Sexo,Direccion,Telefono,Movil,Monto,Fecha*/
             if (data.Rows.Count > 0)
             {
                 this.Nombres = data.Rows[0]["Nombres"].ToString();
@@ -112,7 +113,7 @@ namespace BLL
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " orden by  " + Orden;
-            return conexion.ObtenerDatos(string.Format("select " + Campos + " from Entadas where " + Condicion + Orden));
+            return conexion.ObtenerDatos(string.Format("select " + Campos + " from Entradas where " + Condicion + Orden));
 
         }
     }

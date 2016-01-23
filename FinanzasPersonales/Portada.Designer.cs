@@ -35,12 +35,14 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferenciasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.salidasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.transferenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,9 +52,10 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.CategoriaButton = new System.Windows.Forms.Button();
-            this.Entradasbutton = new System.Windows.Forms.Button();
-            this.salidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salidasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.entradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entradasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -103,7 +106,8 @@
             // 
             this.registrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.transferenciasToolStripMenuItem1,
-            this.salidasToolStripMenuItem1});
+            this.salidasToolStripMenuItem1,
+            this.entradasToolStripMenuItem1});
             this.registrosToolStripMenuItem.Name = "registrosToolStripMenuItem";
             this.registrosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.registrosToolStripMenuItem.Text = "&Registros";
@@ -115,6 +119,13 @@
             this.transferenciasToolStripMenuItem1.Text = "&Transferencias";
             this.transferenciasToolStripMenuItem1.Click += new System.EventHandler(this.transferenciasToolStripMenuItem1_Click);
             // 
+            // salidasToolStripMenuItem1
+            // 
+            this.salidasToolStripMenuItem1.Name = "salidasToolStripMenuItem1";
+            this.salidasToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.salidasToolStripMenuItem1.Text = "&Salidas";
+            this.salidasToolStripMenuItem1.Click += new System.EventHandler(this.salidasToolStripMenuItem1_Click);
+            // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -123,7 +134,10 @@
             this.categoriasToolStripMenuItem,
             this.toolStripSeparator2,
             this.transferenciasToolStripMenuItem,
-            this.salidasToolStripMenuItem});
+            this.toolStripSeparator3,
+            this.salidasToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.entradasToolStripMenuItem});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "&Consultas";
@@ -158,6 +172,13 @@
             this.transferenciasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.transferenciasToolStripMenuItem.Text = "&Transferencias";
             this.transferenciasToolStripMenuItem.Click += new System.EventHandler(this.transferenciasToolStripMenuItem_Click);
+            // 
+            // salidasToolStripMenuItem
+            // 
+            this.salidasToolStripMenuItem.Name = "salidasToolStripMenuItem";
+            this.salidasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salidasToolStripMenuItem.Text = "&Salidas";
+            this.salidasToolStripMenuItem.Click += new System.EventHandler(this.salidasToolStripMenuItem_Click);
             // 
             // ventanaToolStripMenuItem
             // 
@@ -231,29 +252,29 @@
             this.CategoriaButton.UseVisualStyleBackColor = true;
             this.CategoriaButton.Click += new System.EventHandler(this.CategoriaButton_Click);
             // 
-            // Entradasbutton
+            // toolStripSeparator3
             // 
-            this.Entradasbutton.Location = new System.Drawing.Point(260, 97);
-            this.Entradasbutton.Name = "Entradasbutton";
-            this.Entradasbutton.Size = new System.Drawing.Size(115, 41);
-            this.Entradasbutton.TabIndex = 6;
-            this.Entradasbutton.Text = "Entradas";
-            this.Entradasbutton.UseVisualStyleBackColor = true;
-            this.Entradasbutton.Click += new System.EventHandler(this.Entradasbutton_Click_1);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
-            // salidasToolStripMenuItem
+            // toolStripSeparator4
             // 
-            this.salidasToolStripMenuItem.Name = "salidasToolStripMenuItem";
-            this.salidasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.salidasToolStripMenuItem.Text = "Salidas";
-            this.salidasToolStripMenuItem.Click += new System.EventHandler(this.salidasToolStripMenuItem_Click);
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
             // 
-            // salidasToolStripMenuItem1
+            // entradasToolStripMenuItem
             // 
-            this.salidasToolStripMenuItem1.Name = "salidasToolStripMenuItem1";
-            this.salidasToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.salidasToolStripMenuItem1.Text = "Salidas";
-            this.salidasToolStripMenuItem1.Click += new System.EventHandler(this.salidasToolStripMenuItem1_Click);
+            this.entradasToolStripMenuItem.Name = "entradasToolStripMenuItem";
+            this.entradasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.entradasToolStripMenuItem.Text = "&Entradas";
+            this.entradasToolStripMenuItem.Click += new System.EventHandler(this.entradasToolStripMenuItem_Click);
+            // 
+            // entradasToolStripMenuItem1
+            // 
+            this.entradasToolStripMenuItem1.Name = "entradasToolStripMenuItem1";
+            this.entradasToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.entradasToolStripMenuItem1.Text = "&Entradas";
+            this.entradasToolStripMenuItem1.Click += new System.EventHandler(this.entradasToolStripMenuItem1_Click);
             // 
             // Portada
             // 
@@ -261,7 +282,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 378);
             this.Controls.Add(this.CategoriaButton);
-            this.Controls.Add(this.Entradasbutton);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -301,13 +321,16 @@
         private System.Windows.Forms.ToolStripMenuItem cuentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.Button CategoriaButton;
-        private System.Windows.Forms.Button Entradasbutton;
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transferenciasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transferenciasToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem salidasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salidasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem entradasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entradasToolStripMenuItem1;
     }
 }
 
