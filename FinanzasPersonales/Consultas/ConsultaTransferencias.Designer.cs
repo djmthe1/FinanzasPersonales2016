@@ -33,6 +33,10 @@
             this.comboBoxCampos = new System.Windows.Forms.ComboBox();
             this.textBoxFiltro = new System.Windows.Forms.TextBox();
             this.labelBuscar = new System.Windows.Forms.Label();
+            this.dataGridViewConsulta = new System.Windows.Forms.DataGridView();
+            this.labelConteo = new System.Windows.Forms.Label();
+            this.textBoxConteo = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulta)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonBuscar
@@ -46,6 +50,7 @@
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // comboBoxCampos
             // 
@@ -79,17 +84,49 @@
             this.labelBuscar.TabIndex = 9;
             this.labelBuscar.Text = "Buscar Por:";
             // 
+            // dataGridViewConsulta
+            // 
+            this.dataGridViewConsulta.AllowUserToAddRows = false;
+            this.dataGridViewConsulta.AllowUserToDeleteRows = false;
+            this.dataGridViewConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewConsulta.Location = new System.Drawing.Point(12, 59);
+            this.dataGridViewConsulta.Name = "dataGridViewConsulta";
+            this.dataGridViewConsulta.ReadOnly = true;
+            this.dataGridViewConsulta.Size = new System.Drawing.Size(551, 261);
+            this.dataGridViewConsulta.TabIndex = 10;
+            // 
+            // labelConteo
+            // 
+            this.labelConteo.AutoSize = true;
+            this.labelConteo.Location = new System.Drawing.Point(3, 329);
+            this.labelConteo.Name = "labelConteo";
+            this.labelConteo.Size = new System.Drawing.Size(44, 13);
+            this.labelConteo.TabIndex = 12;
+            this.labelConteo.Text = "Conteo:";
+            // 
+            // textBoxConteo
+            // 
+            this.textBoxConteo.Location = new System.Drawing.Point(53, 326);
+            this.textBoxConteo.Name = "textBoxConteo";
+            this.textBoxConteo.ReadOnly = true;
+            this.textBoxConteo.Size = new System.Drawing.Size(100, 20);
+            this.textBoxConteo.TabIndex = 11;
+            // 
             // ConsultaTransferencias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 351);
+            this.Controls.Add(this.labelConteo);
+            this.Controls.Add(this.textBoxConteo);
+            this.Controls.Add(this.dataGridViewConsulta);
             this.Controls.Add(this.labelBuscar);
             this.Controls.Add(this.textBoxFiltro);
             this.Controls.Add(this.comboBoxCampos);
             this.Controls.Add(this.buttonBuscar);
             this.Name = "ConsultaTransferencias";
             this.Text = "ConsultaTransferencias";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,5 +138,8 @@
         private System.Windows.Forms.ComboBox comboBoxCampos;
         private System.Windows.Forms.TextBox textBoxFiltro;
         private System.Windows.Forms.Label labelBuscar;
+        private System.Windows.Forms.DataGridView dataGridViewConsulta;
+        private System.Windows.Forms.Label labelConteo;
+        private System.Windows.Forms.TextBox textBoxConteo;
     }
 }

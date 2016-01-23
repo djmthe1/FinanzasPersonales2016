@@ -18,13 +18,6 @@ namespace FinanzasPersonales
             InitializeComponent();
         }
 
-        private void buttonTransferencias_Click(object sender, EventArgs e)
-        {
-            Registros.TransferenciasForm transferencias = new Registros.TransferenciasForm();
-            transferencias.Show();
-            
-        }
-
         private void Salidasbutton_Click(object sender, EventArgs e)
         {
             Registros.SalidasForm Salidas = new Registros.SalidasForm();
@@ -55,6 +48,18 @@ namespace FinanzasPersonales
             ConsultaCategoriaForm cCategoria = new ConsultaCategoriaForm();
             cCategoria.MdiParent = this;
             cCategoria.Show();
+        }
+
+        private void transferenciasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaTransferencias CTransferencias = new ConsultaTransferencias();
+            CTransferencias.Show();
+        }
+
+        private void transferenciasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Registros.TransferenciasForm transferencias = new Registros.TransferenciasForm();
+            transferencias.Show();
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonTransferencias = new System.Windows.Forms.Button();
             this.Salidasbutton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +38,7 @@
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,21 +49,13 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.CategoriaButton = new System.Windows.Forms.Button();
             this.Entradasbutton = new System.Windows.Forms.Button();
-            this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.transferenciasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonTransferencias
-            // 
-            this.buttonTransferencias.Location = new System.Drawing.Point(144, 96);
-            this.buttonTransferencias.Name = "buttonTransferencias";
-            this.buttonTransferencias.Size = new System.Drawing.Size(97, 42);
-            this.buttonTransferencias.TabIndex = 0;
-            this.buttonTransferencias.Text = "Transferencias";
-            this.buttonTransferencias.UseVisualStyleBackColor = true;
-            this.buttonTransferencias.Click += new System.EventHandler(this.buttonTransferencias_Click);
             // 
             // Salidasbutton
             // 
@@ -118,6 +110,8 @@
             // 
             // registrosToolStripMenuItem
             // 
+            this.registrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.transferenciasToolStripMenuItem1});
             this.registrosToolStripMenuItem.Name = "registrosToolStripMenuItem";
             this.registrosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.registrosToolStripMenuItem.Text = "&Registros";
@@ -127,7 +121,9 @@
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cuentasToolStripMenuItem,
             this.toolStripMenuItem2,
-            this.categoriasToolStripMenuItem});
+            this.categoriasToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.transferenciasToolStripMenuItem});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "&Consultas";
@@ -144,10 +140,17 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
             // 
+            // categoriasToolStripMenuItem
+            // 
+            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.categoriasToolStripMenuItem.Text = "C&ategorias";
+            this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
+            // 
             // ventanaToolStripMenuItem
             // 
             this.ventanaToolStripMenuItem.Name = "ventanaToolStripMenuItem";
-            this.ventanaToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.ventanaToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.ventanaToolStripMenuItem.Text = "&Ventana";
             // 
             // ayudaToolStripMenuItem
@@ -226,12 +229,24 @@
             this.Entradasbutton.UseVisualStyleBackColor = true;
             this.Entradasbutton.Click += new System.EventHandler(this.Entradasbutton_Click_1);
             // 
-            // categoriasToolStripMenuItem
+            // transferenciasToolStripMenuItem
             // 
-            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.categoriasToolStripMenuItem.Text = "C&ategorias";
-            this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
+            this.transferenciasToolStripMenuItem.Name = "transferenciasToolStripMenuItem";
+            this.transferenciasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.transferenciasToolStripMenuItem.Text = "&Transferencias";
+            this.transferenciasToolStripMenuItem.Click += new System.EventHandler(this.transferenciasToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // transferenciasToolStripMenuItem1
+            // 
+            this.transferenciasToolStripMenuItem1.Name = "transferenciasToolStripMenuItem1";
+            this.transferenciasToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.transferenciasToolStripMenuItem1.Text = "&Transferencias";
+            this.transferenciasToolStripMenuItem1.Click += new System.EventHandler(this.transferenciasToolStripMenuItem1_Click);
             // 
             // Portada
             // 
@@ -243,7 +258,6 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.Salidasbutton);
-            this.Controls.Add(this.buttonTransferencias);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -263,8 +277,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonTransferencias;
         private System.Windows.Forms.Button Salidasbutton;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
@@ -286,6 +298,9 @@
         private System.Windows.Forms.Button CategoriaButton;
         private System.Windows.Forms.Button Entradasbutton;
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transferenciasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transferenciasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 
