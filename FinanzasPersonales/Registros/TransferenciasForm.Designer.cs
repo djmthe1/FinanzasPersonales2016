@@ -65,7 +65,7 @@
             // 
             // textBoxObservacion
             // 
-            this.textBoxObservacion.Location = new System.Drawing.Point(142, 195);
+            this.textBoxObservacion.Location = new System.Drawing.Point(142, 208);
             this.textBoxObservacion.MaxLength = 50;
             this.textBoxObservacion.Multiline = true;
             this.textBoxObservacion.Name = "textBoxObservacion";
@@ -122,7 +122,7 @@
             // 
             this.labelId.AutoSize = true;
             this.labelId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelId.Location = new System.Drawing.Point(25, 8);
+            this.labelId.Location = new System.Drawing.Point(25, 21);
             this.labelId.Name = "labelId";
             this.labelId.Size = new System.Drawing.Size(18, 13);
             this.labelId.TabIndex = 9;
@@ -132,7 +132,7 @@
             // 
             this.labelFecha.AutoSize = true;
             this.labelFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFecha.Location = new System.Drawing.Point(25, 46);
+            this.labelFecha.Location = new System.Drawing.Point(25, 59);
             this.labelFecha.Name = "labelFecha";
             this.labelFecha.Size = new System.Drawing.Size(42, 13);
             this.labelFecha.TabIndex = 10;
@@ -142,7 +142,7 @@
             // 
             this.labelCuentaDeOrigen.AutoSize = true;
             this.labelCuentaDeOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCuentaDeOrigen.Location = new System.Drawing.Point(314, 18);
+            this.labelCuentaDeOrigen.Location = new System.Drawing.Point(314, 31);
             this.labelCuentaDeOrigen.Name = "labelCuentaDeOrigen";
             this.labelCuentaDeOrigen.Size = new System.Drawing.Size(108, 13);
             this.labelCuentaDeOrigen.TabIndex = 11;
@@ -152,7 +152,7 @@
             // 
             this.labelCuentaDeDestino.AutoSize = true;
             this.labelCuentaDeDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCuentaDeDestino.Location = new System.Drawing.Point(314, 135);
+            this.labelCuentaDeDestino.Location = new System.Drawing.Point(314, 148);
             this.labelCuentaDeDestino.Name = "labelCuentaDeDestino";
             this.labelCuentaDeDestino.Size = new System.Drawing.Size(114, 13);
             this.labelCuentaDeDestino.TabIndex = 12;
@@ -162,7 +162,7 @@
             // 
             this.labelMonto.AutoSize = true;
             this.labelMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMonto.Location = new System.Drawing.Point(25, 160);
+            this.labelMonto.Location = new System.Drawing.Point(25, 173);
             this.labelMonto.Name = "labelMonto";
             this.labelMonto.Size = new System.Drawing.Size(107, 13);
             this.labelMonto.TabIndex = 13;
@@ -172,7 +172,7 @@
             // 
             this.labelObservacion.AutoSize = true;
             this.labelObservacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelObservacion.Location = new System.Drawing.Point(25, 198);
+            this.labelObservacion.Location = new System.Drawing.Point(25, 211);
             this.labelObservacion.Name = "labelObservacion";
             this.labelObservacion.Size = new System.Drawing.Size(78, 13);
             this.labelObservacion.TabIndex = 14;
@@ -182,7 +182,7 @@
             // 
             this.labelUsuarioId.AutoSize = true;
             this.labelUsuarioId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsuarioId.Location = new System.Drawing.Point(25, 84);
+            this.labelUsuarioId.Location = new System.Drawing.Point(25, 97);
             this.labelUsuarioId.Name = "labelUsuarioId";
             this.labelUsuarioId.Size = new System.Drawing.Size(50, 13);
             this.labelUsuarioId.TabIndex = 15;
@@ -191,14 +191,14 @@
             // dateTimePickerTransferencia
             // 
             this.dateTimePickerTransferencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerTransferencia.Location = new System.Drawing.Point(142, 48);
+            this.dateTimePickerTransferencia.Location = new System.Drawing.Point(142, 61);
             this.dateTimePickerTransferencia.Name = "dateTimePickerTransferencia";
             this.dateTimePickerTransferencia.Size = new System.Drawing.Size(116, 20);
             this.dateTimePickerTransferencia.TabIndex = 2;
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(142, 11);
+            this.textBoxId.Location = new System.Drawing.Point(142, 24);
             this.textBoxId.MaxLength = 10;
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(40, 20);
@@ -207,7 +207,7 @@
             // 
             // textBoxUsuario
             // 
-            this.textBoxUsuario.Location = new System.Drawing.Point(142, 85);
+            this.textBoxUsuario.Location = new System.Drawing.Point(142, 98);
             this.textBoxUsuario.MaxLength = 10;
             this.textBoxUsuario.Name = "textBoxUsuario";
             this.textBoxUsuario.ReadOnly = true;
@@ -217,7 +217,7 @@
             // 
             // textBoxMonto
             // 
-            this.textBoxMonto.Location = new System.Drawing.Point(142, 159);
+            this.textBoxMonto.Location = new System.Drawing.Point(142, 172);
             this.textBoxMonto.MaxLength = 12;
             this.textBoxMonto.Name = "textBoxMonto";
             this.textBoxMonto.Size = new System.Drawing.Size(116, 20);
@@ -226,7 +226,7 @@
             // 
             // textBoxCuentaDeOrigenId
             // 
-            this.textBoxCuentaDeOrigenId.Location = new System.Drawing.Point(490, 15);
+            this.textBoxCuentaDeOrigenId.Location = new System.Drawing.Point(490, 28);
             this.textBoxCuentaDeOrigenId.MaxLength = 10;
             this.textBoxCuentaDeOrigenId.Name = "textBoxCuentaDeOrigenId";
             this.textBoxCuentaDeOrigenId.Size = new System.Drawing.Size(40, 20);
@@ -235,7 +235,7 @@
             // 
             // textBoxCuentaDeDestinoId
             // 
-            this.textBoxCuentaDeDestinoId.Location = new System.Drawing.Point(490, 132);
+            this.textBoxCuentaDeDestinoId.Location = new System.Drawing.Point(490, 145);
             this.textBoxCuentaDeDestinoId.MaxLength = 10;
             this.textBoxCuentaDeDestinoId.Name = "textBoxCuentaDeDestinoId";
             this.textBoxCuentaDeDestinoId.Size = new System.Drawing.Size(40, 20);
@@ -246,7 +246,7 @@
             // 
             this.buttonBuscarId.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarId.Image")));
             this.buttonBuscarId.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBuscarId.Location = new System.Drawing.Point(188, 3);
+            this.buttonBuscarId.Location = new System.Drawing.Point(188, 16);
             this.buttonBuscarId.Name = "buttonBuscarId";
             this.buttonBuscarId.Size = new System.Drawing.Size(92, 34);
             this.buttonBuscarId.TabIndex = 22;
@@ -259,7 +259,7 @@
             // 
             this.buttonBuscarCuentaOrigen.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarCuentaOrigen.Image")));
             this.buttonBuscarCuentaOrigen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBuscarCuentaOrigen.Location = new System.Drawing.Point(536, 7);
+            this.buttonBuscarCuentaOrigen.Location = new System.Drawing.Point(536, 20);
             this.buttonBuscarCuentaOrigen.Name = "buttonBuscarCuentaOrigen";
             this.buttonBuscarCuentaOrigen.Size = new System.Drawing.Size(92, 37);
             this.buttonBuscarCuentaOrigen.TabIndex = 23;
@@ -272,7 +272,7 @@
             // 
             this.buttonBuscarCuentaDestino.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarCuentaDestino.Image")));
             this.buttonBuscarCuentaDestino.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBuscarCuentaDestino.Location = new System.Drawing.Point(536, 124);
+            this.buttonBuscarCuentaDestino.Location = new System.Drawing.Point(536, 137);
             this.buttonBuscarCuentaDestino.Name = "buttonBuscarCuentaDestino";
             this.buttonBuscarCuentaDestino.Size = new System.Drawing.Size(92, 34);
             this.buttonBuscarCuentaDestino.TabIndex = 25;
@@ -285,7 +285,7 @@
             // 
             this.labelMontoCuentaOrigen.AutoSize = true;
             this.labelMontoCuentaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMontoCuentaOrigen.Location = new System.Drawing.Point(314, 96);
+            this.labelMontoCuentaOrigen.Location = new System.Drawing.Point(314, 109);
             this.labelMontoCuentaOrigen.Name = "labelMontoCuentaOrigen";
             this.labelMontoCuentaOrigen.Size = new System.Drawing.Size(127, 13);
             this.labelMontoCuentaOrigen.TabIndex = 26;
@@ -295,7 +295,7 @@
             // 
             this.labelMontoCuentaDestino.AutoSize = true;
             this.labelMontoCuentaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMontoCuentaDestino.Location = new System.Drawing.Point(314, 213);
+            this.labelMontoCuentaDestino.Location = new System.Drawing.Point(314, 226);
             this.labelMontoCuentaDestino.Name = "labelMontoCuentaDestino";
             this.labelMontoCuentaDestino.Size = new System.Drawing.Size(133, 13);
             this.labelMontoCuentaDestino.TabIndex = 27;
@@ -303,7 +303,7 @@
             // 
             // textBoxMontoCuentaOrigen
             // 
-            this.textBoxMontoCuentaOrigen.Location = new System.Drawing.Point(490, 93);
+            this.textBoxMontoCuentaOrigen.Location = new System.Drawing.Point(490, 106);
             this.textBoxMontoCuentaOrigen.Name = "textBoxMontoCuentaOrigen";
             this.textBoxMontoCuentaOrigen.ReadOnly = true;
             this.textBoxMontoCuentaOrigen.Size = new System.Drawing.Size(116, 20);
@@ -311,7 +311,7 @@
             // 
             // textBoxMontoCuentaDestino
             // 
-            this.textBoxMontoCuentaDestino.Location = new System.Drawing.Point(490, 210);
+            this.textBoxMontoCuentaDestino.Location = new System.Drawing.Point(490, 223);
             this.textBoxMontoCuentaDestino.Name = "textBoxMontoCuentaDestino";
             this.textBoxMontoCuentaDestino.ReadOnly = true;
             this.textBoxMontoCuentaDestino.Size = new System.Drawing.Size(116, 20);
@@ -321,7 +321,7 @@
             // 
             this.labelDescripcionCuentaOrigen.AutoSize = true;
             this.labelDescripcionCuentaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescripcionCuentaOrigen.Location = new System.Drawing.Point(314, 57);
+            this.labelDescripcionCuentaOrigen.Location = new System.Drawing.Point(314, 70);
             this.labelDescripcionCuentaOrigen.Name = "labelDescripcionCuentaOrigen";
             this.labelDescripcionCuentaOrigen.Size = new System.Drawing.Size(159, 13);
             this.labelDescripcionCuentaOrigen.TabIndex = 30;
@@ -331,7 +331,7 @@
             // 
             this.labelNombreUsuario.AutoSize = true;
             this.labelNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreUsuario.Location = new System.Drawing.Point(25, 122);
+            this.labelNombreUsuario.Location = new System.Drawing.Point(25, 135);
             this.labelNombreUsuario.Name = "labelNombreUsuario";
             this.labelNombreUsuario.Size = new System.Drawing.Size(50, 13);
             this.labelNombreUsuario.TabIndex = 31;
@@ -341,7 +341,7 @@
             // 
             this.labelDescripcionCuentaDestino.AutoSize = true;
             this.labelDescripcionCuentaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescripcionCuentaDestino.Location = new System.Drawing.Point(314, 174);
+            this.labelDescripcionCuentaDestino.Location = new System.Drawing.Point(314, 187);
             this.labelDescripcionCuentaDestino.Name = "labelDescripcionCuentaDestino";
             this.labelDescripcionCuentaDestino.Size = new System.Drawing.Size(165, 13);
             this.labelDescripcionCuentaDestino.TabIndex = 32;
@@ -349,7 +349,7 @@
             // 
             // textBoxNombreUsuario
             // 
-            this.textBoxNombreUsuario.Location = new System.Drawing.Point(142, 122);
+            this.textBoxNombreUsuario.Location = new System.Drawing.Point(142, 135);
             this.textBoxNombreUsuario.Name = "textBoxNombreUsuario";
             this.textBoxNombreUsuario.ReadOnly = true;
             this.textBoxNombreUsuario.Size = new System.Drawing.Size(116, 20);
@@ -357,7 +357,7 @@
             // 
             // textBoxDescricionCuentaOrigen
             // 
-            this.textBoxDescricionCuentaOrigen.Location = new System.Drawing.Point(490, 54);
+            this.textBoxDescricionCuentaOrigen.Location = new System.Drawing.Point(490, 67);
             this.textBoxDescricionCuentaOrigen.Name = "textBoxDescricionCuentaOrigen";
             this.textBoxDescricionCuentaOrigen.ReadOnly = true;
             this.textBoxDescricionCuentaOrigen.Size = new System.Drawing.Size(116, 20);
@@ -365,7 +365,7 @@
             // 
             // textBoxDescripcionCuentaDestino
             // 
-            this.textBoxDescripcionCuentaDestino.Location = new System.Drawing.Point(490, 171);
+            this.textBoxDescripcionCuentaDestino.Location = new System.Drawing.Point(490, 184);
             this.textBoxDescripcionCuentaDestino.Name = "textBoxDescripcionCuentaDestino";
             this.textBoxDescripcionCuentaDestino.ReadOnly = true;
             this.textBoxDescripcionCuentaDestino.Size = new System.Drawing.Size(116, 20);
@@ -401,9 +401,9 @@
             this.panelTransferencias.Controls.Add(this.textBoxMontoCuentaOrigen);
             this.panelTransferencias.Controls.Add(this.dateTimePickerTransferencia);
             this.panelTransferencias.Controls.Add(this.textBoxId);
-            this.panelTransferencias.Location = new System.Drawing.Point(12, 21);
+            this.panelTransferencias.Location = new System.Drawing.Point(12, 12);
             this.panelTransferencias.Name = "panelTransferencias";
-            this.panelTransferencias.Size = new System.Drawing.Size(653, 256);
+            this.panelTransferencias.Size = new System.Drawing.Size(653, 265);
             this.panelTransferencias.TabIndex = 37;
             // 
             // TransferenciasForm
