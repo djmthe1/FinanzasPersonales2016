@@ -61,5 +61,17 @@ namespace FinanzasPersonales
             Registros.TransferenciasForm transferencias = new Registros.TransferenciasForm();
             transferencias.Show();
         }
+
+        private void salidasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaSalidasForm salida = new ConsultaSalidasForm();
+            salida.Show();
+        }
+
+        private void salidasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Registros.SalidasForm Salidas = new Registros.SalidasForm();
+            Salidas.Show();
+        }
     }
 }
