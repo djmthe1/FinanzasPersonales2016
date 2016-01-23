@@ -19,6 +19,7 @@ namespace FinanzasPersonales.Registros
         }
 
         Transferencias transferencias = new Transferencias();
+        Cuentas cuentas = new Cuentas();
 
         private void TransferenciasForm_Load(object sender, EventArgs e)
         {
@@ -127,7 +128,7 @@ namespace FinanzasPersonales.Registros
                 if (transferencias.Buscar(transferencias.TransferenciaId))
                 {
                     textBoxId.Text = transferencias.TransferenciaId.ToString();
-                    //dateTimePickerTransferencia.Text = transferencias.Fecha;
+                    dateTimePickerTransferencia.Text = transferencias.Fecha.ToString();
                     textBoxUsuario.Text = transferencias.UsuarioId.ToString();
                     textBoxMonto.Text = transferencias.Monto.ToString();
                     textBoxCuentaDeOrigenId.Text = transferencias.CuentaDeOrigenId.ToString();
@@ -144,6 +145,15 @@ namespace FinanzasPersonales.Registros
         private void buttonBuscarIdUsuario_Click(object sender, EventArgs e)
         {
             ObtenerValores();
+            if (cuentas.Buscar(cuentas.CuentaId))
+            {
+                
+            }
+            else
+            {
+                MensajeAdvertencia("Id no encontrado");
+                Limpiar();
+            }
         }
 
         private void buttonBuscarCuentaOrigen_Click(object sender, EventArgs e)
@@ -239,5 +249,6 @@ namespace FinanzasPersonales.Registros
                 MensajeError("Error al eliminar");
             }
         }
+
     }
 }

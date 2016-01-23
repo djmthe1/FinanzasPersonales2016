@@ -54,6 +54,7 @@
             // 
             // comboBoxCampos
             // 
+            this.comboBoxCampos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCampos.FormattingEnabled = true;
             this.comboBoxCampos.Items.AddRange(new object[] {
             "TransferenciaId",
@@ -63,16 +64,16 @@
             "Monto",
             "Observacion",
             "UsuarioId"});
-            this.comboBoxCampos.Location = new System.Drawing.Point(80, 9);
+            this.comboBoxCampos.Location = new System.Drawing.Point(80, 12);
             this.comboBoxCampos.Name = "comboBoxCampos";
             this.comboBoxCampos.Size = new System.Drawing.Size(121, 21);
             this.comboBoxCampos.TabIndex = 7;
             // 
             // textBoxFiltro
             // 
-            this.textBoxFiltro.Location = new System.Drawing.Point(207, 10);
+            this.textBoxFiltro.Location = new System.Drawing.Point(207, 13);
             this.textBoxFiltro.Name = "textBoxFiltro";
-            this.textBoxFiltro.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFiltro.Size = new System.Drawing.Size(219, 20);
             this.textBoxFiltro.TabIndex = 8;
             // 
             // labelBuscar
