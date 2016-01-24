@@ -69,17 +69,18 @@
             this.textBoxObservacion.MaxLength = 50;
             this.textBoxObservacion.Multiline = true;
             this.textBoxObservacion.Name = "textBoxObservacion";
-            this.textBoxObservacion.Size = new System.Drawing.Size(138, 39);
+            this.textBoxObservacion.Size = new System.Drawing.Size(116, 39);
             this.textBoxObservacion.TabIndex = 5;
             this.textBoxObservacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxObservacion_KeyPress);
             // 
             // EliminarButton
             // 
             this.EliminarButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.EliminarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.Image = ((System.Drawing.Image)(resources.GetObject("EliminarButton.Image")));
             this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.EliminarButton.Location = new System.Drawing.Point(440, 297);
+            this.EliminarButton.Location = new System.Drawing.Point(434, 316);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(111, 41);
             this.EliminarButton.TabIndex = 10;
@@ -91,10 +92,11 @@
             // NuevoButton
             // 
             this.NuevoButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.NuevoButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.Image = ((System.Drawing.Image)(resources.GetObject("NuevoButton.Image")));
             this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NuevoButton.Location = new System.Drawing.Point(122, 297);
+            this.NuevoButton.Location = new System.Drawing.Point(116, 316);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(111, 41);
             this.NuevoButton.TabIndex = 8;
@@ -106,10 +108,11 @@
             // GuardarButton
             // 
             this.GuardarButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.GuardarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GuardarButton.Location = new System.Drawing.Point(283, 297);
+            this.GuardarButton.Location = new System.Drawing.Point(275, 316);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(111, 41);
             this.GuardarButton.TabIndex = 9;
@@ -190,6 +193,7 @@
             // 
             // dateTimePickerTransferencia
             // 
+            this.dateTimePickerTransferencia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dateTimePickerTransferencia.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerTransferencia.Location = new System.Drawing.Point(142, 61);
             this.dateTimePickerTransferencia.Name = "dateTimePickerTransferencia";
@@ -198,7 +202,7 @@
             // 
             // textBoxId
             // 
-            this.textBoxId.Location = new System.Drawing.Point(142, 24);
+            this.textBoxId.Location = new System.Drawing.Point(142, 21);
             this.textBoxId.MaxLength = 10;
             this.textBoxId.Name = "textBoxId";
             this.textBoxId.Size = new System.Drawing.Size(40, 20);
@@ -244,6 +248,7 @@
             // 
             // buttonBuscarId
             // 
+            this.buttonBuscarId.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBuscarId.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarId.Image")));
             this.buttonBuscarId.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonBuscarId.Location = new System.Drawing.Point(188, 16);
@@ -257,6 +262,7 @@
             // 
             // buttonBuscarCuentaOrigen
             // 
+            this.buttonBuscarCuentaOrigen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBuscarCuentaOrigen.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarCuentaOrigen.Image")));
             this.buttonBuscarCuentaOrigen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonBuscarCuentaOrigen.Location = new System.Drawing.Point(536, 20);
@@ -270,6 +276,7 @@
             // 
             // buttonBuscarCuentaDestino
             // 
+            this.buttonBuscarCuentaDestino.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBuscarCuentaDestino.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarCuentaDestino.Image")));
             this.buttonBuscarCuentaDestino.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonBuscarCuentaDestino.Location = new System.Drawing.Point(536, 137);
@@ -401,7 +408,7 @@
             this.panelTransferencias.Controls.Add(this.textBoxMontoCuentaOrigen);
             this.panelTransferencias.Controls.Add(this.dateTimePickerTransferencia);
             this.panelTransferencias.Controls.Add(this.textBoxId);
-            this.panelTransferencias.Location = new System.Drawing.Point(12, 12);
+            this.panelTransferencias.Location = new System.Drawing.Point(12, 26);
             this.panelTransferencias.Name = "panelTransferencias";
             this.panelTransferencias.Size = new System.Drawing.Size(653, 265);
             this.panelTransferencias.TabIndex = 37;
@@ -410,12 +417,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 350);
+            this.ClientSize = new System.Drawing.Size(677, 369);
             this.Controls.Add(this.panelTransferencias);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.GuardarButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TransferenciasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Transferencias";

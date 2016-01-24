@@ -71,10 +71,12 @@
             // 
             // textBoxFiltro
             // 
-            this.textBoxFiltro.Location = new System.Drawing.Point(207, 13);
+            this.textBoxFiltro.Location = new System.Drawing.Point(218, 13);
+            this.textBoxFiltro.MaxLength = 50;
             this.textBoxFiltro.Name = "textBoxFiltro";
             this.textBoxFiltro.Size = new System.Drawing.Size(219, 20);
             this.textBoxFiltro.TabIndex = 8;
+            this.textBoxFiltro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFiltro_KeyPress);
             // 
             // labelBuscar
             // 
@@ -125,8 +127,10 @@
             this.Controls.Add(this.textBoxFiltro);
             this.Controls.Add(this.comboBoxCampos);
             this.Controls.Add(this.buttonBuscar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConsultaTransferencias";
             this.Text = "ConsultaTransferencias";
+            this.Load += new System.EventHandler(this.ConsultaTransferencias_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

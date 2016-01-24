@@ -20,6 +20,7 @@ namespace FinanzasPersonales.Registros
 
         Transferencias transferencias = new Transferencias();
         Cuentas cuentas = new Cuentas();
+        //Usuarios usuarios = new Usuarios();
 
         private void TransferenciasForm_Load(object sender, EventArgs e)
         {
@@ -88,7 +89,6 @@ namespace FinanzasPersonales.Registros
                 e.Handled = true;
         }
 
-
         private void Limpiar()
         {
             textBoxId.Clear();
@@ -122,9 +122,7 @@ namespace FinanzasPersonales.Registros
 
         private void buttonBuscarId_Click(object sender, EventArgs e)
         {
-
                 ObtenerValores();
-
                 if (transferencias.Buscar(transferencias.TransferenciaId))
                 {
                     textBoxId.Text = transferencias.TransferenciaId.ToString();
@@ -183,9 +181,8 @@ namespace FinanzasPersonales.Registros
 
                 if (textBoxId.Text == "")
                 {
-                    if (textBoxUsuario.Text != "" || textBoxMonto.Text != "" || textBoxCuentaDeOrigenId.Text != "" || textBoxCuentaDeDestinoId.Text != "")
+                    if (textBoxUsuario.Text != "" || textBoxMonto.Text != "" || textBoxCuentaDeOrigenId.Text != "" || textBoxCuentaDeDestinoId.Text != "" || textBoxObservacion.Text != "")
                     {
-
                         if (transferencias.Insertar())
                         {
                             Limpiar();
@@ -203,7 +200,6 @@ namespace FinanzasPersonales.Registros
                 }
                 else
                 {
-
                     if (textBoxUsuario.Text != "" || textBoxMonto.Text != "" || textBoxCuentaDeOrigenId.Text != "" || textBoxCuentaDeDestinoId.Text != "")
                     {
                         if (transferencias.Editar())
@@ -227,12 +223,9 @@ namespace FinanzasPersonales.Registros
         {
             try
             {
-
                 ObtenerValores();
-
                 if (transferencias.Buscar(transferencias.TransferenciaId))
                 {
-
                     if (transferencias.Eliminar())
                     {
                         MensajeOk("Eliminado correctamente");
@@ -242,7 +235,6 @@ namespace FinanzasPersonales.Registros
                     {
                         MensajeError("Error al eliminar");
                     }
-
                 }
                 else
                 {
@@ -255,6 +247,5 @@ namespace FinanzasPersonales.Registros
                 MensajeError("Error al eliminar");
             }
         }
-
     }
 }

@@ -18,6 +18,14 @@ namespace FinanzasPersonales.Consultas
             InitializeComponent();
         }
 
+        private void textBoxFiltro_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122 || (e.KeyChar == 32)))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             Transferencias transferencias = new Transferencias();
@@ -32,6 +40,11 @@ namespace FinanzasPersonales.Consultas
             dataGridViewConsulta.DataSource = transferencias.Listado("TransferenciaId, Fecha, CuentaDeOrigenId, CuentaDeDestinoId, Monto, Observacion, UsuarioId", filtro, "");
 
             textBoxConteo.Text = dataGridViewConsulta.RowCount.ToString();
+        }
+
+        private void ConsultaTransferencias_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
