@@ -72,9 +72,9 @@
             this.CategoriasGroupBox.Controls.Add(this.label1);
             this.CategoriasGroupBox.Controls.Add(this.label2);
             this.CategoriasGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CategoriasGroupBox.Location = new System.Drawing.Point(12, 25);
+            this.CategoriasGroupBox.Location = new System.Drawing.Point(12, 26);
             this.CategoriasGroupBox.Name = "CategoriasGroupBox";
-            this.CategoriasGroupBox.Size = new System.Drawing.Size(317, 115);
+            this.CategoriasGroupBox.Size = new System.Drawing.Size(317, 114);
             this.CategoriasGroupBox.TabIndex = 2;
             this.CategoriasGroupBox.TabStop = false;
             this.CategoriasGroupBox.Text = "Categorias";
@@ -125,7 +125,7 @@
             // 
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
-            this.GuardarButton.Location = new System.Drawing.Point(139, 146);
+            this.GuardarButton.Location = new System.Drawing.Point(128, 146);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(68, 51);
             this.GuardarButton.TabIndex = 4;
@@ -162,6 +162,7 @@
             this.Controls.Add(this.GuardarButton);
             this.Name = "CategoriasForm";
             this.Text = "Registro de Categorias";
+            this.Load += new System.EventHandler(this.CategoriasForm_Load);
             this.CategoriasGroupBox.ResumeLayout(false);
             this.CategoriasGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoriaErrorProvider)).EndInit();
