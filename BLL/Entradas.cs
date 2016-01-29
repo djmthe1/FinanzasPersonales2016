@@ -32,7 +32,7 @@ namespace BLL
             Monto = 0;
             Fecha = "";
         }
-
+         
         public Entradas(int entradaId, string nombres, string apellidos, string direccion, string telefono, string movil, float monto, string fecha)
         {
             EntradaId = entradaId;
