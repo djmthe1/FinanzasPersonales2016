@@ -43,7 +43,7 @@ namespace FinanzasPersonales.Registros
                 TelefonomaskedTextBox.Text = entrada.Telefono;
                 MovilmaskedTextBox.Text = entrada.Movil;
                 MontomaskedTextBox.Text = Convert.ToString(entrada.Monto);
-                FechadateTimePicker.Text = entrada.Fecha;
+                //FechadateTimePicker.Text = entrada.Fecha;
             }
         }
 
@@ -78,9 +78,8 @@ namespace FinanzasPersonales.Registros
                     entrada.Direccion = DirecciontextBox.Text;
                     entrada.Telefono = TelefonomaskedTextBox.Text;
                     entrada.Movil = MovilmaskedTextBox.Text;
-                    float id;
-                    float.TryParse(MontomaskedTextBox.Text, out id);
-                    entrada.Monto = id;
+                    entrada.Monto =  (float)Convert.ToDecimal(MontomaskedTextBox.Text);
+                   
                     entrada.Fecha = FechadateTimePicker.Value.ToString();
                     if (entrada.Insertar())
                     {
@@ -92,7 +91,13 @@ namespace FinanzasPersonales.Registros
                 }else 
                 if (IdtextBox.TextLength != 0)
                 {
-                    entrada.EntradaId = Convert.ToInt32(IdtextBox.Text);
+                    entrada.Nombres = NombretextBox.Text;
+                    entrada.Apellidos = ApellidotextBox.Text;
+                    entrada.Direccion = DirecciontextBox.Text;
+                    entrada.Telefono = TelefonomaskedTextBox.Text;
+                    entrada.Movil = MovilmaskedTextBox.Text;
+                    entrada.Monto =  (float)Convert.ToDecimal(MontomaskedTextBox.Text);
+                    //entrada.EntradaId = Convert.ToInt32(IdtextBox.Text);
                     if (entrada.Editar())
                     {
                         MessageBox.Show("La entrada se editada Correctamente");

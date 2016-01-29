@@ -87,7 +87,6 @@
             this.DirecciontextBox.Size = new System.Drawing.Size(240, 20);
             this.DirecciontextBox.TabIndex = 4;
             this.DirecciontextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DireccionxtBox_KeyPress);
-
             // 
             // ApellidotextBox
             // 
@@ -97,7 +96,6 @@
             this.ApellidotextBox.Size = new System.Drawing.Size(240, 20);
             this.ApellidotextBox.TabIndex = 3;
             this.ApellidotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApellidotextBox_KeyPress);
-
             // 
             // NombretextBox
             // 
@@ -179,7 +177,6 @@
             this.IdtextBox.Size = new System.Drawing.Size(89, 20);
             this.IdtextBox.TabIndex = 0;
             this.IdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IdtextBox_KeyPress);
-
             // 
             // label2
             // 
@@ -210,8 +207,9 @@
             // MontomaskedTextBox
             // 
             this.MontomaskedTextBox.Location = new System.Drawing.Point(442, 248);
-            this.MontomaskedTextBox.Mask = "999,999.99";
+            this.MontomaskedTextBox.Mask = "999.99";
             this.MontomaskedTextBox.Name = "MontomaskedTextBox";
+            this.MontomaskedTextBox.PromptChar = ' ';
             this.MontomaskedTextBox.Size = new System.Drawing.Size(110, 20);
             this.MontomaskedTextBox.TabIndex = 7;
             // 
