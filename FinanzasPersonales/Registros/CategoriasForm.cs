@@ -47,9 +47,10 @@ namespace FinanzasPersonales
             }
                 else
                 {
-                    Limpiar();
+                    
                     MessageBox.Show("Id no encontrado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                     Limpiar(); 
+            }
         }
 
        
