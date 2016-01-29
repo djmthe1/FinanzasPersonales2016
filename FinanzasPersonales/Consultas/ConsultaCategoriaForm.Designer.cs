@@ -60,6 +60,9 @@
             this.FiltrocomboBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.FiltrocomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FiltrocomboBox.FormattingEnabled = true;
+            this.FiltrocomboBox.Items.AddRange(new object[] {
+            "CategoriaId",
+            "Descripción"});
             this.FiltrocomboBox.Location = new System.Drawing.Point(90, 17);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(147, 21);

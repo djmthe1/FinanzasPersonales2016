@@ -31,12 +31,6 @@ namespace FinanzasPersonales
             consultaCuentas.Show();
         }
 
-        private void CategoriaButton_Click(object sender, EventArgs e)
-        {
-            CategoriasForm categoria = new CategoriasForm();
-            categoria.Show();
-        }
-
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConsultaCategoriaForm cCategoria = new ConsultaCategoriaForm();
@@ -78,6 +72,12 @@ namespace FinanzasPersonales
         {
             Registros.Entradas entrada = new Registros.Entradas();
             entrada.Show();
+        }
+
+        private void categoriasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CategoriasForm categoria = new CategoriasForm();
+            categoria.Show();
         }
     }
 }

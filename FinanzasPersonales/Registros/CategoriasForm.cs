@@ -20,6 +20,9 @@ namespace FinanzasPersonales
         }
         public void LlenarDatos(Categorias categoria)
         {
+            int CategoriaId = 0;
+            int.TryParse(CategoriaIDTextBox.Text, out CategoriaId);
+            categoria.CategoriaID = CategoriaId;
             categoria.Descripcion = DescripcionTextBox.Text;
         }
        
@@ -27,9 +30,7 @@ namespace FinanzasPersonales
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             
-            try
-            {
-                if (CategoriaIDTextBox.Text.Trim() == "")
+                if (CategoriaIDTextBox.Text == "")
                 {
                     CategoriaErrorProvider.SetError(CategoriaIDTextBox, "Error debe presisar el Id.");
                     CategoriaIDTextBox.Focus();
@@ -41,22 +42,14 @@ namespace FinanzasPersonales
 
                 if (CategoriaIDTextBox.TextLength > 0)
                 {
-                    CategoriaIDTextBox.Text = categoria.CategoriaID.ToString();
-                    DescripcionTextBox.Text = categoria.Descripcion.ToString();
-                }
+                    DescripcionTextBox.Text = categoria.Descripcion;
+                     CategoriaIDTextBox.Focus();
+            }
                 else
                 {
                     Limpiar();
                     MessageBox.Show("Id no encontrado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-
         }
 
        
@@ -128,22 +121,34 @@ namespace FinanzasPersonales
             try
             {
                 LlenarDatos(categoria);
-                if (categoria.Buscar(categoria.CategoriaID))
+                System.Windows.Forms.DialogResult resut;
+                //Dialogo para confirmar que se desea Eliminar...
+                resut = MessageBox.Show("¿Esta seguro que desea eliminar esta Categoria?", "Meensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resut == System.Windows.Forms.DialogResult.Yes)
                 {
-                    if (categoria.Eliminar())
+                    if (categoria.Buscar(categoria.CategoriaID))
                     {
-                        Limpiar();
-                        MessageBox.Show("Categoria Eliminada Correctamente...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                        if (categoria.Eliminar())
+                        {
+
+                            MessageBox.Show("Categoria Eliminada Correctamente...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Limpiar();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error en Eliminar Categoria!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Limpiar();
+                        }
+
                     }
+
+
                     else
                     {
-                        MessageBox.Show("Error en Eliminar Categoria!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Id no existe!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Limpiar();
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Id no existe!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    Limpiar();
                 }
             }
             catch (Exception)
@@ -151,6 +156,11 @@ namespace FinanzasPersonales
 
                 MessageBox.Show("Error en Eliminar Categoria!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void CategoriasForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
