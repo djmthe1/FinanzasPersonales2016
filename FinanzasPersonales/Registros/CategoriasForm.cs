@@ -127,7 +127,7 @@ namespace FinanzasPersonales
                 resut = MessageBox.Show("¿Esta seguro que desea eliminar esta Categoria?", "Meensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resut == System.Windows.Forms.DialogResult.Yes)
                 {
-                    if (categoria.Buscar(categoria.CategoriaID))
+                    if (categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
                     {
                 
                         if (categoria.Eliminar())
@@ -135,6 +135,7 @@ namespace FinanzasPersonales
 
                             MessageBox.Show("Categoria Eliminada Correctamente...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Limpiar();
+                            
                         }
                         else
                         {
