@@ -40,7 +40,7 @@ namespace FinanzasPersonales
                     CategoriaErrorProvider.Clear();
                 }
 
-                if (CategoriaIDTextBox.TextLength > 0)
+                if (categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
                 {
                     DescripcionTextBox.Text = categoria.Descripcion;
                      CategoriaIDTextBox.Focus();
