@@ -29,8 +29,11 @@ namespace FinanzasPersonales
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
+
             try
             {
+                GuardarButton.Enabled = false;
+                EliminarButton.Enabled = true;
                 if (CategoriaIDTextBox.Text == "")
                 {
                     CategoriaErrorProvider.SetError(CategoriaIDTextBox, "Error debe presisar el Id.");
@@ -88,6 +91,8 @@ namespace FinanzasPersonales
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
+            GuardarButton.Enabled = true;
+            EliminarButton.Enabled = false;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)

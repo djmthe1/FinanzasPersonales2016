@@ -98,6 +98,7 @@
             this.DescripcionTextBox.Name = "DescripcionTextBox";
             this.DescripcionTextBox.Size = new System.Drawing.Size(182, 20);
             this.DescripcionTextBox.TabIndex = 3;
+            this.DescripcionTextBox.Focus();
             this.DescripcionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripcionTextBox_KeyPress);
             // 
             // CategoriaIDTextBox
@@ -145,6 +146,7 @@
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Enabled = false;
             this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // CategoriaErrorProvider
