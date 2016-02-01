@@ -38,6 +38,7 @@ namespace FinanzasPersonales
                 {
                     CategoriaErrorProvider.SetError(CategoriaIDTextBox, "Error debe presisar el Id.");
                     CategoriaIDTextBox.Focus();
+                    EliminarButton.Enabled = false;
                 }
                 else
                 {
@@ -106,6 +107,7 @@ namespace FinanzasPersonales
                     if (DescripcionTextBox.Text != "")
                     {
                         LlenarDatos(categoria);
+                        CategoriaErrorProvider.Clear();
                         if (categoria.Insertar())
                         {
                             MessageBox.Show("Categoria guardada...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -115,9 +117,16 @@ namespace FinanzasPersonales
                             MessageBox.Show("Error al guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+
+
+                    if (DescripcionTextBox.Text == "")
+                    {
+                        CategoriaErrorProvider.SetError(DescripcionTextBox, "Introdusca La Decripcion!!");
+                        DescripcionTextBox.Focus();
+                    }
                     else
                     {
-                        MessageBox.Show("Introdusca la descripción!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        CategoriaErrorProvider.Clear();
                     }
                 }
                 
@@ -149,6 +158,8 @@ namespace FinanzasPersonales
 
                             MessageBox.Show("Categoria Eliminada Correctamente...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Limpiar();
+                            EliminarButton.Enabled = false;
+
                             
                         }
                         else
