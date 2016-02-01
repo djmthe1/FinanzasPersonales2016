@@ -29,7 +29,8 @@ namespace FinanzasPersonales
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
                 if (CategoriaIDTextBox.Text == "")
                 {
                     CategoriaErrorProvider.SetError(CategoriaIDTextBox, "Error debe presisar el Id.");
@@ -43,14 +44,22 @@ namespace FinanzasPersonales
                 if (categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
                 {
                     DescripcionTextBox.Text = categoria.Descripcion;
-                     CategoriaIDTextBox.Focus();
-            }
+                    CategoriaIDTextBox.Focus();
+                }
                 else
                 {
-                    
+
                     MessageBox.Show("Id no encontrado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                     Limpiar(); 
+                    Limpiar();
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            
+               
         }
 
        
