@@ -92,6 +92,12 @@
     <Compile Include="Consultas\ConsultaTransferencias.Designer.cs">
       <DependentUpon>ConsultaTransferencias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\ConsultaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaUsuarios.designer.cs">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Portada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,12 @@
     </Compile>
     <Compile Include="Registros\EntradasForm.designer.cs">
       <DependentUpon>EntradasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\RegistroUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\RegistroUsuarios.designer.cs">
+      <DependentUpon>RegistroUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Registros\SalidasForm.cs">
       <SubType>Form</SubType>
@@ -139,6 +151,9 @@
     <EmbeddedResource Include="Consultas\ConsultaTransferencias.resx">
       <DependentUpon>ConsultaTransferencias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaUsuarios.resx">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Portada.resx">
       <DependentUpon>Portada.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\EntradasForm.resx">
       <DependentUpon>EntradasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\RegistroUsuarios.resx">
+      <DependentUpon>RegistroUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\SalidasForm.resx">
       <DependentUpon>SalidasForm.cs</DependentUpon>
