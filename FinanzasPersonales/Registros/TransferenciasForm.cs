@@ -83,7 +83,7 @@ namespace FinanzasPersonales.Registros
 
         private void textBoxObservacion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122 || (e.KeyChar == 32)))
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122 || (e.KeyChar == 32)) || (e.KeyChar == 130) || (e.KeyChar >= 160 && e.KeyChar <= 163))
                 e.Handled = false;
             else
                 e.Handled = true;
@@ -128,7 +128,7 @@ namespace FinanzasPersonales.Registros
                     textBoxId.Text = transferencias.TransferenciaId.ToString();
                     dateTimePickerTransferencia.Text = transferencias.Fecha.ToString();
                     textBoxUsuario.Text = transferencias.UsuarioId.ToString();
-                    textBoxMonto.Text = transferencias.Monto.ToString();
+                    textBoxMonto.Text = Convert.ToString(transferencias.Monto);
                     textBoxCuentaDeOrigenId.Text = transferencias.CuentaDeOrigenId.ToString();
                     textBoxCuentaDeDestinoId.Text = transferencias.CuentaDeDestinoId.ToString();
                     textBoxObservacion.Text = transferencias.Observacion;
