@@ -29,27 +29,41 @@ namespace FinanzasPersonales
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
-            
+
+            try
+            {
+                GuardarButton.Enabled = false;
+                EliminarButton.Enabled = true;
                 if (CategoriaIDTextBox.Text == "")
                 {
                     CategoriaErrorProvider.SetError(CategoriaIDTextBox, "Error debe presisar el Id.");
                     CategoriaIDTextBox.Focus();
+                    EliminarButton.Enabled = false;
                 }
                 else
                 {
                     CategoriaErrorProvider.Clear();
                 }
 
-                if (CategoriaIDTextBox.TextLength > 0)
+                if (categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
                 {
                     DescripcionTextBox.Text = categoria.Descripcion;
-                     CategoriaIDTextBox.Focus();
-            }
+                    CategoriaIDTextBox.Focus();
+                }
                 else
                 {
-                    Limpiar();
+
                     MessageBox.Show("Id no encontrado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar();
                 }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            
+               
         }
 
        
@@ -78,6 +92,8 @@ namespace FinanzasPersonales
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
+            GuardarButton.Enabled = true;
+            EliminarButton.Enabled = false;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
@@ -91,6 +107,7 @@ namespace FinanzasPersonales
                     if (DescripcionTextBox.Text != "")
                     {
                         LlenarDatos(categoria);
+                        CategoriaErrorProvider.Clear();
                         if (categoria.Insertar())
                         {
                             MessageBox.Show("Categoria guardada...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -100,9 +117,16 @@ namespace FinanzasPersonales
                             MessageBox.Show("Error al guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+
+
+                    if (DescripcionTextBox.Text == "")
+                    {
+                        CategoriaErrorProvider.SetError(DescripcionTextBox, "Introdusca La Decripcion!!");
+                        DescripcionTextBox.Focus();
+                    }
                     else
                     {
-                        MessageBox.Show("Introdusca la descripción!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        CategoriaErrorProvider.Clear();
                     }
                 }
                 
@@ -126,7 +150,7 @@ namespace FinanzasPersonales
                 resut = MessageBox.Show("¿Esta seguro que desea eliminar esta Categoria?", "Meensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resut == System.Windows.Forms.DialogResult.Yes)
                 {
-                    if (categoria.Buscar(categoria.CategoriaID))
+                    if (categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
                     {
                 
                         if (categoria.Eliminar())
@@ -134,6 +158,9 @@ namespace FinanzasPersonales
 
                             MessageBox.Show("Categoria Eliminada Correctamente...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             Limpiar();
+                            EliminarButton.Enabled = false;
+
+                            
                         }
                         else
                         {

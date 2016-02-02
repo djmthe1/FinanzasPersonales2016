@@ -34,7 +34,7 @@
             this.FiltrocomboBox = new System.Windows.Forms.ComboBox();
             this.ConteoLabel = new System.Windows.Forms.Label();
             this.ConteoTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.FiltradoPorLabel = new System.Windows.Forms.Label();
             this.BuscarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultaCategoriaDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -63,6 +63,7 @@
             this.FiltrocomboBox.Items.AddRange(new object[] {
             "CategoriaId",
             "Descripción"});
+            this.FiltrocomboBox.Enabled = false;
             this.FiltrocomboBox.Location = new System.Drawing.Point(90, 17);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(147, 21);
@@ -86,15 +87,15 @@
             this.ConteoTextBox.Size = new System.Drawing.Size(100, 20);
             this.ConteoTextBox.TabIndex = 4;
             // 
-            // label1
+            // FiltradoPorLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Filtrado por:";
+            this.FiltradoPorLabel.AutoSize = true;
+            this.FiltradoPorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FiltradoPorLabel.Location = new System.Drawing.Point(12, 21);
+            this.FiltradoPorLabel.Name = "FiltradoPorLabel";
+            this.FiltradoPorLabel.Size = new System.Drawing.Size(75, 13);
+            this.FiltradoPorLabel.TabIndex = 5;
+            this.FiltradoPorLabel.Text = "Filtrado por:";
             // 
             // BuscarButton
             // 
@@ -116,7 +117,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 373);
             this.Controls.Add(this.BuscarButton);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.FiltradoPorLabel);
             this.Controls.Add(this.ConteoTextBox);
             this.Controls.Add(this.ConteoLabel);
             this.Controls.Add(this.FiltrocomboBox);
@@ -137,7 +138,7 @@
         private System.Windows.Forms.ComboBox FiltrocomboBox;
         private System.Windows.Forms.Label ConteoLabel;
         private System.Windows.Forms.TextBox ConteoTextBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label FiltradoPorLabel;
         private System.Windows.Forms.Button BuscarButton;
     }
 }
