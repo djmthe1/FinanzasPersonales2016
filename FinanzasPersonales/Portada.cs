@@ -70,7 +70,7 @@ namespace FinanzasPersonales
 
         private void entradasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Registros.Entradas entrada = new Registros.Entradas();
+            Registros.EntradasForm entrada = new Registros.EntradasForm();
             entrada.Show();
         }
 

@@ -11,14 +11,15 @@ using BLL;
 
 namespace FinanzasPersonales.Registros
 {
-    public partial class Entradas : Form
+    public partial class EntradasForm : Form
     {
-        public Entradas()
+        public EntradasForm()
         {
             InitializeComponent();
         }
-        BLL.Entradas entrada = new BLL.Entradas();
 
+        Entradas entrada = new Entradas();
+    
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             if (IdtextBox.Text.Trim() == "")
@@ -30,8 +31,6 @@ namespace FinanzasPersonales.Registros
             {
                 EntradaerrorProvider.Clear();
             }
-
-
             if (IdtextBox.TextLength > 0)
             {
                 int id;
@@ -43,7 +42,7 @@ namespace FinanzasPersonales.Registros
                 TelefonomaskedTextBox.Text = entrada.Telefono;
                 MovilmaskedTextBox.Text = entrada.Movil;
                 MontomaskedTextBox.Text = Convert.ToString(entrada.Monto);
-                //FechadateTimePicker.Text = entrada.Fecha;
+                FechadateTimePicker.Text = entrada.Fecha;
             }
         }
 
@@ -56,6 +55,7 @@ namespace FinanzasPersonales.Registros
             TelefonomaskedTextBox.Clear();
             MovilmaskedTextBox.Clear();
             MontomaskedTextBox.Clear();
+            EntradaerrorProvider.Clear();
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -65,47 +65,56 @@ namespace FinanzasPersonales.Registros
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            if (NombretextBox.Text.Length == 0 && ApellidotextBox.Text.Length == 0 && DirecciontextBox.Text.Length == 0 && TelefonomaskedTextBox.Text.Length == 0 && MovilmaskedTextBox.Text.Length == 0 && MontomaskedTextBox.Text.Length == 0)
+            if (NombretextBox.Text.Length == 0 && ApellidotextBox.Text.Length == 0 && DirecciontextBox.Text.Length == 0 && TelefonomaskedTextBox.Text.Length == 0 && MovilmaskedTextBox.Text.Length == 0 && MontomaskedTextBox.Text.Length == 0 && MontomaskedTextBox.Text.Length == 0)
             {
-                MessageBox.Show("El campo debe estar lleno ");
+                MessageBox.Show("Los campo deben estar lleno ");
             }
             else
-                
+                entrada.Nombres = NombretextBox.Text;
+                entrada.Apellidos = ApellidotextBox.Text;
+                entrada.Direccion = DirecciontextBox.Text;
+                entrada.Telefono = TelefonomaskedTextBox.Text;
+                entrada.Movil = MovilmaskedTextBox.Text;
+                entrada.Monto = (float)Convert.ToDouble(MontomaskedTextBox.Text);
+                entrada.Fecha = FechadateTimePicker.Value.ToString();
                 if (IdtextBox.Text.Length == 0)
-                {
-                    entrada.Nombres = NombretextBox.Text;
-                    entrada.Apellidos = ApellidotextBox.Text;
-                    entrada.Direccion = DirecciontextBox.Text;
-                    entrada.Telefono = TelefonomaskedTextBox.Text;
-                    entrada.Movil = MovilmaskedTextBox.Text;
-                    entrada.Monto =  (float)Convert.ToDecimal(MontomaskedTextBox.Text);
-                   
-                    entrada.Fecha = FechadateTimePicker.Value.ToString();
-                    if (entrada.Insertar())
                     {
-                        MessageBox.Show("La entrada se Guardo Correctamente");
+                        if (entrada.Insertar())
+                        {
+                            MessageBox.Show("La entrada se Guardo Correctamente");
+                        }
+                        else
+                        {
+                            MessageBox.Show("La entrada no ha sido Guardada Correctamente");
+                        }
                     }else
-                    {
-                        MessageBox.Show("La entrada no ha sido Guardada Correctamente");
+                        if(IdtextBox.Text.Length != 0)
+                        {
+                            entrada.EntradaId = Convert.ToInt32(IdtextBox.Text);
+                            if (entrada.Editar())
+                            {
+                                MessageBox.Show("La entrada se editada Correctamente");
+                            }
+                            else
+                            {
+                                MessageBox.Show("La entrada no ha sido editada Correctamente");
+                            }
+                    
                     }
-                }else 
-                if (IdtextBox.TextLength != 0)
-                {
-                    entrada.EntradaId = Convert.ToInt32(IdtextBox.Text);
-                    if (entrada.Editar())
-                    {
-                        MessageBox.Show("La entrada se editada Correctamente");
-                    }
-                    else
-                    {
-                        MessageBox.Show("La entrada no ha sido editada Correctamente");
-                    }
-                }
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
-            if (IdtextBox.TextLength > 0)
+            if (IdtextBox.Text.Trim() == "")
+            {
+                EntradaerrorProvider.SetError(IdtextBox, "Debe especificar el ID ");
+                IdtextBox.Focus();
+            }
+            else
+            {
+                EntradaerrorProvider.Clear();
+            }
+            if (IdtextBox.Text.Length > 0)
             {
                 entrada.EntradaId = int.Parse(IdtextBox.Text);
                 if (entrada.Eliminar())

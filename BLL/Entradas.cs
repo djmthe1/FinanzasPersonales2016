@@ -23,35 +23,27 @@ namespace BLL
 
         public Entradas()
         {
-            EntradaId = 0;
-            Nombres = "";
-            Apellidos = "";
-            Direccion = "";
-            Telefono = "";
-            Movil = "";
-            Monto = 0;
-            Fecha = "";
         }
          
         public Entradas(int entradaId, string nombres, string apellidos, string direccion, string telefono, string movil, float monto, string fecha)
         {
-            EntradaId = entradaId;
-            Nombres = nombres;
-            Apellidos = apellidos;
-            Direccion = direccion;
-            Telefono = telefono;
-            Movil = movil;
-            Monto = monto;
-            Fecha = fecha;
+            this.EntradaId = entradaId;
+            this.Nombres = nombres;
+            this.Apellidos = apellidos;
+            this.Direccion = direccion;
+            this.Telefono = telefono;
+            this.Movil = movil;
+            this.Monto = monto;
+            this.Fecha = fecha;
         }
-
 
         public override bool Insertar()
         {
+            bool retorno = false;
             try
             {
-                bool retorno = false;
-                retorno = conexion.Ejecutar(String.Format("Insert Into Entradas(Nombres,Apellidos,Direccion,Telefono,Movil,Monto,Fecha) values('{0}','{1}','{2}','{3}','{4}',{5},'{6}') ", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Movil, this.Monto, this.Fecha));
+                
+                retorno = conexion.Ejecutar(String.Format("Insert Into Entradas (Nombres,Apellidos,Direccion,Telefono,Movil,Monto,Fecha) values ('{0}','{1}','{2}','{3}','{4}',{5},'{6}' )", this.Nombres, this.Apellidos, this.Direccion, this.Telefono, this.Movil, this.Monto, this.Fecha));
                 return retorno;
              }
              catch (Exception ex)
@@ -92,7 +84,7 @@ namespace BLL
         public override bool Buscar(int IdBuscado)
         {
             DataTable data = new DataTable();
-            data = conexion.ObtenerDatos(String.Format("select Nombres,Apellidos,Direccion,Telefono,Movil,Monto,Fecha from Entradas where EntradaId = {0} ", IdBuscado));
+            data = conexion.ObtenerDatos(String.Format("select * from Entradas where EntradaId = {0} ", IdBuscado));
             if (data.Rows.Count > 0)
             {
                 this.Nombres = data.Rows[0]["Nombres"].ToString();
@@ -101,7 +93,7 @@ namespace BLL
                 this.Telefono = data.Rows[0]["Telefono"].ToString();
                 this.Movil = data.Rows[0]["Movil"].ToString();
                 this.Monto = (float)Convert.ToDecimal(data.Rows[0]["Monto"]);
-
+                 
                 this.Fecha = data.Rows[0]["Fecha"].ToString();
             }
             return data.Rows.Count > 0;
