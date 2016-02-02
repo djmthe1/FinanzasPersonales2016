@@ -1,6 +1,6 @@
 ﻿namespace FinanzasPersonales.Registros
 {
-    partial class Entradas
+    partial class EntradasForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Entradas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EntradasForm));
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.MovilmaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.TelefonomaskedTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -207,7 +207,7 @@
             // MontomaskedTextBox
             // 
             this.MontomaskedTextBox.Location = new System.Drawing.Point(442, 248);
-            this.MontomaskedTextBox.Mask = "999.99";
+            this.MontomaskedTextBox.Mask = "999999.99";
             this.MontomaskedTextBox.Name = "MontomaskedTextBox";
             this.MontomaskedTextBox.PromptChar = ' ';
             this.MontomaskedTextBox.Size = new System.Drawing.Size(110, 20);
@@ -251,7 +251,7 @@
             this.Nuevobutton.UseVisualStyleBackColor = true;
             this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
-            // Entradas
+            // EntradasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -278,7 +278,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Entradas";
+            this.Name = "EntradasForm";
             this.Text = "EntradasForm";
             ((System.ComponentModel.ISupportInitialize)(this.EntradaerrorProvider)).EndInit();
             this.ResumeLayout(false);
