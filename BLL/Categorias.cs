@@ -13,18 +13,18 @@ namespace BLL
     {
         ConexionDb conexion = new ConexionDb();
 
-        public int CategoriaID { get; set; }
+        public int CategoriaId { get; set; }
         public string Descripcion { get; set; }
 
         public Categorias(int Id, string DescripcionCategoria)
         {
-            this.CategoriaID = Id;
+            this.CategoriaId = Id;
             this.Descripcion = DescripcionCategoria;
         }
 
         public Categorias()
         {
-            this.CategoriaID = 0;
+            this.CategoriaId = 0;
             this.Descripcion = "";
         }
 
@@ -33,14 +33,14 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Insert Into Categorias(Descripcion) values('{0}')",this.Descripcion));
+                retorno = conexion.Ejecutar(string.Format("Insert Into Categorias(Descripcion) values('{0}')", this.Descripcion));
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
-           
+
             return retorno;
 
         }
@@ -51,7 +51,7 @@ namespace BLL
             {
                 bool retorno = false;
                 retorno = conexion.Ejecutar(String.Format(" Update Categorias set Descripcion = '{0}' where CategoriaId = {1} ",
-                this.Descripcion, this.CategoriaID));
+                this.Descripcion, this.CategoriaId));
                 return retorno;
             }
             catch (Exception exc)
@@ -65,7 +65,7 @@ namespace BLL
             try
             {
                 bool retorno = false;
-                retorno = conexion.Ejecutar(String.Format(" delete from Categorias where CategoriaId = {0}  ",this.CategoriaID));
+                retorno = conexion.Ejecutar(String.Format(" delete from Categorias where CategoriaId = {0}  ", this.CategoriaId));
                 return retorno;
             }
             catch (Exception ex)
@@ -81,9 +81,9 @@ namespace BLL
             try
             {
                 datatable = conexion.ObtenerDatos(string.Format("select * from Categorias where CategoriaId=" + IdBuscado));
-                if(datatable.Rows.Count > 0)
+                if (datatable.Rows.Count > 0)
                 {
-                    this.CategoriaID = (int)datatable.Rows[0]["CategoriaId"];
+                    this.CategoriaId = (int)datatable.Rows[0]["CategoriaId"];
                     this.Descripcion = datatable.Rows[0]["Descripcion"].ToString();
                 }
 
@@ -99,12 +99,13 @@ namespace BLL
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            
+
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " Orden by  " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos +" From Categorias Where " + Condicion + Orden);
+            return conexion.ObtenerDatos("Select " + Campos + " From Categorias Where " + Condicion + Orden);
         }
     }
 }
+

@@ -22,10 +22,21 @@ namespace FinanzasPersonales
         {
             int CategoriaId = 0;
             int.TryParse(CategoriaIDTextBox.Text, out CategoriaId);
-            categoria.CategoriaID = CategoriaId;
+            categoria.CategoriaId = CategoriaId;
             categoria.Descripcion = DescripcionTextBox.Text;
         }
-       
+        public void Validar(TextBox tb)
+        {
+            if (DescripcionTextBox.Text == "")
+            {
+                CategoriaErrorProvider.SetError(tb, "Introdusca La Decripcion!!");
+                DescripcionTextBox.Focus();
+            }
+            else
+            {
+                CategoriaErrorProvider.Clear();
+            }
+        }
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {
@@ -34,17 +45,7 @@ namespace FinanzasPersonales
             {
                 GuardarButton.Enabled = false;
                 EliminarButton.Enabled = true;
-                if (CategoriaIDTextBox.Text == "")
-                {
-                    CategoriaErrorProvider.SetError(CategoriaIDTextBox, "Error debe presisar el Id.");
-                    CategoriaIDTextBox.Focus();
-                    EliminarButton.Enabled = false;
-                }
-                else
-                {
-                    CategoriaErrorProvider.Clear();
-                }
-
+                Validar(CategoriaIDTextBox);
                 if (categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
                 {
                     DescripcionTextBox.Text = categoria.Descripcion;
@@ -62,11 +63,11 @@ namespace FinanzasPersonales
 
                 MessageBox.Show(ex.Message);
             }
-            
-               
+
+
         }
 
-       
+
         private void CategoriaIDTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
@@ -87,7 +88,7 @@ namespace FinanzasPersonales
             CategoriaIDTextBox.Clear();
             DescripcionTextBox.Clear();
         }
-        
+
 
         private void NuevoButton_Click(object sender, EventArgs e)
         {
@@ -101,7 +102,7 @@ namespace FinanzasPersonales
 
             try
             {
-
+                Validar(DescripcionTextBox);
                 if (CategoriaIDTextBox.Text == "")
                 {
                     if (DescripcionTextBox.Text != "")
@@ -119,24 +120,16 @@ namespace FinanzasPersonales
                     }
 
 
-                    if (DescripcionTextBox.Text == "")
-                    {
-                        CategoriaErrorProvider.SetError(DescripcionTextBox, "Introdusca La Decripcion!!");
-                        DescripcionTextBox.Focus();
-                    }
-                    else
-                    {
-                        CategoriaErrorProvider.Clear();
-                    }
+
                 }
-                
+
             }
             catch (Exception exc)
             {
 
                 throw exc;
             }
-           
+
 
         }
 
@@ -152,7 +145,7 @@ namespace FinanzasPersonales
                 {
                     if (categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
                     {
-                
+
                         if (categoria.Eliminar())
                         {
 
@@ -160,7 +153,7 @@ namespace FinanzasPersonales
                             Limpiar();
                             EliminarButton.Enabled = false;
 
-                            
+
                         }
                         else
                         {
