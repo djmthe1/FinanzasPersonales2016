@@ -63,7 +63,7 @@
             this.FiltrocomboBox.Items.AddRange(new object[] {
             "CategoriaId",
             "Descripción"});
-            this.FiltrocomboBox.Enabled = false;
+            
             this.FiltrocomboBox.Location = new System.Drawing.Point(90, 17);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(147, 21);

@@ -43,13 +43,14 @@ namespace FinanzasPersonales
 
             try
             {
-                GuardarButton.Enabled = false;
-                EliminarButton.Enabled = true;
+                
+                
                 Validar(CategoriaIDTextBox);
                 if (categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
                 {
                     DescripcionTextBox.Text = categoria.Descripcion;
                     CategoriaIDTextBox.Focus();
+                    EliminarButton.Enabled = true;
                 }
                 else
                 {
@@ -105,8 +106,7 @@ namespace FinanzasPersonales
                 Validar(DescripcionTextBox);
                 if (CategoriaIDTextBox.Text == "")
                 {
-                    if (DescripcionTextBox.Text != "")
-                    {
+                    
                         LlenarDatos(categoria);
                         CategoriaErrorProvider.Clear();
                         if (categoria.Insertar())
@@ -117,10 +117,25 @@ namespace FinanzasPersonales
                         {
                             MessageBox.Show("Error al guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                }
+                else
+                {
+                    if (categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)) && DescripcionTextBox.Text != "")
+                    {
+                        LlenarDatos(categoria);
+                        if (categoria.Editar())
+                        {
+                            MessageBox.Show("Categoria Modificada!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al Modificar Categoria!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-
-
-
+                    else
+                    {
+                        MessageBox.Show("Error al Modificar Categoria.\n Pues esta Cagoria No existe!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
 
             }
