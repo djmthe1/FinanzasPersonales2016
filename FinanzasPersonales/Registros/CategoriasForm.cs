@@ -104,7 +104,7 @@ namespace FinanzasPersonales
             try
             {
                 Validar(DescripcionTextBox);
-                if (CategoriaIDTextBox.Text == "")
+                if (CategoriaIDTextBox.Text == "" && DescripcionTextBox.Text != "")
                 {
                     
                         LlenarDatos(categoria);
@@ -142,7 +142,7 @@ namespace FinanzasPersonales
             catch (Exception exc)
             {
 
-                throw exc;
+                MessageBox.Show(exc.Message);
             }
 
 

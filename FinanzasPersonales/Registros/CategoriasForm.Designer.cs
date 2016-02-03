@@ -161,7 +161,10 @@
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.CategoriasGroupBox);
             this.Controls.Add(this.GuardarButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "CategoriasForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Categorias";
             this.Load += new System.EventHandler(this.CategoriasForm_Load);
             this.CategoriasGroupBox.ResumeLayout(false);
