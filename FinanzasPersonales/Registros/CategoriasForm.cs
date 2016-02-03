@@ -27,10 +27,10 @@ namespace FinanzasPersonales
         }
         public void Validar(TextBox tb)
         {
-            if (DescripcionTextBox.Text == "")
+            if (tb.Text == "")
             {
-                CategoriaErrorProvider.SetError(tb, "Introdusca La Decripcion!!");
-                DescripcionTextBox.Focus();
+                CategoriaErrorProvider.SetError(tb, "El Campo esta vacio!!");
+                tb.Focus();
             }
             else
             {
