@@ -103,6 +103,7 @@
             // CategoriaIDTextBox
             // 
             this.CategoriaIDTextBox.Location = new System.Drawing.Point(127, 31);
+            this.CategoriaIDTextBox.MaxLength = 5;
             this.CategoriaIDTextBox.Name = "CategoriaIDTextBox";
             this.CategoriaIDTextBox.Size = new System.Drawing.Size(81, 20);
             this.CategoriaIDTextBox.TabIndex = 2;
