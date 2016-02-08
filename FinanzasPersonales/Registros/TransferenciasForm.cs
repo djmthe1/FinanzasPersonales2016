@@ -120,6 +120,8 @@ namespace FinanzasPersonales.Registros
            // transferencias.DestinoId = int.Parse(comboBoxCuentaDestino.Text);
         }
 
+
+
         private void DevolverValores()
         {
             textBoxId.Text = transferencias.TransferenciaId.ToString();

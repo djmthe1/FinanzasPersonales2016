@@ -278,12 +278,12 @@
             // 
             // toolStripButtonTransferencias
             // 
-            this.toolStripButtonTransferencias.BackgroundImage = global::FinanzasPersonales.Properties.Resources._1453635934_ChirstmaxShop_transaction;
-            this.toolStripButtonTransferencias.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.toolStripButtonTransferencias.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonTransferencias.Image = global::FinanzasPersonales.Properties.Resources._1453635934_ChirstmaxShop_transaction;
             this.toolStripButtonTransferencias.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonTransferencias.Name = "toolStripButtonTransferencias";
-            this.toolStripButtonTransferencias.Size = new System.Drawing.Size(23, 52);
+            this.toolStripButtonTransferencias.Size = new System.Drawing.Size(52, 52);
+            this.toolStripButtonTransferencias.ToolTipText = "Entradas";
             // 
             // Portada
             // 
