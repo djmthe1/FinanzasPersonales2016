@@ -79,5 +79,11 @@ namespace FinanzasPersonales
             CategoriasForm categoria = new CategoriasForm();
             categoria.Show();
         }
+
+        private void toolStripButtonTransferencias_Click(object sender, EventArgs e)
+        {
+            Registros.TransferenciasForm transferencias = new Registros.TransferenciasForm();
+            transferencias.Show();
+        }
     }
 }
