@@ -69,7 +69,7 @@ namespace BLL
             {
                 this.CuentaId = (int)dt.Rows[0]["CuentaId"];
                 this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
-                this.Balance = (float)dt.Rows[0]["Balance"];
+                this.Balance = (float)Convert.ToDecimal(dt.Rows[0]["Balance"]);
             }
             return dt.Rows.Count > 0;
         }
