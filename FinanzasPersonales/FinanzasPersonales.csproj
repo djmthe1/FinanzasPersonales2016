@@ -154,6 +154,9 @@
     <EmbeddedResource Include="Consultas\ConsultaCuentas.resx">
       <DependentUpon>ConsultaCuentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaCuentasxPagar.resx">
+      <DependentUpon>ConsultaCuentasxPagar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaEntradas.resx">
       <DependentUpon>ConsultaEntradas.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,6 +184,9 @@
     </Compile>
     <EmbeddedResource Include="Registros\CategoriasForm.resx">
       <DependentUpon>CategoriasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\CuentasxPagarForm.resx">
+      <DependentUpon>CuentasxPagarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\EntradasForm.resx">
       <DependentUpon>EntradasForm.cs</DependentUpon>

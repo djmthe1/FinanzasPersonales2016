@@ -17,7 +17,14 @@ create table Transferencias(
     UsuarioId int
 )
 go
-
+Create Table CuentasxPagar (
+	CxpId int identity (1,1) primary key,
+	Fecha varchar (20),
+	Concepto varchar (50),
+	Monto float,
+	Balance float
+)
+go
 create table Salidas(
 	SalidaId int identity(1,1),
 	CuentaId int,

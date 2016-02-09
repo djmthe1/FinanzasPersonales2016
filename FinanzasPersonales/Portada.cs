@@ -85,5 +85,17 @@ namespace FinanzasPersonales
             Registros.TransferenciasForm transferencias = new Registros.TransferenciasForm();
             transferencias.Show();
         }
+
+        private void cuentasPorPagarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.CuentasxPagarForm cuentasxPagar = new Registros.CuentasxPagarForm();
+            cuentasxPagar.Show();
+        }
+
+        private void cuentasPorPagarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ConsultaCuentasxPagar CcuentasxPagar = new ConsultaCuentasxPagar();
+            CcuentasxPagar.Show();
+        }
     }
 }
