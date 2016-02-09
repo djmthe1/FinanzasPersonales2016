@@ -19,6 +19,7 @@ namespace BLL
         public string Observacion { set; get; }
         public int UsuarioId { set; get; }
         public ConexionDb conexion = new ConexionDb();
+        public Cuentas cuenta = new Cuentas();
 
         public Transferencias(int transferenciaId, string fecha, int OrigenId, int DestinoId, float monto, string observacion, int usuarioId)
         {

@@ -103,6 +103,10 @@ namespace FinanzasPersonales.Registros
             textBoxId.Clear();
             textBoxMonto.Clear();
             textBoxObservacion.Clear();
+            textBoxDescricionCuentaOrigen.Clear();
+            textBoxMontoCuentaOrigen.Clear();
+            textBoxDescripcionCuentaDestino.Clear();
+            textBoxMontoCuentaDestino.Clear();
         }
 
         private void ObtenerValores()
@@ -116,11 +120,30 @@ namespace FinanzasPersonales.Registros
             transferencias.Fecha = dateTimePickerTransferencia.Text;
             transferencias.UsuarioId = usuarios.UsuarioId;
             transferencias.Observacion = textBoxObservacion.Text;
-            transferencias.OrigenId = int.Parse(comboBoxCuentaOrigen.Text);
-           // transferencias.DestinoId = int.Parse(comboBoxCuentaDestino.Text);
+            transferencias.UsuarioId = usuarios.UsuarioId;
         }
 
+        private void ObtenerOrigen()
+        {
+            transferencias.OrigenId = int.Parse(comboBoxCuentaOrigen.Text);
+        }
 
+        private void ObtenerDestino()
+        {
+            transferencias.DestinoId = int.Parse(comboBoxCuentaDestino.Text);
+        }
+
+        public void DevolverOrigen()
+        {
+            textBoxDescricionCuentaOrigen.Text = cuentas.Descripcion;
+            textBoxMontoCuentaOrigen.Text = cuentas.Balance.ToString();
+        }
+
+        private void DevolverDestino()
+        {
+            textBoxDescripcionCuentaDestino.Text = cuentas.Descripcion;
+            textBoxMontoCuentaDestino.Text = cuentas.Balance.ToString();
+        }
 
         private void DevolverValores()
         {
@@ -130,10 +153,6 @@ namespace FinanzasPersonales.Registros
             comboBoxCuentaOrigen.Text = transferencias.OrigenId.ToString();
             comboBoxCuentaDestino.Text = transferencias.DestinoId.ToString();
             textBoxObservacion.Text = transferencias.Observacion;
-            textBoxDescricionCuentaOrigen.Text = cuentas.Descripcion;
-            textBoxMontoCuentaOrigen.Text = cuentas.Balance.ToString();
-            textBoxDescripcionCuentaDestino.Text = cuentas.Descripcion;
-            textBoxMontoCuentaDestino.Text = cuentas.Balance.ToString();
         }
 
         private void buttonBuscarId_Click(object sender, EventArgs e)
@@ -153,10 +172,10 @@ namespace FinanzasPersonales.Registros
 
         private void comboBoxCuentaOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ObtenerValores();
+            ObtenerOrigen();
             if (cuentas.Buscar(transferencias.OrigenId))
             {
-                DevolverValores();
+                DevolverOrigen();
             }
             else
             {
@@ -167,10 +186,10 @@ namespace FinanzasPersonales.Registros
 
         private void comboBoxCuentaDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ObtenerValores();
+            ObtenerDestino();
             if (cuentas.Buscar(transferencias.DestinoId))
             {
-                DevolverValores();
+                DevolverDestino();
             }
             else
             {
