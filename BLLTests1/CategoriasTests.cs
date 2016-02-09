@@ -25,7 +25,13 @@ namespace BLL.Tests
         [TestMethod()]
         public void InsertarTest()
         {
-            Assert.Fail();
+            Categorias categoria = new Categorias() ;
+
+            categoria.Descripcion = "LA PRUEBA";
+
+           bool paso = categoria.Insertar();
+
+            Assert.IsTrue(paso);
         }
 
         [TestMethod()]
