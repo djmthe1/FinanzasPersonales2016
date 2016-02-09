@@ -35,10 +35,15 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferenciasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.salidasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.entradasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.categoriasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.cuentasPorPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -49,6 +54,9 @@
             this.salidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.entradasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.cuentasPorPagarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.ventanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,14 +67,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonTransferencias = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.cuentasPorPagarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.cuentasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -125,7 +126,8 @@
             this.categoriasToolStripMenuItem1,
             this.toolStripSeparator11,
             this.cuentasPorPagarToolStripMenuItem,
-            this.toolStripSeparator10});
+            this.toolStripSeparator10,
+            this.cuentasToolStripMenuItem1});
             this.registrosToolStripMenuItem.Name = "registrosToolStripMenuItem";
             this.registrosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.registrosToolStripMenuItem.Text = "&Registros";
@@ -137,12 +139,22 @@
             this.transferenciasToolStripMenuItem1.Text = "&Transferencias";
             this.transferenciasToolStripMenuItem1.Click += new System.EventHandler(this.transferenciasToolStripMenuItem1_Click);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(168, 6);
+            // 
             // salidasToolStripMenuItem1
             // 
             this.salidasToolStripMenuItem1.Name = "salidasToolStripMenuItem1";
             this.salidasToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
             this.salidasToolStripMenuItem1.Text = "&Salidas";
             this.salidasToolStripMenuItem1.Click += new System.EventHandler(this.salidasToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(168, 6);
             // 
             // entradasToolStripMenuItem1
             // 
@@ -151,6 +163,11 @@
             this.entradasToolStripMenuItem1.Text = "&Entradas";
             this.entradasToolStripMenuItem1.Click += new System.EventHandler(this.entradasToolStripMenuItem1_Click);
             // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(168, 6);
+            // 
             // categoriasToolStripMenuItem1
             // 
             this.categoriasToolStripMenuItem1.Name = "categoriasToolStripMenuItem1";
@@ -158,12 +175,22 @@
             this.categoriasToolStripMenuItem1.Text = "&Categorias";
             this.categoriasToolStripMenuItem1.Click += new System.EventHandler(this.categoriasToolStripMenuItem1_Click);
             // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(168, 6);
+            // 
             // cuentasPorPagarToolStripMenuItem
             // 
             this.cuentasPorPagarToolStripMenuItem.Name = "cuentasPorPagarToolStripMenuItem";
             this.cuentasPorPagarToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.cuentasPorPagarToolStripMenuItem.Text = "Cuentas por Pagar";
+            this.cuentasPorPagarToolStripMenuItem.Text = "Cue&ntas por Pagar";
             this.cuentasPorPagarToolStripMenuItem.Click += new System.EventHandler(this.cuentasPorPagarToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(168, 6);
             // 
             // consultasToolStripMenuItem
             // 
@@ -238,6 +265,23 @@
             this.entradasToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.entradasToolStripMenuItem.Text = "&Entradas";
             this.entradasToolStripMenuItem.Click += new System.EventHandler(this.entradasToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(168, 6);
+            // 
+            // cuentasPorPagarToolStripMenuItem1
+            // 
+            this.cuentasPorPagarToolStripMenuItem1.Name = "cuentasPorPagarToolStripMenuItem1";
+            this.cuentasPorPagarToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.cuentasPorPagarToolStripMenuItem1.Text = "Cue&ntas por Pagar";
+            this.cuentasPorPagarToolStripMenuItem1.Click += new System.EventHandler(this.cuentasPorPagarToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator12
+            // 
+            this.toolStripSeparator12.Name = "toolStripSeparator12";
+            this.toolStripSeparator12.Size = new System.Drawing.Size(168, 6);
             // 
             // ventanaToolStripMenuItem
             // 
@@ -318,47 +362,12 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 55);
             // 
-            // cuentasPorPagarToolStripMenuItem1
+            // cuentasToolStripMenuItem1
             // 
-            this.cuentasPorPagarToolStripMenuItem1.Name = "cuentasPorPagarToolStripMenuItem1";
-            this.cuentasPorPagarToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
-            this.cuentasPorPagarToolStripMenuItem1.Text = "Cuentas por Pagar";
-            this.cuentasPorPagarToolStripMenuItem1.Click += new System.EventHandler(this.cuentasPorPagarToolStripMenuItem1_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(168, 6);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(168, 6);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(168, 6);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(168, 6);
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(168, 6);
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(168, 6);
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(168, 6);
+            this.cuentasToolStripMenuItem1.Name = "cuentasToolStripMenuItem1";
+            this.cuentasToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.cuentasToolStripMenuItem1.Text = "Cuent&as";
+            this.cuentasToolStripMenuItem1.Click += new System.EventHandler(this.cuentasToolStripMenuItem1_Click);
             // 
             // Portada
             // 
@@ -425,6 +434,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
+        private System.Windows.Forms.ToolStripMenuItem cuentasToolStripMenuItem1;
     }
 }
 

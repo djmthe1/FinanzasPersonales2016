@@ -231,7 +231,7 @@
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.GuardarButton);
             this.Name = "CuentasxPagarForm";
-            this.Text = "CuentasxPagarForm";
+            this.Text = "Cuentas por Pagar";
             this.Load += new System.EventHandler(this.CuentasxPagarForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

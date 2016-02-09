@@ -97,5 +97,11 @@ namespace FinanzasPersonales
             ConsultaCuentasxPagar CcuentasxPagar = new ConsultaCuentasxPagar();
             CcuentasxPagar.Show();
         }
+
+        private void cuentasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Registros.CuentasForm cuentasF = new Registros.CuentasForm();
+            cuentasF.Show();
+        }
     }
 }

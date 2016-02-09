@@ -128,7 +128,7 @@
             this.Controls.Add(this.comboBoxCampos);
             this.Controls.Add(this.buttonBuscar);
             this.Name = "ConsultaCuentasxPagar";
-            this.Text = "ConsultaCuentasxPagar";
+            this.Text = "Consulta Cuentas por Pagar";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConsulta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
