@@ -43,7 +43,11 @@ namespace BLL.Tests
         [TestMethod()]
         public void EliminarTest()
         {
-            Assert.Fail();
+            Categorias categorias = new Categorias();
+            categorias.Descripcion = "LA PRUEBA";
+            categorias.CategoriaId = 1;
+            bool prueba = categorias.Eliminar();
+            Assert.IsTrue(prueba);
         }
 
         [TestMethod()]
