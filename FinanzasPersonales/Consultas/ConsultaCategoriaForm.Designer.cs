@@ -41,9 +41,13 @@
             // 
             // ConsultaCategoriaDataGridView
             // 
+            this.ConsultaCategoriaDataGridView.AllowUserToAddRows = false;
+            this.ConsultaCategoriaDataGridView.AllowUserToDeleteRows = false;
+            this.ConsultaCategoriaDataGridView.AllowUserToOrderColumns = true;
             this.ConsultaCategoriaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ConsultaCategoriaDataGridView.Location = new System.Drawing.Point(15, 50);
             this.ConsultaCategoriaDataGridView.Name = "ConsultaCategoriaDataGridView";
+            this.ConsultaCategoriaDataGridView.ReadOnly = true;
             this.ConsultaCategoriaDataGridView.Size = new System.Drawing.Size(541, 294);
             this.ConsultaCategoriaDataGridView.TabIndex = 0;
             // 
@@ -58,18 +62,16 @@
             // FiltrocomboBox
             // 
             this.FiltrocomboBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.FiltrocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrocomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FiltrocomboBox.FormattingEnabled = true;
-            this.FiltrocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrocomboBox.Items.AddRange(new object[] {
             "CategoriaId",
             "Descripción"});
-            
             this.FiltrocomboBox.Location = new System.Drawing.Point(90, 17);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
             this.FiltrocomboBox.Size = new System.Drawing.Size(147, 21);
             this.FiltrocomboBox.TabIndex = 2;
-            
             // 
             // ConteoLabel
             // 
