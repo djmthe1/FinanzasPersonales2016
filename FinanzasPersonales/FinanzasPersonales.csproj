@@ -74,6 +74,12 @@
     <Compile Include="Consultas\ConsultaCuentas.Designer.cs">
       <DependentUpon>ConsultaCuentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\ConsultaCuentasxPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaCuentasxPagar.Designer.cs">
+      <DependentUpon>ConsultaCuentasxPagar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\ConsultaEntradas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,12 @@
     </Compile>
     <Compile Include="Registros\CategoriasForm.designer.cs">
       <DependentUpon>CategoriasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\CuentasxPagarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\CuentasxPagarForm.Designer.cs">
+      <DependentUpon>CuentasxPagarForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Registros\EntradasForm.cs">
       <SubType>Form</SubType>
