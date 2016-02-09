@@ -18,12 +18,21 @@ namespace FinanzasPersonales.Registros
             InitializeComponent();
         }
 
-        Transferencias transferencias = new Transferencias();
-        Cuentas cuentas = new Cuentas();
-        //Usuarios usuarios = new Usuarios();
+        public Transferencias transferencias = new Transferencias();
+        public Cuentas cuentas = new Cuentas();
+        public Usuarios usuarios = new Usuarios();
+        public DataTable dato = new DataTable();
 
         private void TransferenciasForm_Load(object sender, EventArgs e)
         {
+            dato = cuentas.Listado("*", "0=0", "ORDER BY CuentaId");
+
+            for (int i = 0; i <= dato.Rows.Count - 1; i++)
+            {
+                comboBoxCuentaOrigen.Items.Add(cuentas.Listado("*", "0=0", "ORDER BY CuentaId").Rows[i]["CuentaId"]);
+                comboBoxCuentaDestino.Items.Add(cuentas.Listado("*", "0=0", "ORDER BY CuentaId").Rows[i]["CuentaId"]);
+            }
+
 
         }
 
@@ -92,10 +101,7 @@ namespace FinanzasPersonales.Registros
         private void Limpiar()
         {
             textBoxId.Clear();
-            textBoxUsuario.Clear();
             textBoxMonto.Clear();
-            textBoxCuentaDeOrigenId.Clear();
-            textBoxCuentaDeDestinoId.Clear();
             textBoxObservacion.Clear();
         }
 
@@ -104,20 +110,30 @@ namespace FinanzasPersonales.Registros
             int transferenciaId = 0;
             int.TryParse(textBoxId.Text, out transferenciaId);
             transferencias.TransferenciaId = transferenciaId;
-            int usuarioId = 0;
-            int.TryParse(textBoxUsuario.Text, out usuarioId);
-            transferencias.UsuarioId = usuarioId;
             float monto = 0;
             float.TryParse(textBoxMonto.Text, out monto);
             transferencias.Monto = monto;
-            int origen = 0;
-            int.TryParse(textBoxCuentaDeOrigenId.Text, out origen);
-            transferencias.CuentaDeOrigenId = origen;
-            int destino = 0;
-            int.TryParse(textBoxCuentaDeDestinoId.Text, out destino);
-            transferencias.CuentaDeDestinoId = destino;
             transferencias.Fecha = dateTimePickerTransferencia.Text;
+            transferencias.UsuarioId = usuarios.UsuarioId;
             transferencias.Observacion = textBoxObservacion.Text;
+            transferencias.OrigenId = int.Parse(comboBoxCuentaOrigen.Text);
+           // transferencias.DestinoId = int.Parse(comboBoxCuentaDestino.Text);
+        }
+
+
+
+        private void DevolverValores()
+        {
+            textBoxId.Text = transferencias.TransferenciaId.ToString();
+            dateTimePickerTransferencia.Text = transferencias.Fecha.ToString();
+            textBoxMonto.Text = transferencias.Monto.ToString();
+            comboBoxCuentaOrigen.Text = transferencias.OrigenId.ToString();
+            comboBoxCuentaDestino.Text = transferencias.DestinoId.ToString();
+            textBoxObservacion.Text = transferencias.Observacion;
+            textBoxDescricionCuentaOrigen.Text = cuentas.Descripcion;
+            textBoxMontoCuentaOrigen.Text = cuentas.Balance.ToString();
+            textBoxDescripcionCuentaDestino.Text = cuentas.Descripcion;
+            textBoxMontoCuentaDestino.Text = cuentas.Balance.ToString();
         }
 
         private void buttonBuscarId_Click(object sender, EventArgs e)
@@ -125,13 +141,7 @@ namespace FinanzasPersonales.Registros
                 ObtenerValores();
                 if (transferencias.Buscar(transferencias.TransferenciaId))
                 {
-                    textBoxId.Text = transferencias.TransferenciaId.ToString();
-                    dateTimePickerTransferencia.Text = transferencias.Fecha.ToString();
-                    textBoxUsuario.Text = transferencias.UsuarioId.ToString();
-                    textBoxMonto.Text = Convert.ToString(transferencias.Monto);
-                    textBoxCuentaDeOrigenId.Text = transferencias.CuentaDeOrigenId.ToString();
-                    textBoxCuentaDeDestinoId.Text = transferencias.CuentaDeDestinoId.ToString();
-                    textBoxObservacion.Text = transferencias.Observacion;
+                     DevolverValores();
                 }
                 else
                 {
@@ -140,13 +150,13 @@ namespace FinanzasPersonales.Registros
                 }
         }
 
-        private void buttonBuscarCuentaOrigen_Click(object sender, EventArgs e)
+
+        private void comboBoxCuentaOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
             ObtenerValores();
-            if (cuentas.Buscar(transferencias.CuentaDeOrigenId))
+            if (cuentas.Buscar(transferencias.OrigenId))
             {
-                textBoxDescricionCuentaOrigen.Text = cuentas.Descripcion.ToString();
-                textBoxMontoCuentaOrigen.Text = cuentas.Balance.ToString();
+                DevolverValores();
             }
             else
             {
@@ -155,13 +165,12 @@ namespace FinanzasPersonales.Registros
             }
         }
 
-        private void buttonBuscarCuentaDestino_Click(object sender, EventArgs e)
+        private void comboBoxCuentaDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
             ObtenerValores();
-            if (cuentas.Buscar(transferencias.CuentaDeDestinoId))
+            if (cuentas.Buscar(transferencias.DestinoId))
             {
-                textBoxDescripcionCuentaDestino.Text = cuentas.Descripcion.ToString();
-                textBoxMontoCuentaDestino.Text = cuentas.Balance.ToString();
+                DevolverValores();
             }
             else
             {
@@ -181,7 +190,7 @@ namespace FinanzasPersonales.Registros
 
                 if (textBoxId.Text == "")
                 {
-                    if (textBoxUsuario.Text != "" || textBoxMonto.Text != "" || textBoxCuentaDeOrigenId.Text != "" || textBoxCuentaDeDestinoId.Text != "" || textBoxObservacion.Text != "")
+                    if (textBoxMonto.Text != "" || comboBoxCuentaOrigen.Text != "" || comboBoxCuentaDestino.Text != "" || textBoxObservacion.Text != "")
                     {
                         if (transferencias.Insertar())
                         {
@@ -200,7 +209,7 @@ namespace FinanzasPersonales.Registros
                 }
                 else
                 {
-                    if (textBoxUsuario.Text != "" || textBoxMonto.Text != "" || textBoxCuentaDeOrigenId.Text != "" || textBoxCuentaDeDestinoId.Text != "")
+                    if (textBoxMonto.Text != "" || comboBoxCuentaOrigen.Text != "" || comboBoxCuentaDestino.Text != "")
                     {
                         if (transferencias.Editar())
                         {
