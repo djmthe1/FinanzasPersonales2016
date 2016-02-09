@@ -59,7 +59,16 @@ namespace BLL.Tests
         [TestMethod()]
         public void BuscarTest()
         {
-            Assert.Fail();
+            Categorias categorias = new Categorias();
+
+            int buscar=1;
+            categorias.Descripcion = "LA PRUEBA";
+            categorias.CategoriaId = 1;
+            categorias.Insertar();
+
+            bool paso = categorias.Buscar(buscar);
+
+            Assert.IsTrue(paso);
         }
 
         [TestMethod()]
