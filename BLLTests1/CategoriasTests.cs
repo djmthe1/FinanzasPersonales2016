@@ -37,7 +37,13 @@ namespace BLL.Tests
         [TestMethod()]
         public void EditarTest()
         {
-            Assert.Fail();
+            Categorias categoria = new Categorias();
+            categoria.CategoriaId = 1;
+            categoria.Descripcion = "LAS PRUEBAS";
+
+            bool paso = categoria.Editar();
+
+            Assert.IsTrue(paso);
         }
 
         [TestMethod()]
