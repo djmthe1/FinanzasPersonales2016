@@ -25,31 +25,62 @@ namespace BLL.Tests
         [TestMethod()]
         public void InsertarTest()
         {
-            Assert.Fail();
+            Transferencias transferencias = new Transferencias();
+
+            transferencias.Fecha = "12/12/1015";
+            transferencias.OrigenId = 1;
+            transferencias.DestinoId = 1;
+            transferencias.Monto = 1500;
+            transferencias.Observacion = "Nada";
+            transferencias.UsuarioId = 1;
+            bool inserto = transferencias.Insertar();
+            Assert.IsTrue(inserto);
         }
 
         [TestMethod()]
         public void EditarTest()
         {
-            Assert.Fail();
+            Transferencias transferencias = new Transferencias();
+
+            transferencias.TransferenciaId = 1;
+            transferencias.Fecha = "12/12/1015";
+            transferencias.OrigenId = 1;
+            transferencias.DestinoId = 1;
+            transferencias.Monto = 1500;
+            transferencias.Observacion = "Nada";
+            transferencias.UsuarioId = 1;
+            bool edito = transferencias.Editar();
+            Assert.IsTrue(edito);
         }
 
         [TestMethod()]
         public void EliminarTest()
         {
-            Assert.Fail();
+            Transferencias transferencias = new Transferencias();
+
+            transferencias.TransferenciaId = 1;
+            bool elimino = transferencias.Eliminar();
+            Assert.IsTrue(elimino);
         }
 
         [TestMethod()]
         public void BuscarTest()
         {
-            Assert.Fail();
+            Transferencias transferencias = new Transferencias();
+
+            transferencias.TransferenciaId = 1;
+            bool busco = transferencias.Buscar(transferencias.TransferenciaId);
+            Assert.IsTrue(busco);
         }
 
         [TestMethod()]
         public void ListadoTest()
         {
-            Assert.Fail();
+            Transferencias transferencias = new Transferencias();
+
+            transferencias.TransferenciaId = 1;
+
+            //Assert.IsTrue(transferencias.Listado(" * ", " 1=1 ", "").Rows.Count > 0);
         }
     }
 }
