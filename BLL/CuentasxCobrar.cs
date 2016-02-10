@@ -67,17 +67,41 @@ namespace BLL
 
         public override bool Editar()
         {
-            throw new NotImplementedException();
+            bool retorna = false;
+            try
+            {
+                retorna = conexion.Ejecutar(string.Format("update CuentasxCobrar set Fecha= '{0}',CuentaId = '{1}',Concepto = '{2}',Monto = '{3}',Balance = '{4}' where CxcId= '{5}' ",this.Fecha,this.CuentaId,this.Copcepto,this.Monto,this.Balance,this.CxcId));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorna;
         }
 
         public override bool Eliminar()
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            try
+            { 
+                retorno = conexion.Ejecutar(String.Format(" delete from CuentasxCobrar CxcId = {0}  ", this.CxcId));
+                retorno = true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return retorno;
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            throw new NotImplementedException();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Orden by  " + Orden;
+
+            return conexion.ObtenerDatos("Select " + Campos + " From CuentasxCobrar Where " + Condicion + Orden);
         }
     }
 }
