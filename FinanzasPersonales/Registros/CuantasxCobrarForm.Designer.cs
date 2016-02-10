@@ -158,6 +158,8 @@
             // 
             this.ComboBoxCuentaId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxCuentaId.FormattingEnabled = true;
+            this.ComboBoxCuentaId.Items.AddRange(new object[] {
+            "1"});
             this.ComboBoxCuentaId.Location = new System.Drawing.Point(163, 85);
             this.ComboBoxCuentaId.Name = "ComboBoxCuentaId";
             this.ComboBoxCuentaId.Size = new System.Drawing.Size(81, 21);
@@ -244,7 +246,9 @@
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.NuevoButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "CuantasxCobrarForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resgistro Cuentas por Cobrar";
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCuentasxCobrar)).EndInit();
             this.ResumeLayout(false);

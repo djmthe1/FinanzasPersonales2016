@@ -109,5 +109,12 @@ namespace FinanzasPersonales
             CategoriasForm categorias = new CategoriasForm();
             categorias.Show();
         }
+
+        private void cuentasPorCobrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.CuantasxCobrarForm CxCobrar = new Registros.CuantasxCobrarForm();
+            CxCobrar.Show();
+
+        }
     }
 }

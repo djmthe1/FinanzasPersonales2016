@@ -158,17 +158,27 @@ namespace FinanzasPersonales.Registros
                 ValidarTexbox(textBoxConcepto);
                 ValidarTexbox(TextBoxMonto);
                 ValidarTexbox(TextBoxBalance);
-                if (CxcIdTextBox.Text== ""&& ComboBoxCuentaId.Text !="" && textBoxConcepto.Text != "" && TextBoxMonto.Text !="" && TextBoxBalance.Text != "")
+                if (CxcIdTextBox.Text== "")
                 {
-                    if (CxC.Insertar())
+                    if ( ComboBoxCuentaId.Text != "" && textBoxConcepto.Text != "" && TextBoxMonto.Text != "" && TextBoxBalance.Text != "")
                     {
-                        Mensajes(1, "Guardado Correctamente!");
-                        Limpiar();
+
+                        if (CxC.Insertar())
+                        {
+                            Mensajes(1, "Guardado Correctamente!");
+                            Limpiar();
+                        }
+                        else
+                        {
+                            Mensajes(2, "Error en Guardar!");
+                            Limpiar();
+                        }
                     }
                     else
                     {
-                        Mensajes(2, "Error en Guardar!");
+                        Mensajes(3, "No debe de haber campos Vacios!");
                         Limpiar();
+                        textBoxConcepto.Focus();
                     }
                 }
                 else
