@@ -7,6 +7,17 @@ go
 Create table Categorias(CategoriaId int identity(1,1),
 Descripcion varchar(100))
 go
+create table CuentasxCobrar(
+
+	CxcId int identity(1,1),
+	Fecha varchar(20),
+	CuientaId int,
+	concepto varchar(100),
+	Monto float,
+	Balance float
+	primary key(CxcId)
+)
+go
 create table Transferencias(
 	TransferenciaId int identity primary key,
     Fecha varchar(20),
