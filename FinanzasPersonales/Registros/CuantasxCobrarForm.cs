@@ -152,12 +152,93 @@ namespace FinanzasPersonales.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                LlenarDatos();
+                ValidarTexbox(textBoxConcepto);
+                ValidarTexbox(TextBoxMonto);
+                ValidarTexbox(TextBoxBalance);
+                if (CxcIdTextBox.Text== ""&& ComboBoxCuentaId.Text !="" && textBoxConcepto.Text != "" && TextBoxMonto.Text !="" && TextBoxBalance.Text != "")
+                {
+                    if (CxC.Insertar())
+                    {
+                        Mensajes(1, "Guardado Correctamente!");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        Mensajes(2, "Error en Guardar!");
+                        Limpiar();
+                    }
+                }
+                else
+                {
+                    ValidarTexbox(CxcIdTextBox);
+                    ValidarTexbox(textBoxConcepto);
+                    ValidarTexbox(TextBoxMonto);
+                    ValidarTexbox(TextBoxBalance);
+                    if (CxC.Buscar(int.Parse(CxcIdTextBox.Text)) && ComboBoxCuentaId.Text != "" && textBoxConcepto.Text != "" && TextBoxMonto.Text != "" && TextBoxBalance.Text != "")
+                    {
+                        if (CxC.Editar())
+                        {
+                            Mensajes(1, "Modificado Correctamente!");
+                            Limpiar();
+                        }
+                        else
+                        {
+                            Mensajes(2, "Error en Modificar.");
+                        }
+                    }
+                    else
+                    {
+                        Mensajes(3, "Id No Existe!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                LlenarDatos();
+                DialogResult resut;
+                //Dialogo para confirmar que se desea Eliminar...
+                resut = MessageBox.Show("¿Esta seguro que desea eliminar?", "Meensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resut == DialogResult.Yes)
+                {
 
+                    if (CxC.Buscar(int.Parse(CxcIdTextBox.Text)))
+                    {
+                        if (CxC.Eliminar())
+                        {
+                            Mensajes(1, "Eliminado Correctamente!");
+                            Limpiar();
+                            EliminarButton.Enabled = false;
+                        }
+                        else
+                        {
+                            Mensajes(2, "Error en Eliminar!");
+                            Limpiar();
+                        }
+                    }
+                    else
+                    {
+                        Mensajes(1, "Id No Encontrado!");
+                        CxcIdTextBox.Focus();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }
