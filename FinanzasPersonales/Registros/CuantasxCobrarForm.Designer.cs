@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CuantasxCobrarForm));
             this.NuevoButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
@@ -45,6 +46,8 @@
             this.textBoxConcepto = new System.Windows.Forms.TextBox();
             this.TextBoxMonto = new System.Windows.Forms.TextBox();
             this.TextBoxBalance = new System.Windows.Forms.TextBox();
+            this.errorProviderCuentasxCobrar = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCuentasxCobrar)).BeginInit();
             this.SuspendLayout();
             // 
             // NuevoButton
@@ -58,6 +61,7 @@
             this.NuevoButton.Text = "Nuevo";
             this.NuevoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
             // GuardarButton
             // 
@@ -71,6 +75,7 @@
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // EliminarButton
             // 
@@ -84,6 +89,7 @@
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // BuscarButton
             // 
@@ -99,6 +105,7 @@
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // CxcIdTextBox
             // 
@@ -211,6 +218,10 @@
             this.TextBoxBalance.TabIndex = 19;
             this.TextBoxBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxBalance_KeyPress);
             // 
+            // errorProviderCuentasxCobrar
+            // 
+            this.errorProviderCuentasxCobrar.ContainerControl = this;
+            // 
             // CuantasxCobrarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,6 +246,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CuantasxCobrarForm";
             this.Text = "Resgistro Cuentas por Cobrar";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCuentasxCobrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,5 +270,6 @@
         private System.Windows.Forms.TextBox textBoxConcepto;
         private System.Windows.Forms.TextBox TextBoxMonto;
         private System.Windows.Forms.TextBox TextBoxBalance;
+        private System.Windows.Forms.ErrorProvider errorProviderCuentasxCobrar;
     }
 }
