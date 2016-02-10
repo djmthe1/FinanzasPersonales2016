@@ -7,7 +7,7 @@ using DAL;
 
 namespace BLL
 {
-    class CuentasxCobrar : ClaseMaestra
+   public class CuentasxCobrar : ClaseMaestra
 
     {
         ConexionDb conexion = new ConexionDb();
@@ -51,9 +51,8 @@ namespace BLL
                     this.Fecha = datatable.Rows[0]["Fecha"].ToString();
                     this.CuentaId = (int)datatable.Rows[0]["CuentaId"];
                     this.Copcepto = datatable.Rows[0]["Concepto"].ToString();
-                    this.Monto = (float)datatable.Rows[0]["Monto"];
-                    this.Balance = (float)datatable.Rows[0]["Balance"];
-                   
+                    this.Monto = (float)Convert.ToDecimal(datatable.Rows[0]["Monto"]);
+                  this.Balance = (float)Convert.ToDecimal(datatable.Rows[0]["Balance"]);
                 }
 
             }

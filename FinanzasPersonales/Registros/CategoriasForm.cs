@@ -102,10 +102,10 @@ namespace FinanzasPersonales
         private void GuardarButton_Click(object sender, EventArgs e)
         {
 
-            try
+           try
             {
                 Validar(DescripcionTextBox);   
-                    if (CategoriaIDTextBox.Text == "" && DescripcionTextBox.Text != "")
+             if ((CategoriaIDTextBox.Text == "")  && (DescripcionTextBox.Text != ""))
                 {
                     
                         LlenarDatos(categoria);
@@ -121,7 +121,8 @@ namespace FinanzasPersonales
                 }
                 else
                 {
-                    if (CategoriaIDTextBox.Text!= "" &&categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)) && DescripcionTextBox.Text != "")
+
+                    if (CategoriaIDTextBox.Text!= "" && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)) && DescripcionTextBox.Text != "")
                     {
                         LlenarDatos(categoria);
                         if (categoria.Editar())
