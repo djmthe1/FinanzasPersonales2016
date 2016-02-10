@@ -247,6 +247,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\1453635934_ChirstmaxShop_transaction.ico" />
+    <None Include="Resources\1455099110_categories.png" />
     <None Include="Resources\fail.png" />
     <None Include="Resources\Save.png" />
     <None Include="Resources\Add.png" />

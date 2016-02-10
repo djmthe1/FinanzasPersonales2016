@@ -103,5 +103,11 @@ namespace FinanzasPersonales
             Registros.CuentasForm cuentasF = new Registros.CuentasForm();
             cuentasF.Show();
         }
+
+        private void toolStripCategorias_Click(object sender, EventArgs e)
+        {
+            CategoriasForm categorias = new CategoriasForm();
+            categorias.Show();
+        }
     }
 }

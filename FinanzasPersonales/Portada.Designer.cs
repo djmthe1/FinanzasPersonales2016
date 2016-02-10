@@ -44,6 +44,7 @@
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.cuentasPorPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.cuentasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -67,7 +68,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonTransferencias = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.cuentasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripCategorias = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -192,6 +193,13 @@
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             this.toolStripSeparator10.Size = new System.Drawing.Size(168, 6);
             // 
+            // cuentasToolStripMenuItem1
+            // 
+            this.cuentasToolStripMenuItem1.Name = "cuentasToolStripMenuItem1";
+            this.cuentasToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.cuentasToolStripMenuItem1.Text = "Cuent&as";
+            this.cuentasToolStripMenuItem1.Click += new System.EventHandler(this.cuentasToolStripMenuItem1_Click);
+            // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -286,7 +294,7 @@
             // ventanaToolStripMenuItem
             // 
             this.ventanaToolStripMenuItem.Name = "ventanaToolStripMenuItem";
-            this.ventanaToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.ventanaToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.ventanaToolStripMenuItem.Text = "&Ventana";
             // 
             // ayudaToolStripMenuItem
@@ -326,7 +334,8 @@
             this.toolStripButton1,
             this.toolStripSeparator1,
             this.toolStripButtonTransferencias,
-            this.toolStripSeparator5});
+            this.toolStripSeparator5,
+            this.toolStripCategorias});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(737, 55);
@@ -362,12 +371,15 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 55);
             // 
-            // cuentasToolStripMenuItem1
+            // toolStripCategorias
             // 
-            this.cuentasToolStripMenuItem1.Name = "cuentasToolStripMenuItem1";
-            this.cuentasToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
-            this.cuentasToolStripMenuItem1.Text = "Cuent&as";
-            this.cuentasToolStripMenuItem1.Click += new System.EventHandler(this.cuentasToolStripMenuItem1_Click);
+            this.toolStripCategorias.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripCategorias.Image = global::FinanzasPersonales.Properties.Resources._1455099110_categories;
+            this.toolStripCategorias.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripCategorias.Name = "toolStripCategorias";
+            this.toolStripCategorias.Size = new System.Drawing.Size(52, 52);
+            this.toolStripCategorias.Text = "Categorias";
+            this.toolStripCategorias.Click += new System.EventHandler(this.toolStripCategorias_Click);
             // 
             // Portada
             // 
@@ -435,6 +447,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripMenuItem cuentasToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripButton toolStripCategorias;
     }
 }
 
