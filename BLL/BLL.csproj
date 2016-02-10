@@ -43,6 +43,7 @@
     <Compile Include="Categorias.cs" />
     <Compile Include="ClaseMaestra.cs" />
     <Compile Include="Cuentas.cs" />
+    <Compile Include="CuentasxCobrar.cs" />
     <Compile Include="CuentasxPagar.cs" />
     <Compile Include="Entradas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
