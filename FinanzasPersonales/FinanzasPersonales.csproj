@@ -118,6 +118,12 @@
     <Compile Include="Registros\CategoriasForm.designer.cs">
       <DependentUpon>CategoriasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros\CuantasxCobrarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\CuantasxCobrarForm.Designer.cs">
+      <DependentUpon>CuantasxCobrarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros\CuentasForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </Compile>
     <EmbeddedResource Include="Registros\CategoriasForm.resx">
       <DependentUpon>CategoriasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\CuantasxCobrarForm.resx">
+      <DependentUpon>CuantasxCobrarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\CuentasForm.resx">
       <DependentUpon>CuentasForm.cs</DependentUpon>

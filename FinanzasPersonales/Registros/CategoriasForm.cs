@@ -121,6 +121,7 @@ namespace FinanzasPersonales
                 }
                 else
                 {
+    
 
                     if (CategoriaIDTextBox.Text!= "" && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)) && DescripcionTextBox.Text != "")
                     {
