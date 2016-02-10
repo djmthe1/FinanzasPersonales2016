@@ -11,11 +11,12 @@ create table CuentasxCobrar(
 
 	CxcId int identity(1,1),
 	Fecha varchar(20),
-	CuientaId int,
+	CuentaId int foreign key References Cuentas(CuentaId),
 	concepto varchar(100),
 	Monto float,
-	Balance float
+	Balance float,
 	primary key(CxcId)
+
 )
 go
 create table Transferencias(
