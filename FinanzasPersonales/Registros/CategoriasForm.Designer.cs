@@ -131,6 +131,7 @@
             this.GuardarButton.Size = new System.Drawing.Size(68, 51);
             this.GuardarButton.TabIndex = 4;
             this.GuardarButton.Text = "Guardar";
+            this.GuardarButton.Enabled = false;
             this.GuardarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.GuardarButton.UseVisualStyleBackColor = true;
             this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
