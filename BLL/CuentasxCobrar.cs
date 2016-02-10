@@ -31,7 +31,7 @@ namespace BLL
             bool retorna = false;
             try
             {
-                retorna = conexion.Ejecutar(string.Format("insert into CuentasxCobrar(Fecha,Concepto,Monto,Balance) values('{0}','{1}','{2}','{3}')", this.Fecha, this.Copcepto, this.Monto, this.Balance));
+                retorna = conexion.Ejecutar(string.Format("insert into CuentasxCobrar(Fecha,CuentaId,Concepto,Monto,Balance) values('{0}','{1}','{2}','{3}','{4}')", this.Fecha,this.CuentaId, this.Copcepto, this.Monto, this.Balance));
             }
             catch (Exception ex)
             {
@@ -42,7 +42,27 @@ namespace BLL
         }
         public override bool Buscar(int IdBuscado)
         {
-            throw new NotImplementedException();
+            DataTable datatable = new DataTable();
+            try
+            {
+                datatable = conexion.ObtenerDatos(string.Format("select * from CuantasxCobrar where CxcId=" + IdBuscado));
+                if (datatable.Rows.Count > 0)
+                {
+                    this.Fecha = datatable.Rows[0]["Fecha"].ToString();
+                    this.CuentaId = (int)datatable.Rows[0]["CuentaId"];
+                    this.Copcepto = datatable.Rows[0]["Concepto"].ToString();
+                    this.Monto = (float)datatable.Rows[0]["Monto"];
+                    this.Balance = (float)datatable.Rows[0]["Balance"];
+                   
+                }
+
+            }
+            catch (Exception exc)
+            {
+
+                throw exc;
+            }
+            return datatable.Rows.Count > 0;
         }
 
         public override bool Editar()
