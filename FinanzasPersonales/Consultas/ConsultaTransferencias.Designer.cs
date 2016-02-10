@@ -59,8 +59,8 @@
             this.comboBoxCampos.Items.AddRange(new object[] {
             "TransferenciaId",
             "Fecha",
-            "Cuenta De Origen",
-            "Cuenta De Destino",
+            "CuentaDeOrigenId",
+            "CuentaDeDestinoId",
             "Monto",
             "Observacion",
             "UsuarioId"});

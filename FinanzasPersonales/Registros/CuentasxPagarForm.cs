@@ -82,7 +82,7 @@ namespace FinanzasPersonales.Registros
             float.TryParse(textBoxMonto.Text, out monto);
             cuentasxP.Monto = monto;
             float balance = 0;
-            float.TryParse(textBoxMonto.Text, out balance);
+            float.TryParse(textBoxBalance.Text, out balance);
             cuentasxP.Balance = balance;
         }
 
@@ -128,7 +128,7 @@ namespace FinanzasPersonales.Registros
 
             if (textBoxId.Text == "")
             {
-                if (textBoxConcepto.Text != "" || textBoxMonto.Text != "" || textBoxBalance.Text != "")
+                if (textBoxConcepto.Text != "" && textBoxMonto.Text != "" && textBoxBalance.Text != "")
                 {
                     if (cuentasxP.Insertar())
                     {
@@ -147,7 +147,7 @@ namespace FinanzasPersonales.Registros
             }
             else
             {
-                if (textBoxConcepto.Text != "" || textBoxMonto.Text != "" || textBoxBalance.Text != "")
+                if (textBoxConcepto.Text != "" && textBoxMonto.Text != "" && textBoxBalance.Text != "")
                 {
                     if (cuentasxP.Editar())
                     {

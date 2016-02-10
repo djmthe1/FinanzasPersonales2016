@@ -113,7 +113,7 @@ namespace FinanzasPersonales.Registros
 
             if (textBoxId.Text == "")
             {
-                if (textBoxDescripcion.Text != "" || textBoxBalance.Text != "")
+                if (textBoxDescripcion.Text != "" && textBoxBalance.Text != "")
                 {
                     if (cuentas.Insertar())
                     {
@@ -132,7 +132,7 @@ namespace FinanzasPersonales.Registros
             }
             else
             {
-                if (textBoxDescripcion.Text != "" || textBoxBalance.Text != "")
+                if (textBoxDescripcion.Text != "" && textBoxBalance.Text != "")
                 {
                     if (cuentas.Editar())
                     {

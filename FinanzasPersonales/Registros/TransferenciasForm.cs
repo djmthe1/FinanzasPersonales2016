@@ -216,7 +216,7 @@ namespace FinanzasPersonales.Registros
                 ObtenerValores();
                 if (textBoxId.Text == "")
                 {
-                    if (textBoxMonto.Text != "" || comboBoxCuentaOrigen.Text != "" || comboBoxCuentaDestino.Text != "" || textBoxObservacion.Text != "" || textBoxDescripcionCuentaDestino.Text != "")
+                    if (textBoxMonto.Text != "" && comboBoxCuentaOrigen.Text != "" && comboBoxCuentaDestino.Text != "" && textBoxObservacion.Text != "" && textBoxDescripcionCuentaDestino.Text != "")
                     {
                         Verificar();
                         if (MontoOrigen >= MontoTransferir) { 
@@ -245,7 +245,7 @@ namespace FinanzasPersonales.Registros
                 Verificar();
                 if (MontoOrigen >= MontoTransferir)
                 {
-                    if (textBoxMonto.Text != "" || comboBoxCuentaOrigen.Text != "" || comboBoxCuentaDestino.Text != "")
+                    if (textBoxMonto.Text != "" && textBoxMontoCuentaOrigen.Text != "" && textBoxDescripcionCuentaDestino.Text != "")
                     {
                         if (transferencias.Editar())
                         {

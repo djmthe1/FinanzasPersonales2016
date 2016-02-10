@@ -90,13 +90,11 @@
             this.comboBoxCampos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCampos.FormattingEnabled = true;
             this.comboBoxCampos.Items.AddRange(new object[] {
-            "TransferenciaId",
+            "CxpId",
             "Fecha",
-            "Cuenta De Origen",
-            "Cuenta De Destino",
+            "Concepto",
             "Monto",
-            "Observacion",
-            "UsuarioId"});
+            "Balance"});
             this.comboBoxCampos.Location = new System.Drawing.Point(95, 8);
             this.comboBoxCampos.Name = "comboBoxCampos";
             this.comboBoxCampos.Size = new System.Drawing.Size(121, 21);
