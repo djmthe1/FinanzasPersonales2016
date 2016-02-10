@@ -38,7 +38,7 @@
             this.LabelFecha = new System.Windows.Forms.Label();
             this.dateTimePickerCuentasxCobrar = new System.Windows.Forms.DateTimePicker();
             this.LabelCuentaId = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ComboBoxCuentaId = new System.Windows.Forms.ComboBox();
             this.LabelConcepto = new System.Windows.Forms.Label();
             this.LabelMonto = new System.Windows.Forms.Label();
             this.LabelBalance = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             // 
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.Image = ((System.Drawing.Image)(resources.GetObject("NuevoButton.Image")));
-            this.NuevoButton.Location = new System.Drawing.Point(41, 243);
+            this.NuevoButton.Location = new System.Drawing.Point(44, 293);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(64, 51);
             this.NuevoButton.TabIndex = 4;
@@ -64,7 +64,7 @@
             this.GuardarButton.Enabled = false;
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
-            this.GuardarButton.Location = new System.Drawing.Point(222, 243);
+            this.GuardarButton.Location = new System.Drawing.Point(218, 293);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(68, 51);
             this.GuardarButton.TabIndex = 5;
@@ -77,7 +77,7 @@
             this.EliminarButton.Enabled = false;
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.Image = ((System.Drawing.Image)(resources.GetObject("EliminarButton.Image")));
-            this.EliminarButton.Location = new System.Drawing.Point(406, 243);
+            this.EliminarButton.Location = new System.Drawing.Point(406, 293);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(72, 51);
             this.EliminarButton.TabIndex = 6;
@@ -107,6 +107,7 @@
             this.CxcIdTextBox.Name = "CxcIdTextBox";
             this.CxcIdTextBox.Size = new System.Drawing.Size(81, 20);
             this.CxcIdTextBox.TabIndex = 9;
+            this.CxcIdTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CxcIdTextBox_KeyPress);
             // 
             // label1
             // 
@@ -146,13 +147,14 @@
             this.LabelCuentaId.TabIndex = 12;
             this.LabelCuentaId.Text = "CuentaId:";
             // 
-            // comboBox1
+            // ComboBoxCuentaId
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(163, 85);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(81, 21);
-            this.comboBox1.TabIndex = 13;
+            this.ComboBoxCuentaId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ComboBoxCuentaId.FormattingEnabled = true;
+            this.ComboBoxCuentaId.Location = new System.Drawing.Point(163, 85);
+            this.ComboBoxCuentaId.Name = "ComboBoxCuentaId";
+            this.ComboBoxCuentaId.Size = new System.Drawing.Size(81, 21);
+            this.ComboBoxCuentaId.TabIndex = 13;
             // 
             // LabelConcepto
             // 
@@ -168,7 +170,7 @@
             // 
             this.LabelMonto.AutoSize = true;
             this.LabelMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelMonto.Location = new System.Drawing.Point(54, 160);
+            this.LabelMonto.Location = new System.Drawing.Point(54, 216);
             this.LabelMonto.Name = "LabelMonto";
             this.LabelMonto.Size = new System.Drawing.Size(54, 16);
             this.LabelMonto.TabIndex = 15;
@@ -178,7 +180,7 @@
             // 
             this.LabelBalance.AutoSize = true;
             this.LabelBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelBalance.Location = new System.Drawing.Point(54, 199);
+            this.LabelBalance.Location = new System.Drawing.Point(54, 247);
             this.LabelBalance.Name = "LabelBalance";
             this.LabelBalance.Size = new System.Drawing.Size(69, 16);
             this.LabelBalance.TabIndex = 16;
@@ -186,37 +188,41 @@
             // 
             // textBoxConcepto
             // 
-            this.textBoxConcepto.Location = new System.Drawing.Point(163, 122);
+            this.textBoxConcepto.Location = new System.Drawing.Point(163, 126);
+            this.textBoxConcepto.Multiline = true;
             this.textBoxConcepto.Name = "textBoxConcepto";
-            this.textBoxConcepto.Size = new System.Drawing.Size(221, 20);
+            this.textBoxConcepto.Size = new System.Drawing.Size(221, 72);
             this.textBoxConcepto.TabIndex = 17;
+            this.textBoxConcepto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxConcepto_KeyPress);
             // 
             // TextBoxMonto
             // 
-            this.TextBoxMonto.Location = new System.Drawing.Point(163, 159);
+            this.TextBoxMonto.Location = new System.Drawing.Point(163, 215);
             this.TextBoxMonto.Name = "TextBoxMonto";
             this.TextBoxMonto.Size = new System.Drawing.Size(143, 20);
             this.TextBoxMonto.TabIndex = 18;
+            this.TextBoxMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxMonto_KeyPress);
             // 
             // TextBoxBalance
             // 
-            this.TextBoxBalance.Location = new System.Drawing.Point(163, 198);
+            this.TextBoxBalance.Location = new System.Drawing.Point(163, 246);
             this.TextBoxBalance.Name = "TextBoxBalance";
             this.TextBoxBalance.Size = new System.Drawing.Size(143, 20);
             this.TextBoxBalance.TabIndex = 19;
+            this.TextBoxBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxBalance_KeyPress);
             // 
             // CuantasxCobrarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 325);
+            this.ClientSize = new System.Drawing.Size(525, 356);
             this.Controls.Add(this.TextBoxBalance);
             this.Controls.Add(this.TextBoxMonto);
             this.Controls.Add(this.textBoxConcepto);
             this.Controls.Add(this.LabelBalance);
             this.Controls.Add(this.LabelMonto);
             this.Controls.Add(this.LabelConcepto);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.ComboBoxCuentaId);
             this.Controls.Add(this.LabelCuentaId);
             this.Controls.Add(this.dateTimePickerCuentasxCobrar);
             this.Controls.Add(this.LabelFecha);
@@ -245,7 +251,7 @@
         private System.Windows.Forms.Label LabelFecha;
         private System.Windows.Forms.DateTimePicker dateTimePickerCuentasxCobrar;
         private System.Windows.Forms.Label LabelCuentaId;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox ComboBoxCuentaId;
         private System.Windows.Forms.Label LabelConcepto;
         private System.Windows.Forms.Label LabelMonto;
         private System.Windows.Forms.Label LabelBalance;
