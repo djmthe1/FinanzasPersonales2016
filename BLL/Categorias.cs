@@ -96,6 +96,27 @@ namespace BLL
             return datatable.Rows.Count > 0;
 
         }
+        public  bool BuscarDescripcion(string DescripcionBuscada)
+        {
+            DataTable datatable = new DataTable();
+            try
+            {
+                datatable = conexion.ObtenerDatos(string.Format("select * from Categorias where Descripcion=" + DescripcionBuscada));
+                if (datatable.Rows.Count > 0)
+                {
+                    this.CategoriaId = (int)datatable.Rows[0]["CategoriaId"];
+                    this.Descripcion = datatable.Rows[0]["Descripcion"].ToString();
+                }
+
+            }
+            catch (Exception exc)
+            {
+
+                throw exc;
+            }
+            return datatable.Rows.Count > 0;
+
+        }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {

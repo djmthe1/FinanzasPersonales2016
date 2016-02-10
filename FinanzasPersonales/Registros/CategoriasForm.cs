@@ -51,6 +51,7 @@ namespace FinanzasPersonales
                     DescripcionTextBox.Text = categoria.Descripcion;
                     CategoriaIDTextBox.Focus();
                     EliminarButton.Enabled = true;
+                    GuardarButton.Enabled = true;
                 }
                 else
                 {
