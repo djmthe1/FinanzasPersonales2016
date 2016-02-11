@@ -152,15 +152,16 @@ namespace FinanzasPersonales.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            
-          
+            try
+            {
+
                 LlenarDatos();
                 ValidarTexbox(textBoxConcepto);
                 ValidarTexbox(TextBoxMonto);
                 ValidarTexbox(TextBoxBalance);
-                if (CxcIdTextBox.Text== "")
+                if (CxcIdTextBox.Text == "")
                 {
-                    if ( ComboBoxCuentaId.Text != "" && textBoxConcepto.Text != "" && TextBoxMonto.Text != "" && TextBoxBalance.Text != "")
+                    if (ComboBoxCuentaId.Text != "" && textBoxConcepto.Text != "" && TextBoxMonto.Text != "" && TextBoxBalance.Text != "")
                     {
 
                         if (CxC.Insertar())
@@ -171,7 +172,7 @@ namespace FinanzasPersonales.Registros
                         else
                         {
                             Mensajes(2, "Error en Guardar!");
-                            
+
                         }
                     }
                     else
@@ -204,8 +205,15 @@ namespace FinanzasPersonales.Registros
                         Mensajes(3, "Id No Existe!");
                     }
                 }
-          
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
+          
+        
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
