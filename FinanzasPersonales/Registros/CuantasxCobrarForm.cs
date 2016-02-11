@@ -126,7 +126,7 @@ namespace FinanzasPersonales.Registros
                     CxcIdTextBox.Text=  CxC.CxcId.ToString();
                     dateTimePickerCuentasxCobrar.Text = CxC.Fecha.ToString();
                     ComboBoxCuentaId.Text = cuentas.CuentaId.ToString();
-                    textBoxConcepto.Text = CxC.Copcepto.ToString();
+                    textBoxConcepto.Text = CxC.Concepto.ToString();
                     TextBoxMonto.Text = CxC.Monto.ToString();
                     TextBoxBalance.Text = CxC.Balance.ToString();
                 }
@@ -152,8 +152,8 @@ namespace FinanzasPersonales.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-            try
-            {
+            
+          
                 LlenarDatos();
                 ValidarTexbox(textBoxConcepto);
                 ValidarTexbox(TextBoxMonto);
@@ -171,7 +171,7 @@ namespace FinanzasPersonales.Registros
                         else
                         {
                             Mensajes(2, "Error en Guardar!");
-                            Limpiar();
+                            
                         }
                     }
                     else
@@ -204,12 +204,7 @@ namespace FinanzasPersonales.Registros
                         Mensajes(3, "Id No Existe!");
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+          
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)

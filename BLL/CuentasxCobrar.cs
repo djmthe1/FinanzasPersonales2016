@@ -14,7 +14,7 @@ namespace BLL
         public int CxcId { get; set; }
         public string Fecha  { get; set; }
         public int CuentaId { get; set; }
-        public string Copcepto { get; set; }
+        public string Concepto { get; set; }
         public float Monto { get; set; }
         public float Balance { get; set; }
         public CuentasxCobrar()
@@ -22,7 +22,7 @@ namespace BLL
             this.CxcId = 0;
             this.Fecha = "";
             this.CuentaId = 0;
-            this.Copcepto = "";
+            this.Concepto = "";
             this.Monto = 0;
             this.Balance = 0;
         }
@@ -31,7 +31,8 @@ namespace BLL
             bool retorna = false;
             try
             {
-                retorna = conexion.Ejecutar(string.Format("insert into CuentasxCobrar(Fecha,CuentaId,Concepto,Monto,Balance) values('{0}','{1}','{2}','{3}','{4}')", this.Fecha,this.CuentaId, this.Copcepto, this.Monto, this.Balance));
+                conexion.Ejecutar(string.Format("Insert Into CuentasxCobrar (Fecha,CuentaId,Concepto,Monto,Balance) values('{0}','{1}','{2}','{3}','{4}')", this.Fecha,this.CuentaId, this.Concepto, this.Monto, this.Balance));
+                retorna = true;
             }
             catch (Exception ex)
             {
@@ -45,14 +46,14 @@ namespace BLL
             DataTable datatable = new DataTable();
             try
             {
-                datatable = conexion.ObtenerDatos(string.Format("select * from CuantasxCobrar where CxcId=" + IdBuscado));
+                datatable = conexion.ObtenerDatos(string.Format("select * from CuentasxCobrar where CxcId=" + IdBuscado));
                 if (datatable.Rows.Count > 0)
                 {
                     this.Fecha = datatable.Rows[0]["Fecha"].ToString();
                     this.CuentaId = (int)datatable.Rows[0]["CuentaId"];
-                    this.Copcepto = datatable.Rows[0]["Concepto"].ToString();
+                    this.Concepto = datatable.Rows[0]["Concepto"].ToString();
                     this.Monto = (float)Convert.ToDecimal(datatable.Rows[0]["Monto"]);
-                  this.Balance = (float)Convert.ToDecimal(datatable.Rows[0]["Balance"]);
+                    this.Balance = (float)Convert.ToDecimal(datatable.Rows[0]["Balance"]);
                 }
 
             }
@@ -69,7 +70,8 @@ namespace BLL
             bool retorna = false;
             try
             {
-                retorna = conexion.Ejecutar(string.Format("update CuentasxCobrar set Fecha= '{0}',CuentaId = '{1}',Concepto = '{2}',Monto = '{3}',Balance = '{4}' where CxcId= '{5}' ",this.Fecha,this.CuentaId,this.Copcepto,this.Monto,this.Balance,this.CxcId));
+               conexion.Ejecutar(string.Format("update CuentasxCobrar set Fecha= '{0}',CuentaId = '{1}',Concepto = '{2}',Monto = '{3}',Balance = '{4}' where CxcId= '{5}' ", this.Fecha,this.CuentaId,this.Concepto,this.Monto,this.Balance,this.CxcId));
+                retorna = true;
             }
             catch (Exception ex)
             {
@@ -83,7 +85,7 @@ namespace BLL
             bool retorno = false;
             try
             { 
-                retorno = conexion.Ejecutar(String.Format(" delete from CuentasxCobrar CxcId = {0}  ", this.CxcId));
+                conexion.Ejecutar(String.Format(" delete from CuentasxCobrar CxcId = {0}  ", this.CxcId));
                 retorno = true;
             }
             catch (Exception ex)
