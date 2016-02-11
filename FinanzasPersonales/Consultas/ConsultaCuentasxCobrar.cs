@@ -29,5 +29,16 @@ namespace FinanzasPersonales.Consultas
             ConsultaCuentasxCobrarDataGridView.DataSource = CuentasxC.Listado("CxcId,Fecha,CuentaId,Concepto,Monto,Balance", filtro, "");
             ConteoTextBox.Text = ConsultaCuentasxCobrarDataGridView.RowCount.ToString();
         }
+
+        private void FiltroCxCTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 47 && e.KeyChar <= 57) || (e.KeyChar == 32) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122))
+            {
+                e.Handled = false;
+            }
+            else
+                e.Handled = true;
+            
+        }
     }
 }

@@ -98,6 +98,7 @@
             this.FiltroCxCTextBox.Name = "FiltroCxCTextBox";
             this.FiltroCxCTextBox.Size = new System.Drawing.Size(228, 20);
             this.FiltroCxCTextBox.TabIndex = 7;
+            this.FiltroCxCTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FiltroCxCTextBox_KeyPress);
             // 
             // ConteoTextBox
             // 
