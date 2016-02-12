@@ -22,6 +22,7 @@ namespace FinanzasPersonales.Registros
         private void Limpiar()
         {
             this.CxcIdTextBox.Clear();
+            this.ComboBoxCuentaId.Text = "";
             this.textBoxConcepto.Clear();
             this.TextBoxMonto.Clear();
             this.TextBoxBalance.Clear();
@@ -33,12 +34,13 @@ namespace FinanzasPersonales.Registros
             CxC.CxcId = CuentasxC;
             CxC.Fecha = dateTimePickerCuentasxCobrar.Text;
             cuentas.CuentaId = CxC.CuentaId;
+            CxC.Concepto = textBoxConcepto.Text;
             float Monto = 0;
             float.TryParse(TextBoxMonto.Text, out Monto);
             CxC.Monto = Monto;
             float balance = 0;
             float.TryParse(TextBoxBalance.Text, out balance);
-            CxC.Balance = balance;
+            CxC.Balance = balance-Monto;
 
         }
         private void ValidarTexbox(TextBox tb)
@@ -71,6 +73,17 @@ namespace FinanzasPersonales.Registros
                     break;
             }
         }
+        //Esto es para llenar el combobox con Las CuentaId de la tabla Cuenta
+        private void CuantasxCobrarForm_Load(object sender, EventArgs e)
+        {
+            DataTable datos = new DataTable();
+            datos = cuentas.Listado("*", "0=0", "ORDER BY CuentaId");
+
+            for (int i = 0; i <= datos.Rows.Count - 1; i++)
+            {
+                ComboBoxCuentaId.Items.Add(cuentas.Listado("*", "0=0", "ORDER BY CuentaId").Rows[i]["CuentaId"]);
+            }
+        }
         private void CxcIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar>=48 && e.KeyChar <=57) || (e.KeyChar==8))
@@ -82,7 +95,21 @@ namespace FinanzasPersonales.Registros
                 e.Handled = true;
             }
         }
+        private void ComboBoxCuentaId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CxC.CuentaId = int.Parse(this.ComboBoxCuentaId.Text);
+            if (cuentas.Buscar(CxC.CuentaId))
+            {
+                textBoxConcepto.Text = cuentas.Descripcion.ToString();
+                TextBoxBalance.Text = cuentas.Balance.ToString();
+            }
+            else
+            {
+                Mensajes(2, "Id de Cuenta no Existe!");
+                Limpiar();
+            }
 
+        }
         private void textBoxConcepto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122 || (e.KeyChar == 32)|| (e.KeyChar==130) || (e.KeyChar >= 160 && e.KeyChar <= 165)))
@@ -120,6 +147,7 @@ namespace FinanzasPersonales.Registros
             try
             {
                 LlenarDatos();
+                EliminarButton.Enabled = true;
                 ValidarTexbox(CxcIdTextBox);
                 if (CxC.Buscar(int.Parse(CxcIdTextBox.Text)))
                 {
@@ -257,5 +285,8 @@ namespace FinanzasPersonales.Registros
                 throw ex;
             }
         }
+
+        
+
     }
 }

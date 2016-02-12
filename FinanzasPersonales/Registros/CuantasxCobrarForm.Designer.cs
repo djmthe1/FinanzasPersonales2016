@@ -52,6 +52,7 @@
             // 
             // NuevoButton
             // 
+            this.NuevoButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.Image = ((System.Drawing.Image)(resources.GetObject("NuevoButton.Image")));
             this.NuevoButton.Location = new System.Drawing.Point(44, 293);
@@ -65,6 +66,7 @@
             // 
             // GuardarButton
             // 
+            this.GuardarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.GuardarButton.Enabled = false;
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
@@ -79,6 +81,7 @@
             // 
             // EliminarButton
             // 
+            this.EliminarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EliminarButton.Enabled = false;
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.Image = ((System.Drawing.Image)(resources.GetObject("EliminarButton.Image")));
@@ -93,6 +96,7 @@
             // 
             // BuscarButton
             // 
+            this.BuscarButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BuscarButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.BuscarButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.BuscarButton.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -158,12 +162,11 @@
             // 
             this.ComboBoxCuentaId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxCuentaId.FormattingEnabled = true;
-            this.ComboBoxCuentaId.Items.AddRange(new object[] {
-            "1"});
             this.ComboBoxCuentaId.Location = new System.Drawing.Point(163, 85);
             this.ComboBoxCuentaId.Name = "ComboBoxCuentaId";
             this.ComboBoxCuentaId.Size = new System.Drawing.Size(81, 21);
             this.ComboBoxCuentaId.TabIndex = 13;
+            this.ComboBoxCuentaId.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCuentaId_SelectedIndexChanged);
             // 
             // LabelConcepto
             // 
@@ -250,6 +253,7 @@
             this.Name = "CuantasxCobrarForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resgistro Cuentas por Cobrar";
+            this.Load += new System.EventHandler(this.CuantasxCobrarForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCuentasxCobrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

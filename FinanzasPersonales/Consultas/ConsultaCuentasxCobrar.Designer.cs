@@ -131,7 +131,7 @@
             this.Controls.Add(this.FiltroLabel);
             this.Controls.Add(this.ConsultaCuentasxCobrarDataGridView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "ConsultaCuentasxCobrar";
             this.Text = "Consulta Cuentas por Cobrar";
             ((System.ComponentModel.ISupportInitialize)(this.ConsultaCuentasxCobrarDataGridView)).EndInit();
