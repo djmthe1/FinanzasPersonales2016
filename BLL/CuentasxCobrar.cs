@@ -31,7 +31,7 @@ namespace BLL
             bool retorna = false;
             try
             {
-                conexion.Ejecutar(string.Format("Insert Into CuentasxCobrar (Fecha,CuentaId,Concepto,Monto,Balance) values('{0}','{1}','{2}','{3}','{4}')", this.Fecha,this.CuentaId, this.Concepto, this.Monto, this.Balance));
+                conexion.Ejecutar(string.Format("Insert Into CuentasxCobrar (Fecha, CuentaId, concepto, Monto, Balance) values('{0}',{1},'{2}',{3},{4})", this.Fecha,this.CuentaId, this.Concepto, this.Monto, this.Balance));
                 retorna = true;
             }
             catch (Exception ex)
@@ -51,7 +51,7 @@ namespace BLL
                 {
                     this.Fecha = datatable.Rows[0]["Fecha"].ToString();
                     this.CuentaId = (int)datatable.Rows[0]["CuentaId"];
-                    this.Concepto = datatable.Rows[0]["Concepto"].ToString();
+                    this.Concepto = datatable.Rows[0]["concepto"].ToString();
                     this.Monto = (float)Convert.ToDecimal(datatable.Rows[0]["Monto"]);
                     this.Balance = (float)Convert.ToDecimal(datatable.Rows[0]["Balance"]);
                 }
@@ -70,7 +70,7 @@ namespace BLL
             bool retorna = false;
             try
             {
-               conexion.Ejecutar(string.Format("update CuentasxCobrar set Fecha= '{0}',CuentaId = '{1}',Concepto = '{2}',Monto = '{3}',Balance = '{4}' where CxcId= '{5}' ", this.Fecha,this.CuentaId,this.Concepto,this.Monto,this.Balance,this.CxcId));
+               conexion.Ejecutar(string.Format("update CuentasxCobrar set Fecha= '{0}',CuentaId = '{1}',concepto = '{2}',Monto = '{3}',Balance = '{4}' where CxcId= '{5}' ", this.Fecha,this.CuentaId,this.Concepto,this.Monto,this.Balance,this.CxcId));
                 retorna = true;
             }
             catch (Exception ex)

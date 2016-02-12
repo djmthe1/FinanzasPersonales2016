@@ -155,15 +155,18 @@ namespace FinanzasPersonales.Registros
             try
             {
 
-                LlenarDatos();
+                
                 ValidarTexbox(textBoxConcepto);
                 ValidarTexbox(TextBoxMonto);
                 ValidarTexbox(TextBoxBalance);
+                LlenarDatos();
                 if (CxcIdTextBox.Text == "")
                 {
                     if (ComboBoxCuentaId.Text != "" && textBoxConcepto.Text != "" && TextBoxMonto.Text != "" && TextBoxBalance.Text != "")
                     {
-
+                        
+                        errorProviderCuentasxCobrar.Clear();
+                       
                         if (CxC.Insertar())
                         {
                             Mensajes(1, "Guardado Correctamente!");
@@ -190,6 +193,7 @@ namespace FinanzasPersonales.Registros
                     ValidarTexbox(TextBoxBalance);
                     if (CxC.Buscar(int.Parse(CxcIdTextBox.Text)) && ComboBoxCuentaId.Text != "" && textBoxConcepto.Text != "" && TextBoxMonto.Text != "" && TextBoxBalance.Text != "")
                     {
+                        LlenarDatos();
                         if (CxC.Editar())
                         {
                             Mensajes(1, "Modificado Correctamente!");
