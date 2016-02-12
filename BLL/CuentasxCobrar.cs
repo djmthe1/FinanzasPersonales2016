@@ -17,14 +17,19 @@ namespace BLL
         public string Concepto { get; set; }
         public float Monto { get; set; }
         public float Balance { get; set; }
+
+        public CuentasxCobrar(int cxcId, string fecha, int cuentaId, string concepto, float monto, float balance)
+        {
+            this.CxcId = cxcId;
+            this.Fecha = fecha;
+            this.CuentaId = cuentaId;
+            this.Concepto = concepto;
+            this.Monto = monto;
+            this.Balance = balance;
+        }
+
         public CuentasxCobrar()
         {
-            this.CxcId = 0;
-            this.Fecha = "";
-            this.CuentaId = 0;
-            this.Concepto = "";
-            this.Monto = 0;
-            this.Balance = 0;
         }
         public override bool Insertar()
         {
@@ -70,7 +75,7 @@ namespace BLL
             bool retorna = false;
             try
             {
-               conexion.Ejecutar(string.Format("update CuentasxCobrar set Fecha= '{0}',CuentaId = '{1}',concepto = '{2}',Monto = '{3}',Balance = '{4}' where CxcId= '{5}' ", this.Fecha,this.CuentaId,this.Concepto,this.Monto,this.Balance,this.CxcId));
+               conexion.Ejecutar(string.Format("update CuentasxCobrar set Fecha= '{0}',CuentaId = {1},concepto = '{2}',Monto = {3},Balance = {4} where CxcId= {5} ", this.Fecha,this.CuentaId,this.Concepto,this.Monto,this.Balance,this.CxcId));
                 retorna = true;
             }
             catch (Exception ex)

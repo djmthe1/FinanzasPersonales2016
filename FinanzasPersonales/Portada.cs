@@ -116,5 +116,12 @@ namespace FinanzasPersonales
             CxCobrar.Show();
 
         }
+
+        private void cuentasPorCobrarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Consultas.ConsultaCuentasxCobrar ConsultaCxCobrar = new Consultas.ConsultaCuentasxCobrar();
+            ConsultaCxCobrar.Show();
+
+        }
     }
 }
