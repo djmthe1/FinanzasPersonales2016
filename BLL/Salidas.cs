@@ -90,7 +90,11 @@ namespace BLL
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            throw new NotImplementedException();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Orden by  " + Orden;
+
+            return Conexion.ObtenerDatos("Select " + Campos + " From Salidas Where " + Condicion + Orden);
         }
     }
 }
