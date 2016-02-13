@@ -162,7 +162,7 @@ namespace FinanzasPersonales.Registros
                 }
                 else
                 {
-                    Mensajes(2, "Id No Existe, \n Intente Nuevamente!");
+                    Mensajes(2, "Id No Existe\nIntente Nuevamente!");
                     GuardarButton.Text = "Guardar";
                     EliminarButton.Enabled = false;
                     Limpiar();
@@ -271,6 +271,9 @@ namespace FinanzasPersonales.Registros
                             Mensajes(1, "Eliminado Correctamente!");
                             Limpiar();
                             EliminarButton.Enabled = false;
+                            GuardarButton.Enabled = false;
+                            GuardarButton.Text = "Guardar";
+
                         }
                         else
                         {
