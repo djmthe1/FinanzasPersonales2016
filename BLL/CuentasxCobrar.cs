@@ -30,6 +30,12 @@ namespace BLL
 
         public CuentasxCobrar()
         {
+            this.CxcId = 0;
+            this.Fecha = "";
+            this.CuentaId = 0;
+            this.Concepto = "";
+            this.Monto = 0;
+            this.Balance = 0;
         }
         public override bool Insertar()
         {

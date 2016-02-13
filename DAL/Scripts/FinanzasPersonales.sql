@@ -11,7 +11,7 @@ create table CuentasxCobrar(
 
 	CxcId int identity(1,1),
 	Fecha varchar(20),
-	CuentaId int,
+	CuentaId int foreign key References Cuentas(CuentaId),
 	concepto varchar(100),
 	Monto float,
 	Balance float,
