@@ -92,6 +92,7 @@
             this.CamposcomboBox.Name = "CamposcomboBox";
             this.CamposcomboBox.Size = new System.Drawing.Size(121, 21);
             this.CamposcomboBox.TabIndex = 8;
+            this.CamposcomboBox.SelectedIndexChanged += new System.EventHandler(this.CamposcomboBox_SelectedIndexChanged);
             // 
             // label2
             // 

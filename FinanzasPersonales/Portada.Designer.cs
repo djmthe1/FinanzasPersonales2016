@@ -59,6 +59,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.cuentasPorPagarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
+            this.cuentasPorCobrarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ventanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +71,8 @@
             this.toolStripButtonTransferencias = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripCategorias = new System.Windows.Forms.ToolStripButton();
-            this.cuentasPorCobrarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.miembrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miembrosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -131,7 +133,8 @@
             this.cuentasPorPagarToolStripMenuItem,
             this.toolStripSeparator10,
             this.cuentasToolStripMenuItem1,
-            this.cuentasPorCobrarToolStripMenuItem});
+            this.cuentasPorCobrarToolStripMenuItem,
+            this.miembrosToolStripMenuItem1});
             this.registrosToolStripMenuItem.Name = "registrosToolStripMenuItem";
             this.registrosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.registrosToolStripMenuItem.Text = "&Registros";
@@ -225,7 +228,8 @@
             this.toolStripSeparator6,
             this.cuentasPorPagarToolStripMenuItem1,
             this.toolStripSeparator12,
-            this.cuentasPorCobrarToolStripMenuItem1});
+            this.cuentasPorCobrarToolStripMenuItem1,
+            this.miembrosToolStripMenuItem});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "&Consultas";
@@ -302,10 +306,17 @@
             this.toolStripSeparator12.Name = "toolStripSeparator12";
             this.toolStripSeparator12.Size = new System.Drawing.Size(174, 6);
             // 
+            // cuentasPorCobrarToolStripMenuItem1
+            // 
+            this.cuentasPorCobrarToolStripMenuItem1.Name = "cuentasPorCobrarToolStripMenuItem1";
+            this.cuentasPorCobrarToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.cuentasPorCobrarToolStripMenuItem1.Text = "Cuentas por Co&brar";
+            this.cuentasPorCobrarToolStripMenuItem1.Click += new System.EventHandler(this.cuentasPorCobrarToolStripMenuItem1_Click);
+            // 
             // ventanaToolStripMenuItem
             // 
             this.ventanaToolStripMenuItem.Name = "ventanaToolStripMenuItem";
-            this.ventanaToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.ventanaToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.ventanaToolStripMenuItem.Text = "&Ventana";
             // 
             // ayudaToolStripMenuItem
@@ -392,12 +403,19 @@
             this.toolStripCategorias.Text = "Categorias";
             this.toolStripCategorias.Click += new System.EventHandler(this.toolStripCategorias_Click);
             // 
-            // cuentasPorCobrarToolStripMenuItem1
+            // miembrosToolStripMenuItem
             // 
-            this.cuentasPorCobrarToolStripMenuItem1.Name = "cuentasPorCobrarToolStripMenuItem1";
-            this.cuentasPorCobrarToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-            this.cuentasPorCobrarToolStripMenuItem1.Text = "Cuentas por Co&brar";
-            this.cuentasPorCobrarToolStripMenuItem1.Click += new System.EventHandler(this.cuentasPorCobrarToolStripMenuItem1_Click);
+            this.miembrosToolStripMenuItem.Name = "miembrosToolStripMenuItem";
+            this.miembrosToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.miembrosToolStripMenuItem.Text = "Miembros";
+            this.miembrosToolStripMenuItem.Click += new System.EventHandler(this.miembrosToolStripMenuItem_Click);
+            // 
+            // miembrosToolStripMenuItem1
+            // 
+            this.miembrosToolStripMenuItem1.Name = "miembrosToolStripMenuItem1";
+            this.miembrosToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.miembrosToolStripMenuItem1.Text = "Miembros";
+            this.miembrosToolStripMenuItem1.Click += new System.EventHandler(this.miembrosToolStripMenuItem1_Click);
             // 
             // Portada
             // 
@@ -468,6 +486,8 @@
         private System.Windows.Forms.ToolStripButton toolStripCategorias;
         private System.Windows.Forms.ToolStripMenuItem cuentasPorCobrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuentasPorCobrarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem miembrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem miembrosToolStripMenuItem1;
     }
 }
 

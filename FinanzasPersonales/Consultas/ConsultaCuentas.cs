@@ -32,5 +32,10 @@ namespace FinanzasPersonales.Consultas
 
             ConteotextBox.Text = ConsultadataGridView.RowCount.ToString();
         }
+
+        private void CamposcomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

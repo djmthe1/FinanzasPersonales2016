@@ -123,5 +123,18 @@ namespace FinanzasPersonales
             ConsultaCxCobrar.Show();
 
         }
+
+        private void miembrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consultas.ConsultaMiembros ConsultaM = new Consultas.ConsultaMiembros();
+            ConsultaM.Show();
+        }
+
+        private void miembrosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Registros.MiembrosForm RegistroM = new Registros.MiembrosForm();
+            RegistroM.Show();
+
+        }
     }
 }
