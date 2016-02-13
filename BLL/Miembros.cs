@@ -14,7 +14,6 @@ namespace BLL
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Parentesco { get; set; }
-        public int EsActivo { get; set; }
 
         public Miembros()
         {
@@ -22,16 +21,14 @@ namespace BLL
             this.Nombres = "";
             this.Apellidos = "";
             this.Parentesco = "";
-            this.EsActivo = 0;
         }
 
-        public Miembros(int miembroid, string nombres, string apellidos, string parentesco, int esactivo)
+        public Miembros(int miembroid, string nombres, string apellidos, string parentesco)
         {
             this.MiembroId = miembroid;
             this.Nombres = nombres;
             this.Apellidos = apellidos;
             this.Parentesco = parentesco;
-            this.EsActivo = esactivo;
         }
 
         public override bool Insertar()
@@ -39,7 +36,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                Conexion.Ejecutar(String.Format("Insert Into Miembros (Nombres, Apellidos, Parentesco, EsActivo) Values ('{0}', '{1}', '{2}', {3})", this.Nombres, this.Apellidos, this.Parentesco, this.EsActivo));
+                Conexion.Ejecutar(String.Format("Insert Into Miembros (Nombres, Apellidos, Parentesco) Values ('{0}', '{1}', '{2}')", this.Nombres, this.Apellidos, this.Parentesco));
                 retorno = true;
             }
             catch (Exception ex) { throw ex; }
@@ -51,7 +48,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                Conexion.Ejecutar(String.Format("Update Miembros set Nombres='{0}', Apellidos='{1}', Parentesco='{2}', EsActivo={3} where MiembroId={4}", this.Nombres, this.Apellidos, this.Parentesco, this.EsActivo, this.MiembroId));
+                Conexion.Ejecutar(String.Format("Update Miembros set Nombres='{0}', Apellidos='{1}', Parentesco='{2}' where MiembroId={3}", this.Nombres, this.Apellidos, this.Parentesco, this.MiembroId));
                 retorno = true;
             }
             catch (Exception ex) { throw ex; }
@@ -81,7 +78,6 @@ namespace BLL
                 this.Nombres = dt.Rows[0]["Nombres"].ToString();
                 this.Apellidos = dt.Rows[0]["Apellidos"].ToString();
                 this.Parentesco = dt.Rows[0]["Parentesco"].ToString();
-                this.EsActivo = (int)dt.Rows[0]["EsActivo"];
             }
             return dt.Rows.Count > 0;
         }

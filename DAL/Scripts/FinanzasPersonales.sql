@@ -63,5 +63,5 @@ MiembroId int primary key identity(1,1),
 Nombres varchar(30),
 Apellidos varchar(60),
 Parentesco varchar(20),
-EsActivo int,
 )
+
