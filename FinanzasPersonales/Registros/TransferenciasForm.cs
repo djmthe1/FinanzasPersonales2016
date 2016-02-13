@@ -109,6 +109,8 @@ namespace FinanzasPersonales.Registros
             textBoxMontoCuentaOrigen.Clear();
             textBoxDescripcionCuentaDestino.Clear();
             textBoxMontoCuentaDestino.Clear();
+            comboBoxCuentaOrigen.ResetText();
+            comboBoxCuentaDestino.ResetText();
         }
 
         private void ObtenerValores()

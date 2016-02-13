@@ -68,19 +68,15 @@ namespace BLL.Tests
         {
             Transferencias transferencias = new Transferencias();
 
-            transferencias.TransferenciaId = 1;
-            bool busco = transferencias.Buscar(transferencias.TransferenciaId);
-            Assert.IsTrue(busco);
+            Assert.IsTrue(transferencias.Buscar(2));
         }
 
         [TestMethod()]
         public void ListadoTest()
         {
             Transferencias transferencias = new Transferencias();
-
-            transferencias.TransferenciaId = 1;
-
-            //Assert.IsTrue(transferencias.Listado(" * ", " 1=1 ", "").Rows.Count > 0);
+            
+            Assert.IsTrue(transferencias.Listado(" * ", " 1=1 ", "").Rows.Count > 0);
         }
     }
 }
