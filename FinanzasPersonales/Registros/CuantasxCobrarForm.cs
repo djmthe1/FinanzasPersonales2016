@@ -148,6 +148,8 @@ namespace FinanzasPersonales.Registros
             {
                 LlenarDatos();
                 EliminarButton.Enabled = true;
+                GuardarButton.Enabled = true;
+                GuardarButton.Text = "Modificar";
                 ValidarTexbox(CxcIdTextBox);
                 if (CxC.Buscar(int.Parse(CxcIdTextBox.Text)))
                 {
@@ -161,6 +163,8 @@ namespace FinanzasPersonales.Registros
                 else
                 {
                     Mensajes(2, "Id No Existe, \n Intente Nuevamente!");
+                    GuardarButton.Text = "Guardar";
+                    EliminarButton.Enabled = false;
                     Limpiar();
                 }
             }
@@ -174,6 +178,7 @@ namespace FinanzasPersonales.Registros
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
+            GuardarButton.Text = "Guardar";
             GuardarButton.Enabled = true;
             EliminarButton.Enabled = false;
         }
@@ -252,12 +257,13 @@ namespace FinanzasPersonales.Registros
             try
             {
                 LlenarDatos();
+
                 DialogResult resut;
                 //Dialogo para confirmar que se desea Eliminar...
                 resut = MessageBox.Show("¿Esta seguro que desea eliminar?", "Meensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resut == DialogResult.Yes)
                 {
-
+                    
                     if (CxC.Buscar(int.Parse(CxcIdTextBox.Text)))
                     {
                         if (CxC.Eliminar())

@@ -90,7 +90,7 @@ namespace BLL
             bool retorno = false;
             try
             { 
-                conexion.Ejecutar(String.Format(" delete from CuentasxCobrar CxcId = {0}  ", this.CxcId));
+                conexion.Ejecutar(String.Format("delete from CuentasxCobrar where CxcId = {0}", this.CxcId));
                 retorno = true;
             }
             catch (Exception ex)
