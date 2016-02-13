@@ -55,7 +55,7 @@
             this.NuevoButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NuevoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NuevoButton.Image = ((System.Drawing.Image)(resources.GetObject("NuevoButton.Image")));
-            this.NuevoButton.Location = new System.Drawing.Point(44, 293);
+            this.NuevoButton.Location = new System.Drawing.Point(44, 281);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(64, 51);
             this.NuevoButton.TabIndex = 4;
@@ -70,7 +70,7 @@
             this.GuardarButton.Enabled = false;
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
-            this.GuardarButton.Location = new System.Drawing.Point(218, 293);
+            this.GuardarButton.Location = new System.Drawing.Point(219, 281);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(68, 51);
             this.GuardarButton.TabIndex = 5;
@@ -85,7 +85,7 @@
             this.EliminarButton.Enabled = false;
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.Image = ((System.Drawing.Image)(resources.GetObject("EliminarButton.Image")));
-            this.EliminarButton.Location = new System.Drawing.Point(406, 293);
+            this.EliminarButton.Location = new System.Drawing.Point(406, 281);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(72, 51);
             this.EliminarButton.TabIndex = 6;
@@ -182,7 +182,7 @@
             // 
             this.LabelMonto.AutoSize = true;
             this.LabelMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelMonto.Location = new System.Drawing.Point(54, 216);
+            this.LabelMonto.Location = new System.Drawing.Point(54, 189);
             this.LabelMonto.Name = "LabelMonto";
             this.LabelMonto.Size = new System.Drawing.Size(54, 16);
             this.LabelMonto.TabIndex = 15;
@@ -192,7 +192,7 @@
             // 
             this.LabelBalance.AutoSize = true;
             this.LabelBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelBalance.Location = new System.Drawing.Point(54, 247);
+            this.LabelBalance.Location = new System.Drawing.Point(54, 221);
             this.LabelBalance.Name = "LabelBalance";
             this.LabelBalance.Size = new System.Drawing.Size(69, 16);
             this.LabelBalance.TabIndex = 16;
@@ -201,15 +201,17 @@
             // textBoxConcepto
             // 
             this.textBoxConcepto.Location = new System.Drawing.Point(163, 126);
+            this.textBoxConcepto.MaxLength = 100;
             this.textBoxConcepto.Multiline = true;
             this.textBoxConcepto.Name = "textBoxConcepto";
-            this.textBoxConcepto.Size = new System.Drawing.Size(221, 72);
+            this.textBoxConcepto.Size = new System.Drawing.Size(216, 41);
             this.textBoxConcepto.TabIndex = 17;
             this.textBoxConcepto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxConcepto_KeyPress);
             // 
             // TextBoxMonto
             // 
-            this.TextBoxMonto.Location = new System.Drawing.Point(163, 215);
+            this.TextBoxMonto.Location = new System.Drawing.Point(163, 188);
+            this.TextBoxMonto.MaxLength = 15;
             this.TextBoxMonto.Name = "TextBoxMonto";
             this.TextBoxMonto.Size = new System.Drawing.Size(143, 20);
             this.TextBoxMonto.TabIndex = 18;
@@ -217,7 +219,8 @@
             // 
             // TextBoxBalance
             // 
-            this.TextBoxBalance.Location = new System.Drawing.Point(163, 246);
+            this.TextBoxBalance.Location = new System.Drawing.Point(163, 220);
+            this.TextBoxBalance.MaxLength = 15;
             this.TextBoxBalance.Name = "TextBoxBalance";
             this.TextBoxBalance.Size = new System.Drawing.Size(143, 20);
             this.TextBoxBalance.TabIndex = 19;
@@ -231,7 +234,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 356);
+            this.ClientSize = new System.Drawing.Size(524, 356);
             this.Controls.Add(this.TextBoxBalance);
             this.Controls.Add(this.TextBoxMonto);
             this.Controls.Add(this.textBoxConcepto);

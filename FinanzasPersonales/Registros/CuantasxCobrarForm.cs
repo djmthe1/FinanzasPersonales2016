@@ -146,12 +146,9 @@ namespace FinanzasPersonales.Registros
         {
             try
             {
-                LlenarDatos();
-                EliminarButton.Enabled = true;
-                GuardarButton.Enabled = true;
-                GuardarButton.Text = "Modificar";
                 ValidarTexbox(CxcIdTextBox);
-                if (CxC.Buscar(int.Parse(CxcIdTextBox.Text)))
+                
+                if (CxcIdTextBox.Text != "" && CxC.Buscar(int.Parse(CxcIdTextBox.Text)))
                 {
                     CxcIdTextBox.Text=  CxC.CxcId.ToString();
                     dateTimePickerCuentasxCobrar.Text = CxC.Fecha.ToString();
@@ -159,6 +156,9 @@ namespace FinanzasPersonales.Registros
                     textBoxConcepto.Text = CxC.Concepto.ToString();
                     TextBoxMonto.Text = CxC.Monto.ToString();
                     TextBoxBalance.Text = CxC.Balance.ToString();
+                    EliminarButton.Enabled = true;
+                    GuardarButton.Enabled = true;
+                    GuardarButton.Text = "Modificar";
                 }
                 else
                 {

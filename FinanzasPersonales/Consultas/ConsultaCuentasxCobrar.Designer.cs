@@ -133,6 +133,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ConsultaCuentasxCobrar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Consulta Cuentas por Cobrar";
             ((System.ComponentModel.ISupportInitialize)(this.ConsultaCuentasxCobrarDataGridView)).EndInit();
             this.ResumeLayout(false);
