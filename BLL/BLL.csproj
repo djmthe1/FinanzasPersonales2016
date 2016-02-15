@@ -49,6 +49,7 @@
     <Compile Include="Miembros.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Salidas.cs" />
+    <Compile Include="TiposIngresos.cs" />
     <Compile Include="Transferencias.cs" />
     <Compile Include="Usuarios.cs" />
   </ItemGroup>

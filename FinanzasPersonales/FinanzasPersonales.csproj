@@ -104,6 +104,12 @@
     <Compile Include="Consultas\ConsultaSalidasForm.Designer.cs">
       <DependentUpon>ConsultaSalidasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\ConsultaTiposIngresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\ConsultaTiposIngresos.Designer.cs">
+      <DependentUpon>ConsultaTiposIngresos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consultas\ConsultaTransferencias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,12 @@
     <Compile Include="Registros\SalidasForm.Designer.cs">
       <DependentUpon>SalidasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros\TiposIngresosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\TiposIngresosForm.designer.cs">
+      <DependentUpon>TiposIngresosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros\TransferenciasForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaSalidasForm.resx">
       <DependentUpon>ConsultaSalidasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\ConsultaTiposIngresos.resx">
+      <DependentUpon>ConsultaTiposIngresos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\ConsultaTransferencias.resx">
       <DependentUpon>ConsultaTransferencias.cs</DependentUpon>
@@ -241,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\SalidasForm.resx">
       <DependentUpon>SalidasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registros\TiposIngresosForm.resx">
+      <DependentUpon>TiposIngresosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registros\TransferenciasForm.resx">
       <DependentUpon>TransferenciasForm.cs</DependentUpon>

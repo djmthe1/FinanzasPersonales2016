@@ -35,8 +35,7 @@ namespace FinanzasPersonales.Consultas
                     int.TryParse(FiltrotextBox.Text, out id);
                     condicion = "EntradaId = " + id.ToString();
                 }
-
-                ConsultadataGridView.DataSource = entrada.Listado("EntradaId,Nombres,Apellidos,Direccion,Telefono,Movil,Monto,Fecha", condicion, "");
+                ConsultadataGridView.DataSource = entrada.Listado("EntradaId,CuentaId,CategoriaId,Descripcion,Monto,Fecha", condicion, "");
             }
             if (CamposcomboBox.SelectedIndex == 1)
             {
@@ -46,9 +45,11 @@ namespace FinanzasPersonales.Consultas
                 }
                 else
                 {
-                    condicion = string.Format("Nombres ='{0}' ", FiltrotextBox.Text);
+                    int id;
+                    int.TryParse(FiltrotextBox.Text, out id);
+                    condicion = "CuentaId = " + id.ToString();
                 }
-                ConsultadataGridView.DataSource = entrada.Listado("EntradaId,Nombres,Apellidos,Direccion,Telefono,Movil,Monto,Fecha", condicion, "");
+                ConsultadataGridView.DataSource = entrada.Listado("EntradaId,CuentaId,CategoriaId,Descripcion,Monto,Fecha", condicion, "");
             }
             if (CamposcomboBox.SelectedIndex == 2)
             {
@@ -58,24 +59,19 @@ namespace FinanzasPersonales.Consultas
                 }
                 else
                 {
-                    condicion = string.Format("Apellidos ='{0}' ", FiltrotextBox.Text);
+                    int id;
+                    int.TryParse(FiltrotextBox.Text, out id);
+                    condicion = "CategoriaId = " + id.ToString();
                 }
-                ConsultadataGridView.DataSource = entrada.Listado("EntradaId,Nombres,Apellidos,Direccion,Telefono,Movil,Monto,Fecha", condicion, "");
+                ConsultadataGridView.DataSource = entrada.Listado("EntradaId,CuentaId,CategoriaId,Descripcion,Monto,Fecha", condicion, "");
             }
-            if (CamposcomboBox.SelectedIndex == 3)
-            {
-                if (FiltrotextBox.Text.Trim().Length == 3)
-                {
-                    condicion = "4=4";
-                }
-                else
-                {
-                    condicion = string.Format("Direccion ='{0}' ", FiltrotextBox.Text);
-                }
-                ConsultadataGridView.DataSource = entrada.Listado("EntradaId,Nombres,Apellidos,Direccion,Telefono,Movil,Monto,Fecha", condicion, "");
-            }
+            
             ConteotextBox.Text = ConsultadataGridView.RowCount.ToString();
         }
 
+        private void ConsultaEntradas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -36,11 +36,8 @@ namespace FinanzasPersonales.Registros
                 int id;
                 int.TryParse(IdtextBox.Text, out id);
                 entrada.Buscar(id);
-                NombretextBox.Text = entrada.Nombres;
-                ApellidotextBox.Text = entrada.Apellidos;
-                DirecciontextBox.Text = entrada.Direccion;
-                TelefonomaskedTextBox.Text = entrada.Telefono;
-                MovilmaskedTextBox.Text = entrada.Movil;
+                CuentaIdcomboBox.Text = Convert.ToString(entrada.CuentaId);
+                CategoriaIdcomboBox.Text = Convert.ToString(entrada.CategoriaId);
                 MontomaskedTextBox.Text = Convert.ToString(entrada.Monto);
                 FechadateTimePicker.Text = entrada.Fecha;
             }
@@ -49,12 +46,10 @@ namespace FinanzasPersonales.Registros
         private void limpiar()
         {
             IdtextBox.Clear();
-            NombretextBox.Clear();
-            ApellidotextBox.Clear();
-            DirecciontextBox.Clear();
-            TelefonomaskedTextBox.Clear();
-            MovilmaskedTextBox.Clear();
+            CuentaIdcomboBox.Items.Clear();
+            CategoriaIdcomboBox.Items.Clear();
             MontomaskedTextBox.Clear();
+            DescripciontextBox.Clear();
             EntradaerrorProvider.Clear();
         }
 
@@ -65,17 +60,15 @@ namespace FinanzasPersonales.Registros
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            if (NombretextBox.Text.Length == 0 && ApellidotextBox.Text.Length == 0 && DirecciontextBox.Text.Length == 0 && TelefonomaskedTextBox.Text.Length == 0 && MovilmaskedTextBox.Text.Length == 0 && MontomaskedTextBox.Text.Length == 0 && MontomaskedTextBox.Text.Length == 0)
+            if (CuentaIdcomboBox.Text.Length == 0 && CategoriaIdcomboBox.Text.Length == 0 && MontomaskedTextBox.Text.Length == 0 && DescripciontextBox.Text.Length == 0)
             {
                 MessageBox.Show("Los campo deben estar lleno ");
             }
             else
-                entrada.Nombres = NombretextBox.Text;
-                entrada.Apellidos = ApellidotextBox.Text;
-                entrada.Direccion = DirecciontextBox.Text;
-                entrada.Telefono = TelefonomaskedTextBox.Text;
-                entrada.Movil = MovilmaskedTextBox.Text;
+                entrada.CuentaId = (int)Convert.ToInt32(CuentaIdcomboBox.Text);
+                entrada.CategoriaId = (int)Convert.ToInt32(CategoriaIdcomboBox.Text);
                 entrada.Monto = (float)Convert.ToDouble(MontomaskedTextBox.Text);
+                entrada.Descripcion = DescripciontextBox.Text;
                 entrada.Fecha = FechadateTimePicker.Value.ToString();
                 if (IdtextBox.Text.Length == 0)
                     {
