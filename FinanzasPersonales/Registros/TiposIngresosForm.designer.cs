@@ -82,6 +82,7 @@
             this.DescripciontextBox.Name = "DescripciontextBox";
             this.DescripciontextBox.Size = new System.Drawing.Size(269, 54);
             this.DescripciontextBox.TabIndex = 1;
+            this.DescripciontextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripciontextBox_KeyPress);
             // 
             // IdtextBox
             // 
@@ -89,6 +90,7 @@
             this.IdtextBox.Name = "IdtextBox";
             this.IdtextBox.Size = new System.Drawing.Size(104, 20);
             this.IdtextBox.TabIndex = 3;
+            this.IdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IdtextBox_KeyPress);
             // 
             // Eliminarbutton
             // 
