@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.MiembrosdataGridView = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Buscarlabel = new System.Windows.Forms.Label();
             this.BuscarcomboBox = new System.Windows.Forms.ComboBox();
             this.BuscartextBox = new System.Windows.Forms.TextBox();
             this.Buscarbutton = new System.Windows.Forms.Button();
@@ -48,17 +48,18 @@
             this.MiembrosdataGridView.Size = new System.Drawing.Size(669, 225);
             this.MiembrosdataGridView.TabIndex = 0;
             // 
-            // label1
+            // Buscarlabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.Buscarlabel.AutoSize = true;
+            this.Buscarlabel.Location = new System.Drawing.Point(12, 29);
+            this.Buscarlabel.Name = "Buscarlabel";
+            this.Buscarlabel.Size = new System.Drawing.Size(40, 13);
+            this.Buscarlabel.TabIndex = 1;
+            this.Buscarlabel.Text = "Buscar";
             // 
             // BuscarcomboBox
             // 
+            this.BuscarcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.BuscarcomboBox.FormattingEnabled = true;
             this.BuscarcomboBox.Location = new System.Drawing.Point(53, 29);
             this.BuscarcomboBox.Name = "BuscarcomboBox";
@@ -93,7 +94,7 @@
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.BuscartextBox);
             this.Controls.Add(this.BuscarcomboBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Buscarlabel);
             this.Controls.Add(this.MiembrosdataGridView);
             this.Name = "ConsultaMiembros";
             this.Text = "Consulta Miembros";
@@ -106,7 +107,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView MiembrosdataGridView;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Buscarlabel;
         private System.Windows.Forms.ComboBox BuscarcomboBox;
         private System.Windows.Forms.TextBox BuscartextBox;
         private System.Windows.Forms.Button Buscarbutton;
