@@ -51,6 +51,30 @@ namespace FinanzasPersonales.Registros
 
         }
 
+        private void ApellidostextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122 || (e.KeyChar == 32)) || (e.KeyChar == 130) || (e.KeyChar >= 160 && e.KeyChar <= 163))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void NombrestextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122 || (e.KeyChar == 32)) || (e.KeyChar == 130) || (e.KeyChar >= 160 && e.KeyChar <= 163))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void MiembroIdtextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             ObtenerValores();

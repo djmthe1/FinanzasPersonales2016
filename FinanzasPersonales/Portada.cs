@@ -148,5 +148,17 @@ namespace FinanzasPersonales
             ConsultaTiposIngresos consultatipoingreso = new ConsultaTiposIngresos();
             consultatipoingreso.Show();
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            Registros.MiembrosForm Miem = new Registros.MiembrosForm();
+            Miem.Show();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            Registros.SalidasForm Salid = new Registros.SalidasForm();
+            Salid.Show();
+        }
     }
 }
