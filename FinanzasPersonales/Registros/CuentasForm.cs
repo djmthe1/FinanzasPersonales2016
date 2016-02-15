@@ -91,14 +91,21 @@ namespace FinanzasPersonales.Registros
         private void buttonBuscarId_Click(object sender, EventArgs e)
         {
             ObtenerValores();
-            if (cuentas.Buscar(cuentas.CuentaId))
+            if (textBoxId.Text.Length == 0)
             {
-                DevolverValores();
+                MessageBox.Show("Debe insertar un Id", "Error al Buscar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                MensajeAdvertencia("Id no encontrado");
-                Limpiar();
+                if (cuentas.Buscar(cuentas.CuentaId))
+                {
+                    DevolverValores();
+                }
+                else
+                {
+                    MensajeAdvertencia("Id no encontrado");
+                    Limpiar();
+                }
             }
         }
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Portada));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +47,7 @@
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.cuentasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasPorCobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miembrosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -60,6 +62,7 @@
             this.cuentasPorPagarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.cuentasPorCobrarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.miembrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,8 +74,6 @@
             this.toolStripButtonTransferencias = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripCategorias = new System.Windows.Forms.ToolStripButton();
-            this.miembrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.miembrosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -213,6 +214,13 @@
             this.cuentasPorCobrarToolStripMenuItem.Text = "Cuenta&s por Cobrar";
             this.cuentasPorCobrarToolStripMenuItem.Click += new System.EventHandler(this.cuentasPorCobrarToolStripMenuItem_Click);
             // 
+            // miembrosToolStripMenuItem1
+            // 
+            this.miembrosToolStripMenuItem1.Name = "miembrosToolStripMenuItem1";
+            this.miembrosToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
+            this.miembrosToolStripMenuItem1.Text = "Miembros";
+            this.miembrosToolStripMenuItem1.Click += new System.EventHandler(this.miembrosToolStripMenuItem1_Click);
+            // 
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -313,6 +321,13 @@
             this.cuentasPorCobrarToolStripMenuItem1.Text = "Cuentas por Co&brar";
             this.cuentasPorCobrarToolStripMenuItem1.Click += new System.EventHandler(this.cuentasPorCobrarToolStripMenuItem1_Click);
             // 
+            // miembrosToolStripMenuItem
+            // 
+            this.miembrosToolStripMenuItem.Name = "miembrosToolStripMenuItem";
+            this.miembrosToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.miembrosToolStripMenuItem.Text = "Miembros";
+            this.miembrosToolStripMenuItem.Click += new System.EventHandler(this.miembrosToolStripMenuItem_Click);
+            // 
             // ventanaToolStripMenuItem
             // 
             this.ventanaToolStripMenuItem.Name = "ventanaToolStripMenuItem";
@@ -403,20 +418,6 @@
             this.toolStripCategorias.Text = "Categorias";
             this.toolStripCategorias.Click += new System.EventHandler(this.toolStripCategorias_Click);
             // 
-            // miembrosToolStripMenuItem
-            // 
-            this.miembrosToolStripMenuItem.Name = "miembrosToolStripMenuItem";
-            this.miembrosToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.miembrosToolStripMenuItem.Text = "Miembros";
-            this.miembrosToolStripMenuItem.Click += new System.EventHandler(this.miembrosToolStripMenuItem_Click);
-            // 
-            // miembrosToolStripMenuItem1
-            // 
-            this.miembrosToolStripMenuItem1.Name = "miembrosToolStripMenuItem1";
-            this.miembrosToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-            this.miembrosToolStripMenuItem1.Text = "Miembros";
-            this.miembrosToolStripMenuItem1.Click += new System.EventHandler(this.miembrosToolStripMenuItem1_Click);
-            // 
             // Portada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,6 +426,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Portada";

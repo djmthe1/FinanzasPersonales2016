@@ -161,18 +161,24 @@ namespace FinanzasPersonales.Registros
 
         private void buttonBuscarId_Click(object sender, EventArgs e)
         {
-                ObtenerValores();
+            ObtenerValores();
+            if (textBoxId.Text.Length == 0)
+            {
+                MessageBox.Show("Debe insertar un Id", "Error al Buscar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
                 if (transferencias.Buscar(transferencias.TransferenciaId))
                 {
-                     DevolverValores();
+                    DevolverValores();
                 }
                 else
                 {
                     MensajeAdvertencia("Id no encontrado");
                     Limpiar();
                 }
+            }
         }
-
 
         private void comboBoxCuentaOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {

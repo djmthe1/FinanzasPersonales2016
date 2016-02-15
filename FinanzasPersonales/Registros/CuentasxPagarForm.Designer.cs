@@ -230,7 +230,9 @@
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.GuardarButton);
+            this.MaximizeBox = false;
             this.Name = "CuentasxPagarForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuentas por Pagar";
             this.Load += new System.EventHandler(this.CuentasxPagarForm_Load);
             this.ResumeLayout(false);
