@@ -57,6 +57,7 @@ namespace FinanzasPersonales
                 {
 
                     MessageBox.Show("Id no encontrado!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    EliminarButton.Enabled = false;
                     Limpiar();
                 }
             }
@@ -192,6 +193,7 @@ namespace FinanzasPersonales
                         {
                             MessageBox.Show("Error en Eliminar Categoria!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             Limpiar();
+                            EliminarButton.Enabled = false;
                         }
 
                     }
@@ -201,13 +203,14 @@ namespace FinanzasPersonales
                     {
                         MessageBox.Show("Id no existe!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         Limpiar();
+                        EliminarButton.Enabled = false;
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception exc)
             {
 
-                MessageBox.Show("Error en Eliminar Categoria!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw exc;
             }
         }
 
