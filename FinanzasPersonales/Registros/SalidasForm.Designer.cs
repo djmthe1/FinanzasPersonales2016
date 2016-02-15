@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalidasForm));
             this.SalidaIdlabel = new System.Windows.Forms.Label();
             this.CuentaIdlabel = new System.Windows.Forms.Label();
             this.MontoSalidalabel = new System.Windows.Forms.Label();
@@ -57,7 +58,7 @@
             // CuentaIdlabel
             // 
             this.CuentaIdlabel.AutoSize = true;
-            this.CuentaIdlabel.Location = new System.Drawing.Point(67, 92);
+            this.CuentaIdlabel.Location = new System.Drawing.Point(67, 104);
             this.CuentaIdlabel.Name = "CuentaIdlabel";
             this.CuentaIdlabel.Size = new System.Drawing.Size(55, 13);
             this.CuentaIdlabel.TabIndex = 1;
@@ -95,13 +96,15 @@
             this.SalidaIdtextBox.Name = "SalidaIdtextBox";
             this.SalidaIdtextBox.Size = new System.Drawing.Size(100, 20);
             this.SalidaIdtextBox.TabIndex = 5;
+            this.SalidaIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SalidaIdtextBox_KeyPress);
             // 
             // CuentaIdtextBox
             // 
-            this.CuentaIdtextBox.Location = new System.Drawing.Point(138, 92);
+            this.CuentaIdtextBox.Location = new System.Drawing.Point(138, 104);
             this.CuentaIdtextBox.Name = "CuentaIdtextBox";
             this.CuentaIdtextBox.Size = new System.Drawing.Size(100, 20);
             this.CuentaIdtextBox.TabIndex = 6;
+            this.CuentaIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CuentaIdtextBox_KeyPress);
             // 
             // MontotextBox
             // 
@@ -109,44 +112,57 @@
             this.MontotextBox.Name = "MontotextBox";
             this.MontotextBox.Size = new System.Drawing.Size(100, 20);
             this.MontotextBox.TabIndex = 7;
+            this.MontotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MontotextBox_KeyPress);
             // 
             // BuscarSalidaIdbutton
             // 
-            this.BuscarSalidaIdbutton.Location = new System.Drawing.Point(255, 43);
+            this.BuscarSalidaIdbutton.Image = global::FinanzasPersonales.Properties.Resources.Search;
+            this.BuscarSalidaIdbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BuscarSalidaIdbutton.Location = new System.Drawing.Point(244, 43);
             this.BuscarSalidaIdbutton.Name = "BuscarSalidaIdbutton";
-            this.BuscarSalidaIdbutton.Size = new System.Drawing.Size(75, 23);
+            this.BuscarSalidaIdbutton.Size = new System.Drawing.Size(75, 46);
             this.BuscarSalidaIdbutton.TabIndex = 8;
             this.BuscarSalidaIdbutton.Text = "Buscar";
+            this.BuscarSalidaIdbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BuscarSalidaIdbutton.UseVisualStyleBackColor = true;
             this.BuscarSalidaIdbutton.Click += new System.EventHandler(this.BuscarSalidaIdbutton_Click);
             // 
             // Guardarbutton
             // 
-            this.Guardarbutton.Location = new System.Drawing.Point(70, 309);
+            this.Guardarbutton.Image = global::FinanzasPersonales.Properties.Resources.Save;
+            this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Guardarbutton.Location = new System.Drawing.Point(163, 309);
             this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(75, 23);
+            this.Guardarbutton.Size = new System.Drawing.Size(75, 47);
             this.Guardarbutton.TabIndex = 9;
             this.Guardarbutton.Text = "Guardar";
+            this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Guardarbutton.UseVisualStyleBackColor = true;
             this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
             // Nuevobutton
             // 
-            this.Nuevobutton.Location = new System.Drawing.Point(163, 309);
+            this.Nuevobutton.Image = global::FinanzasPersonales.Properties.Resources.Add;
+            this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Nuevobutton.Location = new System.Drawing.Point(70, 309);
             this.Nuevobutton.Name = "Nuevobutton";
-            this.Nuevobutton.Size = new System.Drawing.Size(75, 23);
+            this.Nuevobutton.Size = new System.Drawing.Size(75, 47);
             this.Nuevobutton.TabIndex = 10;
             this.Nuevobutton.Text = "Nuevo";
+            this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Nuevobutton.UseVisualStyleBackColor = true;
             this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
             // Eliminarbutton
             // 
+            this.Eliminarbutton.Image = global::FinanzasPersonales.Properties.Resources.fail;
+            this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Eliminarbutton.Location = new System.Drawing.Point(255, 309);
             this.Eliminarbutton.Name = "Eliminarbutton";
-            this.Eliminarbutton.Size = new System.Drawing.Size(75, 23);
+            this.Eliminarbutton.Size = new System.Drawing.Size(75, 47);
             this.Eliminarbutton.TabIndex = 11;
             this.Eliminarbutton.Text = "Eliminar";
+            this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
             this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
@@ -180,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 344);
+            this.ClientSize = new System.Drawing.Size(374, 378);
             this.Controls.Add(this.FechadateTimePicker);
             this.Controls.Add(this.Fechalabel);
             this.Controls.Add(this.SignoDinerolabel);
@@ -196,12 +212,14 @@
             this.Controls.Add(this.MontoSalidalabel);
             this.Controls.Add(this.CuentaIdlabel);
             this.Controls.Add(this.SalidaIdlabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SalidasForm";
             this.Text = "Salidas";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+
 
         #endregion
 

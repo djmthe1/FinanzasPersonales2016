@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultaMiembros));
             this.MiembrosdataGridView = new System.Windows.Forms.DataGridView();
             this.Buscarlabel = new System.Windows.Forms.Label();
             this.BuscarcomboBox = new System.Windows.Forms.ComboBox();
@@ -96,6 +97,7 @@
             this.Controls.Add(this.BuscarcomboBox);
             this.Controls.Add(this.Buscarlabel);
             this.Controls.Add(this.MiembrosdataGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConsultaMiembros";
             this.Text = "Consulta Miembros";
             ((System.ComponentModel.ISupportInitialize)(this.MiembrosdataGridView)).EndInit();

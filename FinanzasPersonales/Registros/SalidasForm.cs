@@ -79,6 +79,30 @@ namespace FinanzasPersonales.Registros
             }
         }
 
+        private void MontotextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar == 46))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void CuentaIdtextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void SalidaIdtextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
             SalidaIdtextBox.Clear();

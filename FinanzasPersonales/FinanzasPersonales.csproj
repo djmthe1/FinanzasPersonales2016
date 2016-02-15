@@ -297,6 +297,8 @@
     </Content>
     <Content Include="Resources\1453635934_ChirstmaxShop_transaction.ico" />
     <Content Include="Resources\1455521562_personal_loan.ico" />
+    <None Include="Resources\1455583474_Log Out.png" />
+    <None Include="Resources\1455583405_userconfig.png" />
     <None Include="Resources\1455099110_categories.png" />
     <None Include="Resources\fail.png" />
     <None Include="Resources\Save.png" />

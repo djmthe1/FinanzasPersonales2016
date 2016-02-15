@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MiembrosForm));
             this.MiembroIdlabel = new System.Windows.Forms.Label();
             this.UsuarioIdlabel = new System.Windows.Forms.Label();
             this.Nombreslabel = new System.Windows.Forms.Label();
@@ -95,6 +96,7 @@
             this.MiembroIdtextBox.Name = "MiembroIdtextBox";
             this.MiembroIdtextBox.Size = new System.Drawing.Size(100, 20);
             this.MiembroIdtextBox.TabIndex = 5;
+            this.MiembroIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MiembroIdtextBox_KeyPress);
             // 
             // NombrestextBox
             // 
@@ -103,6 +105,7 @@
             this.NombrestextBox.Size = new System.Drawing.Size(169, 20);
             this.NombrestextBox.TabIndex = 6;
             this.NombrestextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.NombrestextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombrestextBox_KeyPress);
             // 
             // ApellidostextBox
             // 
@@ -110,6 +113,7 @@
             this.ApellidostextBox.Name = "ApellidostextBox";
             this.ApellidostextBox.Size = new System.Drawing.Size(169, 20);
             this.ApellidostextBox.TabIndex = 7;
+            this.ApellidostextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ApellidostextBox_KeyPress);
             // 
             // UsuarioIdcomboBox
             // 
@@ -206,12 +210,14 @@
             this.Controls.Add(this.Nombreslabel);
             this.Controls.Add(this.UsuarioIdlabel);
             this.Controls.Add(this.MiembroIdlabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MiembrosForm";
             this.Text = "Miembros Registro";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+
 
         #endregion
 

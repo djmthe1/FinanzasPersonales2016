@@ -93,8 +93,9 @@
             this.Controls.Add(this.ConsultaSalidascomboBox);
             this.Controls.Add(this.SalidasdataGridView);
             this.Controls.Add(this.Buscarlabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConsultaSalidasForm";
-            this.Text = "ConsultaSalidasForm";
+            this.Text = "Consulta Salidas";
             ((System.ComponentModel.ISupportInitialize)(this.SalidasdataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
