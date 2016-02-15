@@ -101,7 +101,7 @@ namespace BLL
             DataTable datatable = new DataTable();
             try
             {
-                datatable = conexion.ObtenerDatos(string.Format("select * from Categorias where Descripcion=" + DescripcionBuscada));
+                datatable = conexion.ObtenerDatos(string.Format("select * from Categorias where Descripcion= '" + DescripcionBuscada+"'"));
                 if (datatable.Rows.Count > 0)
                 {
                     this.CategoriaId = (int)datatable.Rows[0]["CategoriaId"];

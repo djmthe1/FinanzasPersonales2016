@@ -46,7 +46,7 @@ namespace FinanzasPersonales
                 
                 
                 Validar(CategoriaIDTextBox);
-                if (categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
+                if (CategoriaIDTextBox.Text != "" && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
                 {
                     DescripcionTextBox.Text = categoria.Descripcion;
                     CategoriaIDTextBox.Focus();
@@ -104,10 +104,21 @@ namespace FinanzasPersonales
 
            try
             {
-                Validar(DescripcionTextBox);   
-             if ((CategoriaIDTextBox.Text == "")  && (DescripcionTextBox.Text != ""))
+                Validar(CategoriaIDTextBox);
+                Validar(DescripcionTextBox);
+
+                if ((CategoriaIDTextBox.Text == "") && (DescripcionTextBox.Text != ""))
                 {
-                    
+
+                    if (categoria.BuscarDescripcion(DescripcionTextBox.Text))
+                    {
+                        MessageBox.Show("Esta Categoria ya existe!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Limpiar();
+                        DescripcionTextBox.Focus();
+                        
+                    }
+                    else
+                    {
                         LlenarDatos(categoria);
                         CategoriaErrorProvider.Clear();
                         if (categoria.Insertar())
@@ -118,12 +129,13 @@ namespace FinanzasPersonales
                         {
                             MessageBox.Show("Error al guardar!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                    }
                 }
                 else
                 {
-    
 
-                    if (CategoriaIDTextBox.Text!= "" && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)) && DescripcionTextBox.Text != "")
+
+                    if (CategoriaIDTextBox.Text != "" && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)) && DescripcionTextBox.Text != "")
                     {
                         LlenarDatos(categoria);
                         if (categoria.Editar())
@@ -140,7 +152,9 @@ namespace FinanzasPersonales
                         MessageBox.Show("Error al Modificar Categoria.\n Pues esta Cagoria No existe!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-               
+
+                
+
 
             }
             catch (Exception exc)
