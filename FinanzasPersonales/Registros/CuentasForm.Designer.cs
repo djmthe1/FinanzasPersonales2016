@@ -180,7 +180,9 @@
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.GuardarButton);
+            this.MaximizeBox = false;
             this.Name = "CuentasForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuentas";
             this.Load += new System.EventHandler(this.CuentasForm_Load);
             this.ResumeLayout(false);

@@ -106,14 +106,21 @@ namespace FinanzasPersonales.Registros
         private void buttonBuscarId_Click(object sender, EventArgs e)
         {
             ObtenerValores();
-            if (cuentasxP.Buscar(cuentasxP.CxpId))
+            if (textBoxId.Text.Length == 0)
             {
-                DevolverValores();
+                MessageBox.Show("Debe insertar un Id", "Error al Buscar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                MensajeAdvertencia("Id no encontrado");
-                Limpiar();
+                if (cuentasxP.Buscar(cuentasxP.CxpId))
+                {
+                    DevolverValores();
+                }
+                else
+                {
+                    MensajeAdvertencia("Id no encontrado");
+                    Limpiar();
+                }
             }
         }
 
