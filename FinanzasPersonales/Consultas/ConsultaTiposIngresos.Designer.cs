@@ -56,6 +56,7 @@
             this.FiltrotextBox.Name = "FiltrotextBox";
             this.FiltrotextBox.Size = new System.Drawing.Size(226, 20);
             this.FiltrotextBox.TabIndex = 25;
+            this.FiltrotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Filtrotexbox_KeyPress);
             // 
             // label2
             // 

@@ -21,6 +21,29 @@ namespace FinanzasPersonales.Consultas
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             Entradas entrada = new Entradas();
+            string filtro = "1=1";
+
+            if (FiltrotextBox.Text.Length > 0)
+            {
+                filtro = CamposcomboBox.Text + " like '%" + FiltrotextBox.Text + "%'";
+            }
+
+            ConsultadataGridView.DataSource = entrada.Listado("EntradaId,CuentaId,CategoriaId,Descripcion,Monto,Fecha", filtro, "");
+
+            ConteotextBox.Text = ConsultadataGridView.RowCount.ToString();
+        }
+
+        private void FiltrotextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        /*private void BuscarButton_Click(object sender, EventArgs e)
+        {
+            Entradas entrada = new Entradas();
             string condicion;
 
             if (CamposcomboBox.SelectedIndex == 0)
@@ -72,6 +95,6 @@ namespace FinanzasPersonales.Consultas
         private void ConsultaEntradas_Load(object sender, EventArgs e)
         {
 
-        }
+        }*/
     }
 }

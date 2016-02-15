@@ -46,6 +46,8 @@
             this.FiltrotextBox.Name = "FiltrotextBox";
             this.FiltrotextBox.Size = new System.Drawing.Size(226, 20);
             this.FiltrotextBox.TabIndex = 17;
+            this.FiltrotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FiltrotextBox_KeyPress);
+            this.FiltrotextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FiltrotextBox_KeyPress);
             // 
             // label2
             // 
@@ -136,7 +138,6 @@
             this.Controls.Add(this.ConsultadataGridView);
             this.Name = "ConsultaEntradas";
             this.Text = "ConsultaEntradas";
-            this.Load += new System.EventHandler(this.ConsultaEntradas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ConsultadataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
