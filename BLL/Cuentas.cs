@@ -29,8 +29,8 @@ namespace BLL
             bool retorno = false;
             try
             {
-                conexion.Ejecutar(String.Format("Insert Into Cuentas (Descripcion, Balance) Values('{0}',{1})", this.Descripcion, this.Balance));
-                retorno = true;
+                this.CuentaId = (int)conexion.ObtenerValor(String.Format("Insert Into Cuentas (Descripcion, Balance) Values('{0}',{1}) Select @@Identity", this.Descripcion, this.Balance));
+                retorno = this.CuentaId > 0;
             }
             catch (Exception ex) { throw ex; }
             return retorno;

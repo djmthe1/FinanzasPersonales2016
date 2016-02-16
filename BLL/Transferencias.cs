@@ -41,8 +41,8 @@ namespace BLL
             bool retorno = false;
             try
             {
-                conexion.Ejecutar(String.Format("Insert Into Transferencias (Fecha, CuentaDeOrigenId, CuentaDeDestinoId, Monto, Observacion, UsuarioId) Values ('{0}',{1},{2},{3},'{4}',{5})", this.Fecha, this.OrigenId, this.DestinoId, this.Monto, this.Observacion, this.UsuarioId));
-                retorno = true;
+                this.TransferenciaId = (int)conexion.ObtenerValor(string.Format("Insert Into Transferencias (Fecha, CuentaDeOrigenId, CuentaDeDestinoId, Monto, Observacion, UsuarioId) Values ('{0}',{1},{2},{3},'{4}',{5}) Select @@Identity", this.Fecha, this.OrigenId, this.DestinoId, this.Monto, this.Observacion, this.UsuarioId));
+                retorno = this.TransferenciaId > 0;
             }
             catch (Exception ex) { throw ex; }
             return retorno;

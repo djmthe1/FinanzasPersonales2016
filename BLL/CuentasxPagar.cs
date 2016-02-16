@@ -36,8 +36,8 @@ namespace BLL
             bool retorno = false;
             try
             {
-                conexion.Ejecutar(String.Format("Insert Into CuentasxPagar (Fecha, Concepto, Monto, Balance) Values ('{0}','{1}',{2},{3})", this.Fecha, this.Concepto, this.Monto, this.Balance));
-                retorno = true;
+                this.CxpId = (int)conexion.ObtenerValor(String.Format("Insert Into CuentasxPagar (Fecha, Concepto, Monto, Balance) Values ('{0}','{1}',{2},{3}) Select @@Identity", this.Fecha, this.Concepto, this.Monto, this.Balance));
+                retorno = this.CxpId > 0;
             }
             catch (Exception ex) { throw ex; }
             return retorno;
