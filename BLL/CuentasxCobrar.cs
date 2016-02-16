@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using DAL;
 
 namespace BLL
 {
-   public class CuentasxCobrar : ClaseMaestra
+    public class CuentasxCobrar : ClaseMaestra
 
     {
         ConexionDb conexion = new ConexionDb();

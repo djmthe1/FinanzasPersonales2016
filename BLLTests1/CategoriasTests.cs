@@ -4,32 +4,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
 
 namespace BLL.Tests
 {
     [TestClass()]
     public class CategoriasTests
     {
-        [TestMethod()]
-        public void CategoriasTest()
-        {
-            Assert.Fail();
-        }
 
-        [TestMethod()]
-        public void CategoriasTest1()
-        {
-            Assert.Fail();
-        }
 
         [TestMethod()]
         public void InsertarTest()
         {
-            Categorias categoria = new Categorias() ;
+            Categorias categoria = new Categorias();
 
             categoria.Descripcion = "LA PRUEBA";
 
-           bool paso = categoria.Insertar();
+            bool paso = categoria.Insertar();
 
             Assert.IsTrue(paso);
         }
@@ -61,10 +52,13 @@ namespace BLL.Tests
         {
             Categorias categorias = new Categorias();
 
-            int buscar=1;
-            categorias.Descripcion = "LA PRUEBA";
-            categorias.CategoriaId = 1;
-            categorias.Insertar();
+            int buscar = 1;
+            
+            DataTable dt = new DataTable();
+
+            dt = categorias.Listado("*", "1=1", "");
+            if (dt.Rows.Count > 0)
+                buscar = (int)dt.Rows[0]["CategoriaId"];
 
             bool paso = categorias.Buscar(buscar);
 
@@ -74,7 +68,12 @@ namespace BLL.Tests
         [TestMethod()]
         public void ListadoTest()
         {
-            Assert.Fail();
+            Categorias categorias = new Categorias();
+            DataTable dt = new DataTable();
+
+            dt = categorias.Listado("*", "1=1", "");
+
+            Assert.IsTrue(dt.Rows.Count > 0);
         }
     }
 }

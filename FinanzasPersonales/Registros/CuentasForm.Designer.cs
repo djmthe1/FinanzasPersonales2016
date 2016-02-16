@@ -95,7 +95,7 @@
             this.buttonBuscarId.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBuscarId.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarId.Image")));
             this.buttonBuscarId.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBuscarId.Location = new System.Drawing.Point(227, 48);
+            this.buttonBuscarId.Location = new System.Drawing.Point(183, 47);
             this.buttonBuscarId.Name = "buttonBuscarId";
             this.buttonBuscarId.Size = new System.Drawing.Size(92, 34);
             this.buttonBuscarId.TabIndex = 26;
@@ -107,10 +107,10 @@
             // textBoxId
             // 
             this.textBoxId.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxId.Location = new System.Drawing.Point(181, 56);
+            this.textBoxId.Location = new System.Drawing.Point(105, 55);
             this.textBoxId.MaxLength = 10;
             this.textBoxId.Name = "textBoxId";
-            this.textBoxId.Size = new System.Drawing.Size(40, 20);
+            this.textBoxId.Size = new System.Drawing.Size(57, 20);
             this.textBoxId.TabIndex = 25;
             this.textBoxId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxId_KeyPress);
             // 
@@ -119,7 +119,7 @@
             this.labelId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelId.AutoSize = true;
             this.labelId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelId.Location = new System.Drawing.Point(144, 56);
+            this.labelId.Location = new System.Drawing.Point(68, 55);
             this.labelId.Name = "labelId";
             this.labelId.Size = new System.Drawing.Size(18, 13);
             this.labelId.TabIndex = 24;
@@ -129,7 +129,7 @@
             // 
             this.labelBalance.AutoSize = true;
             this.labelBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBalance.Location = new System.Drawing.Point(109, 97);
+            this.labelBalance.Location = new System.Drawing.Point(33, 132);
             this.labelBalance.Name = "labelBalance";
             this.labelBalance.Size = new System.Drawing.Size(53, 13);
             this.labelBalance.TabIndex = 33;
@@ -137,7 +137,7 @@
             // 
             // textBoxBalance
             // 
-            this.textBoxBalance.Location = new System.Drawing.Point(181, 97);
+            this.textBoxBalance.Location = new System.Drawing.Point(105, 132);
             this.textBoxBalance.Name = "textBoxBalance";
             this.textBoxBalance.Size = new System.Drawing.Size(116, 20);
             this.textBoxBalance.TabIndex = 32;
@@ -146,11 +146,11 @@
             // textBoxDescripcion
             // 
             this.textBoxDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxDescripcion.Location = new System.Drawing.Point(181, 138);
+            this.textBoxDescripcion.Location = new System.Drawing.Point(105, 87);
             this.textBoxDescripcion.MaxLength = 50;
             this.textBoxDescripcion.Multiline = true;
             this.textBoxDescripcion.Name = "textBoxDescripcion";
-            this.textBoxDescripcion.Size = new System.Drawing.Size(116, 39);
+            this.textBoxDescripcion.Size = new System.Drawing.Size(290, 39);
             this.textBoxDescripcion.TabIndex = 34;
             this.textBoxDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxDescripcion_KeyPress);
             // 
@@ -159,7 +159,7 @@
             this.labelDescripcion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelDescripcion.AutoSize = true;
             this.labelDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescripcion.Location = new System.Drawing.Point(88, 138);
+            this.labelDescripcion.Location = new System.Drawing.Point(12, 87);
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(74, 13);
             this.labelDescripcion.TabIndex = 35;

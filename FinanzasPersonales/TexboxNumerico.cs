@@ -1,0 +1,39 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace FinanzasPersonales
+{
+    public class TexboxNumerico : TextBox
+    {
+
+        protected override void OnKeyPress(KeyPressEventArgs e)
+        {
+            base.OnKeyPress(e);
+
+            NumberFormatInfo fi = CultureInfo.CurrentCulture.NumberFormat;
+
+            string c = e.KeyChar.ToString();
+            if (char.IsDigit(c, 0))
+                return;
+
+            if ((SelectionStart == 0) && (c.Equals(fi.NegativeSign)))
+                return;
+
+            // copy/paste
+            if ((((int)e.KeyChar == 22) || ((int)e.KeyChar == 3))
+                && ((ModifierKeys & Keys.Control) == Keys.Control))
+                return;
+
+            if (e.KeyChar == '\b')
+                return;
+
+            e.Handled = true;
+        }
+
+    }
+}

@@ -21,19 +21,24 @@ namespace FinanzasPersonales.Registros
         public Transferencias transferencias = new Transferencias();
         public Cuentas cuentas = new Cuentas();
         public Usuarios usuarios = new Usuarios();
-        public DataTable dato = new DataTable();
+
         public int MontoOrigen;
         public int MontoTransferir;
 
         private void TransferenciasForm_Load(object sender, EventArgs e)
         {
-            dato = cuentas.Listado("*", "0=0", "ORDER BY CuentaId");
+            DataTable dato, dato1;
 
-            for (int i = 0; i <= dato.Rows.Count - 1; i++)
-            {
-                comboBoxCuentaOrigen.Items.Add(cuentas.Listado("*", "0=0", "ORDER BY CuentaId").Rows[i]["CuentaId"]);
-                comboBoxCuentaDestino.Items.Add(cuentas.Listado("*", "0=0", "ORDER BY CuentaId").Rows[i]["CuentaId"]);
-            }
+            dato = cuentas.Listado("CuentaId,Descripcion,Balance", "0=0", "ORDER BY CuentaId");
+            dato1 = cuentas.Listado("CuentaId,Descripcion,Balance", "0=0", "ORDER BY CuentaId");
+
+            comboBoxCuentaOrigen.DataSource = dato;
+            comboBoxCuentaOrigen.ValueMember = "CuentaId";
+            comboBoxCuentaOrigen.DisplayMember = "Descripcion";
+
+            comboBoxCuentaDestino.DataSource = dato1;
+            comboBoxCuentaDestino.ValueMember = "CuentaId";
+            comboBoxCuentaDestino.DisplayMember = "Descripcion";
 
 
         }
@@ -129,12 +134,12 @@ namespace FinanzasPersonales.Registros
 
         private void ObtenerOrigen()
         {
-            transferencias.OrigenId = int.Parse(comboBoxCuentaOrigen.Text);
+            transferencias.OrigenId = (int)comboBoxCuentaOrigen.SelectedValue ;
         }
 
         private void ObtenerDestino()
         {
-            transferencias.DestinoId = int.Parse(comboBoxCuentaDestino.Text);
+            transferencias.DestinoId = (int)comboBoxCuentaDestino.SelectedValue;
         }
 
         private void DevolverOrigen()
@@ -221,35 +226,36 @@ namespace FinanzasPersonales.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
-                ObtenerValores();
-                if (textBoxId.Text == "")
+            ObtenerValores();
+            if (textBoxId.Text == "")
+            {
+                if (textBoxMonto.Text != "" && comboBoxCuentaOrigen.Text != "" && comboBoxCuentaDestino.Text != "" && textBoxObservacion.Text != "" && textBoxDescripcionCuentaDestino.Text != "")
                 {
-                    if (textBoxMonto.Text != "" && comboBoxCuentaOrigen.Text != "" && comboBoxCuentaDestino.Text != "" && textBoxObservacion.Text != "" && textBoxDescripcionCuentaDestino.Text != "")
+                    Verificar();
+                    if (MontoOrigen >= MontoTransferir)
                     {
-                        Verificar();
-                        if (MontoOrigen >= MontoTransferir) { 
-                            if (transferencias.Insertar())
-                            {
-                                Limpiar();
-                                MensajeOk("Insertado correctamente");
-                            }
-                            else
-                            {
-                                MensajeError("Error al insertar");
-                            }
+                        if (transferencias.Insertar())
+                        {
+                            Limpiar();
+                            MensajeOk("Insertado correctamente");
                         }
                         else
                         {
-                                MessageBox.Show("Monto a transferir debe ser menor al monto de la cuenta", "Error al insertar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            }
+                            MensajeError("Error al insertar");
                         }
+                    }
                     else
                     {
-                        MessageBox.Show("Debe llenar todos los campos", "Error al insertar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Monto a transferir debe ser menor al monto de la cuenta", "Error al insertar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
                 else
                 {
+                    MessageBox.Show("Debe llenar todos los campos", "Error al insertar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
                 Verificar();
                 if (MontoOrigen >= MontoTransferir)
                 {
@@ -303,6 +309,16 @@ namespace FinanzasPersonales.Registros
             catch (Exception)
             {
                 MensajeError("Error al eliminar");
+            }
+        }
+
+        private void comboBoxCuentaOrigen_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCuentaOrigen.SelectedValue != null )
+            {
+                DataRow row = (DataRow)comboBoxCuentaOrigen.SelectedItem;
+
+                textBoxMontoCuentaOrigen.Text = row["Balance"].ToString ();
             }
         }
     }

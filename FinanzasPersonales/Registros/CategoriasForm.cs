@@ -46,9 +46,10 @@ namespace FinanzasPersonales
                 
                 
                 Validar(CategoriaIDTextBox);
-                if (CategoriaIDTextBox.Text != "" && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
+                if (!CategoriaIDTextBox.Text.Equals("") && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
                 {
                     DescripcionTextBox.Text = categoria.Descripcion;
+
                     CategoriaIDTextBox.Focus();
                     EliminarButton.Enabled = true;
                     GuardarButton.Enabled = true;

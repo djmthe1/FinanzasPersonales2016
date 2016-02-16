@@ -178,7 +178,7 @@
             this.textBoxConcepto.MaxLength = 50;
             this.textBoxConcepto.Multiline = true;
             this.textBoxConcepto.Name = "textBoxConcepto";
-            this.textBoxConcepto.Size = new System.Drawing.Size(116, 39);
+            this.textBoxConcepto.Size = new System.Drawing.Size(275, 39);
             this.textBoxConcepto.TabIndex = 28;
             this.textBoxConcepto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxConcepto_KeyPress);
             // 

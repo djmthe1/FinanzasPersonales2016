@@ -33,7 +33,8 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Insert Into Categorias(Descripcion) values('{0}')", this.Descripcion));
+               this.CategoriaId =  (int)conexion.ObtenerValor(string.Format("Insert Into Categorias(Descripcion) values('{0}') Select @@Identity", this.Descripcion));
+                retorno = this.CategoriaId > 0;
             }
             catch (Exception ex)
             {
@@ -47,17 +48,18 @@ namespace BLL
 
         public override bool Editar()
         {
+            bool retorno = false;
             try
             {
-                bool retorno = false;
-                retorno = conexion.Ejecutar(String.Format(" Update Categorias set Descripcion = '{0}' where CategoriaId = {1} ",
-                this.Descripcion, this.CategoriaId));
-                return retorno;
+                
+                retorno = conexion.Ejecutar(String.Format(" Update Categorias set Descripcion = '{0}' where CategoriaId = {1} ",  this.Descripcion, this.CategoriaId));
+               
             }
             catch (Exception exc)
             {
                 throw exc;
             }
+            return retorno;
         }
 
         public override bool Eliminar()

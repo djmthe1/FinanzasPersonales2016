@@ -360,6 +360,7 @@
             this.comboBoxCuentaOrigen.Size = new System.Drawing.Size(116, 21);
             this.comboBoxCuentaOrigen.TabIndex = 36;
             this.comboBoxCuentaOrigen.SelectedIndexChanged += new System.EventHandler(this.comboBoxCuentaOrigen_SelectedIndexChanged);
+            this.comboBoxCuentaOrigen.SelectedValueChanged += new System.EventHandler(this.comboBoxCuentaOrigen_SelectedValueChanged);
             // 
             // TransferenciasForm
             // 

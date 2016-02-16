@@ -33,7 +33,7 @@ namespace FinanzasPersonales.Registros
             int.TryParse(CxcIdTextBox.Text, out CuentasxC);
             CxC.CxcId = CuentasxC;
             CxC.Fecha = dateTimePickerCuentasxCobrar.Text;
-            cuentas.CuentaId = CxC.CuentaId;
+            CxC.CuentaId = (int)ComboBoxCuentaId.SelectedValue;
             CxC.Concepto = textBoxConcepto.Text;
             float Monto = 0;
             float.TryParse(TextBoxMonto.Text, out Monto);
@@ -77,12 +77,12 @@ namespace FinanzasPersonales.Registros
         private void CuantasxCobrarForm_Load(object sender, EventArgs e)
         {
             DataTable datos = new DataTable();
-            datos = cuentas.Listado("*", "0=0", "ORDER BY CuentaId");
+            datos = cuentas.Listado("CuentaId,Descripcion", "0=0", "ORDER BY CuentaId");
 
-            for (int i = 0; i <= datos.Rows.Count - 1; i++)
-            {
-                ComboBoxCuentaId.Items.Add(cuentas.Listado("*", "0=0", "ORDER BY CuentaId").Rows[i]["CuentaId"]);
-            }
+            ComboBoxCuentaId.DataSource = datos;
+            ComboBoxCuentaId.ValueMember = "CuentaId";
+            ComboBoxCuentaId.DisplayMember = "Descripcion";
+
         }
         private void CxcIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {

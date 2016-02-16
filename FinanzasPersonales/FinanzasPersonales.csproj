@@ -190,6 +190,9 @@
     <Compile Include="Registros\TransferenciasForm.Designer.cs">
       <DependentUpon>TransferenciasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TexboxNumerico.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Consultas\ConsultaCategoriaForm.resx">
       <DependentUpon>ConsultaCategoriaForm.cs</DependentUpon>
     </EmbeddedResource>
