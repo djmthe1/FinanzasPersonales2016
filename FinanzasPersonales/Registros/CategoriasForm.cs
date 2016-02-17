@@ -29,7 +29,7 @@ namespace FinanzasPersonales
         //Este metodo sirve para Validar Los Textbox
         public void Validar(TextBox tb, string mensaje)
         {
-            if (tb.Text == "")
+            if (tb.Text== "")
             {
                 CategoriaErrorProvider.SetError(tb, mensaje);
                 tb.Focus();
@@ -49,7 +49,7 @@ namespace FinanzasPersonales
 
                 Validar(CategoriaIDTextBox, "El Id esta Vaicio!");
                
-                if (CategoriaIDTextBox.Text!= "" && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
+                if (!CategoriaIDTextBox.Text.Equals("") && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
                 {
                     DescripcionTextBox.Text = categoria.Descripcion;
 
@@ -122,7 +122,7 @@ namespace FinanzasPersonales
                 Validar(CategoriaIDTextBox,"El Id esta Vaicio!");
                 Validar(DescripcionTextBox, "La Descripcion esta Vacia!");
 
-                if (CategoriaIDTextBox.Text == "" && DescripcionTextBox.Text != "")
+                if (CategoriaIDTextBox.Text.Equals("") && !DescripcionTextBox.Text.Equals(""))
                 {
 
                     if (categoria.BuscarDescripcion(DescripcionTextBox.Text))
@@ -151,22 +151,25 @@ namespace FinanzasPersonales
                 {
 
 
-                    if (CategoriaIDTextBox.Text != "" && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)) && DescripcionTextBox.Text != "" )
+                    if (!CategoriaIDTextBox.Text.Equals("") && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)) && !DescripcionTextBox.Text.Equals("") )
                     {
-                        LlenarDatos(categoria);
-                        if (categoria.Editar())
+                        if (categoria.BuscarDescripcion(DescripcionTextBox.Text))
                         {
-                            MessageBox.Show("Categoria Modificada!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error al Modificar Categoria!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            LlenarDatos(categoria);
+                            if (categoria.Editar())
+                            {
+                                MessageBox.Show("Categoria Modificada!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error al Modificar Categoria!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }else
+                    {
+                            MessageBox.Show("Error al Modificar Categoria.\n Pues esta Cagoria No existe!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Error al Modificar Categoria.\n Pues esta Cagoria No existe!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                   
                 }
 
                 
@@ -229,10 +232,7 @@ namespace FinanzasPersonales
             }
         }
 
-        private void CategoriasForm_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 
 }

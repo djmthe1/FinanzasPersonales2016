@@ -168,7 +168,7 @@
             this.Name = "CategoriasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Categorias";
-            this.Load += new System.EventHandler(this.CategoriasForm_Load);
+           
             this.CategoriasGroupBox.ResumeLayout(false);
             this.CategoriasGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoriaErrorProvider)).EndInit();
