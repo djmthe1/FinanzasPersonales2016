@@ -47,6 +47,7 @@
             this.TextBoxMonto = new System.Windows.Forms.TextBox();
             this.TextBoxBalance = new System.Windows.Forms.TextBox();
             this.errorProviderCuentasxCobrar = new System.Windows.Forms.ErrorProvider(this.components);
+            this.texboxNumerico1 = new FinanzasPersonales.TexboxNumerico();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCuentasxCobrar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -230,11 +231,19 @@
             // 
             this.errorProviderCuentasxCobrar.ContainerControl = this;
             // 
+            // texboxNumerico1
+            // 
+            this.texboxNumerico1.Location = new System.Drawing.Point(286, 189);
+            this.texboxNumerico1.Name = "texboxNumerico1";
+            this.texboxNumerico1.Size = new System.Drawing.Size(100, 20);
+            this.texboxNumerico1.TabIndex = 20;
+            // 
             // CuantasxCobrarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 356);
+            this.Controls.Add(this.texboxNumerico1);
             this.Controls.Add(this.TextBoxBalance);
             this.Controls.Add(this.TextBoxMonto);
             this.Controls.Add(this.textBoxConcepto);
@@ -282,5 +291,6 @@
         private System.Windows.Forms.TextBox TextBoxMonto;
         private System.Windows.Forms.TextBox TextBoxBalance;
         private System.Windows.Forms.ErrorProvider errorProviderCuentasxCobrar;
+        private TexboxNumerico texboxNumerico1;
     }
 }
