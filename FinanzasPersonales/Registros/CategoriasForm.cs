@@ -25,54 +25,19 @@ namespace FinanzasPersonales
             categoria.CategoriaId = CategoriaId;
             categoria.Descripcion = DescripcionTextBox.Text;
         }
-       
+
         //Este metodo sirve para Validar Los Textbox
-        public void Validar(int selec)
+        public void Validar(TextBox tb, string mensaje)
         {
-            
-            switch (selec)
+            if (tb.Text == "")
             {
-                case 1:
-                    if (CategoriaIDTextBox.Text.Equals(""))
-                    {
-                        CategoriaErrorProvider.SetError(CategoriaIDTextBox, "Indroduzca el Id a buscar!");
-                        CategoriaIDTextBox.Focus();
-                    }
-                    else
-                    {
-                      
-                        Limpiar();
-                    }
-                    break;
-                case 2:
-                    if (CategoriaIDTextBox.Text.Equals(""))
-                    {
-                        CategoriaErrorProvider.SetError(CategoriaIDTextBox, "Indroduzca el Id a buscar!!");
-                        CategoriaIDTextBox.Focus();
-                    }
-                    else
-                    {
-                        
-                        Limpiar();
-
-                    }
-
-                    if (DescripcionTextBox.Text.Equals(""))
-                    {
-                        CategoriaErrorProvider.SetError(DescripcionTextBox, "Introduzca la Descripcion!");
-                        DescripcionTextBox.Focus();
-                    }
-                    else
-                    {
-                        
-                        Limpiar();
-                    }
-                    break;
-                default:
-                    break;
+                CategoriaErrorProvider.SetError(tb, mensaje);
+                tb.Focus();
             }
-         
-            
+            else
+            {
+                CategoriaErrorProvider.Clear();
+            }
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
@@ -80,10 +45,11 @@ namespace FinanzasPersonales
 
             try
             {
-                
-                
-                Validar(1);
-                if (!CategoriaIDTextBox.Text.Equals("") && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
+
+
+                Validar(CategoriaIDTextBox, "El Id esta Vaicio!");
+               
+                if (CategoriaIDTextBox.Text!= "" && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)))
                 {
                     DescripcionTextBox.Text = categoria.Descripcion;
 
@@ -153,8 +119,10 @@ namespace FinanzasPersonales
 
            try
             {
-                Validar(2);
-                if (CategoriaIDTextBox.Text.Equals("") && !DescripcionTextBox.Text.Equals(""))
+                Validar(CategoriaIDTextBox,"El Id esta Vaicio!");
+                Validar(DescripcionTextBox, "La Descripcion esta Vacia!");
+
+                if (CategoriaIDTextBox.Text == "" && DescripcionTextBox.Text != "")
                 {
 
                     if (categoria.BuscarDescripcion(DescripcionTextBox.Text))
@@ -167,10 +135,11 @@ namespace FinanzasPersonales
                     else
                     {
                         LlenarDatos(categoria);
-                        CategoriaErrorProvider.Clear();
+                         
                         if (categoria.Insertar())
                         {
                             MessageBox.Show("Categoria guardada...", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            GuardarButton.Enabled = false;
                         }
                         else
                         {
@@ -182,7 +151,7 @@ namespace FinanzasPersonales
                 {
 
 
-                    if (!CategoriaIDTextBox.Text.Equals("") && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)) && !DescripcionTextBox.Text.Equals("") && categoria.BuscarDescripcion(DescripcionTextBox.Text))
+                    if (CategoriaIDTextBox.Text != "" && categoria.Buscar(int.Parse(CategoriaIDTextBox.Text)) && DescripcionTextBox.Text != "" )
                     {
                         LlenarDatos(categoria);
                         if (categoria.Editar())

@@ -33,8 +33,12 @@ namespace BLL
             bool retorno = false;
             try
             {
-               this.CategoriaId =  (int)conexion.ObtenerValor(string.Format("Insert Into Categorias(Descripcion) values('{0}') Select @@Identity", this.Descripcion));
-                retorno = this.CategoriaId > 0;
+                if (conexion.Ejecutar(string.Format("Insert Into Categorias(Descripcion) values('{0}')", this.Descripcion)))
+                {
+                    retorno = true;
+                }
+                
+                
             }
             catch (Exception ex)
             {
