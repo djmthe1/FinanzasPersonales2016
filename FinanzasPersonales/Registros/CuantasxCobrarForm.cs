@@ -22,7 +22,7 @@ namespace FinanzasPersonales.Registros
         private void Limpiar()
         {
             this.CxcIdTextBox.Clear();
-            this.ComboBoxCuentaId.Text = "";
+            this.ComboBoxCuentaId.ResetText();
             this.textBoxConcepto.Clear();
             this.TextBoxMonto.Clear();
             this.TextBoxBalance.Clear();
@@ -33,19 +33,19 @@ namespace FinanzasPersonales.Registros
             int.TryParse(CxcIdTextBox.Text, out CuentasxC);
             CxC.CxcId = CuentasxC;
             CxC.Fecha = dateTimePickerCuentasxCobrar.Text;
-            CxC.CuentaId = (int)ComboBoxCuentaId.SelectedValue;
+           // CxC.CuentaId = int.Parse(ComboBoxCuentaId.SelectedValue.ToString());
             CxC.Concepto = textBoxConcepto.Text;
             float Monto = 0;
             float.TryParse(TextBoxMonto.Text, out Monto);
             CxC.Monto = Monto;
             float balance = 0;
             float.TryParse(TextBoxBalance.Text, out balance);
-            CxC.Balance = balance-Monto;
+            CxC.Balance = balance;
 
-        }
+        }//Este Metodo sirve para validar los textbox
         private void ValidarTexbox(TextBox tb)
         {
-            if (tb.Text == "")
+            if (tb.Text.Equals(""))
             {
                 errorProviderCuentasxCobrar.SetError(tb, "El Campo esta vacio!!");
                 tb.Focus();
@@ -79,9 +79,10 @@ namespace FinanzasPersonales.Registros
             DataTable datos = new DataTable();
             datos = cuentas.Listado("CuentaId,Descripcion", "0=0", "ORDER BY CuentaId");
 
-            ComboBoxCuentaId.DataSource = datos;
+            
             ComboBoxCuentaId.ValueMember = "CuentaId";
             ComboBoxCuentaId.DisplayMember = "Descripcion";
+            ComboBoxCuentaId.DataSource = datos;
 
         }
         private void CxcIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -97,10 +98,9 @@ namespace FinanzasPersonales.Registros
         }
         private void ComboBoxCuentaId_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CxC.CuentaId = int.Parse(this.ComboBoxCuentaId.Text);
+             CxC.CuentaId = int.Parse(ComboBoxCuentaId.SelectedValue.ToString());
             if (cuentas.Buscar(CxC.CuentaId))
             {
-                textBoxConcepto.Text = cuentas.Descripcion.ToString();
                 TextBoxBalance.Text = cuentas.Balance.ToString();
             }
             else
