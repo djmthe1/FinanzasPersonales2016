@@ -47,7 +47,6 @@
             this.TextBoxMonto = new System.Windows.Forms.TextBox();
             this.TextBoxBalance = new System.Windows.Forms.TextBox();
             this.errorProviderCuentasxCobrar = new System.Windows.Forms.ErrorProvider(this.components);
-            this.texboxNumerico1 = new FinanzasPersonales.TexboxNumerico();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCuentasxCobrar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,6 +142,7 @@
             // 
             // dateTimePickerCuentasxCobrar
             // 
+            this.dateTimePickerCuentasxCobrar.Checked = false;
             this.dateTimePickerCuentasxCobrar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerCuentasxCobrar.Location = new System.Drawing.Point(344, 25);
             this.dateTimePickerCuentasxCobrar.Name = "dateTimePickerCuentasxCobrar";
@@ -163,6 +163,8 @@
             // 
             this.ComboBoxCuentaId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ComboBoxCuentaId.FormattingEnabled = true;
+            this.ComboBoxCuentaId.Items.AddRange(new object[] {
+            ""});
             this.ComboBoxCuentaId.Location = new System.Drawing.Point(101, 85);
             this.ComboBoxCuentaId.Name = "ComboBoxCuentaId";
             this.ComboBoxCuentaId.Size = new System.Drawing.Size(81, 21);
@@ -223,6 +225,7 @@
             this.TextBoxBalance.Location = new System.Drawing.Point(101, 220);
             this.TextBoxBalance.MaxLength = 15;
             this.TextBoxBalance.Name = "TextBoxBalance";
+            this.TextBoxBalance.ReadOnly = true;
             this.TextBoxBalance.Size = new System.Drawing.Size(143, 20);
             this.TextBoxBalance.TabIndex = 19;
             this.TextBoxBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxBalance_KeyPress);
@@ -231,19 +234,11 @@
             // 
             this.errorProviderCuentasxCobrar.ContainerControl = this;
             // 
-            // texboxNumerico1
-            // 
-            this.texboxNumerico1.Location = new System.Drawing.Point(286, 189);
-            this.texboxNumerico1.Name = "texboxNumerico1";
-            this.texboxNumerico1.Size = new System.Drawing.Size(100, 20);
-            this.texboxNumerico1.TabIndex = 20;
-            // 
             // CuantasxCobrarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 356);
-            this.Controls.Add(this.texboxNumerico1);
             this.Controls.Add(this.TextBoxBalance);
             this.Controls.Add(this.TextBoxMonto);
             this.Controls.Add(this.textBoxConcepto);
@@ -291,6 +286,5 @@
         private System.Windows.Forms.TextBox TextBoxMonto;
         private System.Windows.Forms.TextBox TextBoxBalance;
         private System.Windows.Forms.ErrorProvider errorProviderCuentasxCobrar;
-        private TexboxNumerico texboxNumerico1;
     }
 }

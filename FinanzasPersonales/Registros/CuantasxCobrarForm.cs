@@ -33,7 +33,6 @@ namespace FinanzasPersonales.Registros
             int.TryParse(CxcIdTextBox.Text, out CuentasxC);
             CxC.CxcId = CuentasxC;
             CxC.Fecha = dateTimePickerCuentasxCobrar.Text;
-           // CxC.CuentaId = int.Parse(ComboBoxCuentaId.SelectedValue.ToString());
             CxC.Concepto = textBoxConcepto.Text;
             float Monto = 0;
             float.TryParse(TextBoxMonto.Text, out Monto);
@@ -82,7 +81,9 @@ namespace FinanzasPersonales.Registros
             
             ComboBoxCuentaId.ValueMember = "CuentaId";
             ComboBoxCuentaId.DisplayMember = "Descripcion";
+            
             ComboBoxCuentaId.DataSource = datos;
+
 
         }
         private void CxcIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -94,6 +95,10 @@ namespace FinanzasPersonales.Registros
             else
             {
                 e.Handled = true;
+            }
+            if (e.KeyChar == 13)
+            {
+                textBoxConcepto.Focus();
             }
         }
         private void ComboBoxCuentaId_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,6 +121,11 @@ namespace FinanzasPersonales.Registros
                 e.Handled = false;
             else
                 e.Handled = true;
+
+            if (e.KeyChar == 13)
+            {
+                TextBoxMonto.Focus();
+            }
         }
 
         private void TextBoxMonto_KeyPress(object sender, KeyPressEventArgs e)
@@ -127,6 +137,10 @@ namespace FinanzasPersonales.Registros
             else
             {
                 e.Handled = true;
+            }
+            if (e.KeyChar == 13)
+            {
+               CxcIdTextBox.Focus();
             }
         }
 
