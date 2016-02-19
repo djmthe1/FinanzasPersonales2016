@@ -198,6 +198,7 @@
             this.CuentaIdcomboBox.Name = "CuentaIdcomboBox";
             this.CuentaIdcomboBox.Size = new System.Drawing.Size(112, 21);
             this.CuentaIdcomboBox.TabIndex = 2;
+            this.CuentaIdcomboBox.SelectedIndexChanged += new System.EventHandler(this.CuentaIdcomboBox_SelectedIndexChanged);
             // 
             // CategoriaIdcomboBox
             // 
@@ -211,6 +212,7 @@
             this.CategoriaIdcomboBox.Name = "CategoriaIdcomboBox";
             this.CategoriaIdcomboBox.Size = new System.Drawing.Size(110, 21);
             this.CategoriaIdcomboBox.TabIndex = 3;
+            this.CategoriaIdcomboBox.SelectedIndexChanged += new System.EventHandler(this.CategoriaIdcomboBox_SelectedIndexChanged);
             // 
             // DescripciontextBox
             // 
@@ -219,7 +221,6 @@
             this.DescripciontextBox.Name = "DescripciontextBox";
             this.DescripciontextBox.Size = new System.Drawing.Size(404, 79);
             this.DescripciontextBox.TabIndex = 5;
-            this.DescripciontextBox.TextChanged += new System.EventHandler(this.DescripciontextBox_TextChanged);
             this.DescripciontextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripciontextBox_KeyPress);
             // 
             // EntradasForm

@@ -47,14 +47,13 @@ create table Salidas(
 
 go
 
-create table Entradas(EntradaId int identity(1,1),
-Nombres varchar(30),
-Apellidos varchar(30),
-Direccion varchar(100),
-Telefono varchar(15),
-Movil varchar(15),
+create table Entradas(
+EntradaId int primary key identity(1,1),
+CuentaId int,
+CategoriaId int,
+Descripcion varchar(100),
 Monto float,
-Fecha varchar(10))
+Fecha date)
 
 go
 

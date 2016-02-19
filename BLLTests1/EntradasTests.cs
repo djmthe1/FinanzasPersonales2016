@@ -33,6 +33,7 @@ namespace BLL.Tests
         public void EditarTest()
         {
             Entradas entrada = new Entradas();
+            entrada.EntradaId = 2;
             entrada.CuentaId = 1;
             entrada.CategoriaId = 1;
             entrada.Descripcion = "como estas"; 
