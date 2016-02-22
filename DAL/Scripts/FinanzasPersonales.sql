@@ -64,3 +64,6 @@ Apellidos varchar(60),
 Parentesco varchar(20),
 )
 
+go 
+
+create table TiposTelefonos(TipoId int,Descripcion varchar(20)); 
