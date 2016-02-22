@@ -19,7 +19,16 @@ namespace FinanzasPersonales.Registros
         }
 
         Entradas entrada = new Entradas();
-    
+        Cuentas cuenta = new Cuentas();
+        Categorias categoria = new Categorias();
+
+      
+        private void TryParse()
+        {
+            int id;
+            int.TryParse(IdtextBox.Text, out id);
+            entrada.Buscar(id);
+        }
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             if (IdtextBox.Text.Trim() == "")
@@ -33,9 +42,7 @@ namespace FinanzasPersonales.Registros
             }
             if (IdtextBox.TextLength > 0)
             {
-                int id;
-                int.TryParse(IdtextBox.Text, out id);
-                entrada.Buscar(id);
+                TryParse();
                 CuentaIdcomboBox.Text = Convert.ToString(entrada.CuentaId);
                 CategoriaIdcomboBox.Text = Convert.ToString(entrada.CategoriaId);
                 MontomaskedTextBox.Text = Convert.ToString(entrada.Monto);
@@ -58,6 +65,14 @@ namespace FinanzasPersonales.Registros
             limpiar();
         }
 
+        private void Datos()
+        {
+            entrada.CuentaId = (int)Convert.ToInt32(CuentaIdcomboBox.Text);
+            entrada.CategoriaId = (int)Convert.ToInt32(CategoriaIdcomboBox.Text);
+            entrada.Monto = (float)Convert.ToDouble(MontomaskedTextBox.Text);
+            entrada.Descripcion = DescripciontextBox.Text;
+            entrada.Fecha = FechadateTimePicker.Value.ToString();
+        }
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             if (CuentaIdcomboBox.Text.Length == 0 && CategoriaIdcomboBox.Text.Length == 0 && MontomaskedTextBox.Text.Length == 0 && DescripciontextBox.Text.Length == 0)
@@ -65,11 +80,7 @@ namespace FinanzasPersonales.Registros
                 MessageBox.Show("Los campo deben estar lleno ");
             }
             else
-                entrada.CuentaId = (int)Convert.ToInt32(CuentaIdcomboBox.Text);
-                entrada.CategoriaId = (int)Convert.ToInt32(CategoriaIdcomboBox.Text);
-                entrada.Monto = (float)Convert.ToDouble(MontomaskedTextBox.Text);
-                entrada.Descripcion = DescripciontextBox.Text;
-                entrada.Fecha = FechadateTimePicker.Value.ToString();
+                Datos();
                 if (IdtextBox.Text.Length == 0)
                     {
                         if (entrada.Insertar())
@@ -136,10 +147,23 @@ namespace FinanzasPersonales.Registros
             else
                 e.Handled = true;
         }
-
-        private void DescripciontextBox_TextChanged(object sender, EventArgs e)
+       
+        private void CuentaIdcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            DataTable data = new DataTable();
+            data = cuenta.Listado("CuentaId,Nombre", "0=0", "ORDER BY CuentaId");
+            CuentaIdcomboBox.DataSource = data;
+            CuentaIdcomboBox.ValueMember = "CuentaId";
+            CuentaIdcomboBox.DisplayMember = "Descripcion";
+        }
 
+        private void CategoriaIdcomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable data = new DataTable();
+            data = categoria.Listado("CategoriaId,Descripcion", "0=0", "ORDER BY CategoriaId");
+            CategoriaIdcomboBox.DataSource = data;
+            CategoriaIdcomboBox.ValueMember = "CategoriaId";
+            CategoriaIdcomboBox.DisplayMember = "Descripcion";
         }
     }
 }

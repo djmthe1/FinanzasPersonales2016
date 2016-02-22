@@ -43,7 +43,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Insert Into Entradas (CuentaId,CategoriaId,Monto,Descripcion,Fecha) values ({0},{1},{2},'{3}','{4}' ) ",
+                retorno = conexion.Ejecutar(String.Format("Insert Into Entradas (CuentaId,CategoriaId,Monto,Descripcion,Fecha) values ({0},{1},{2},'{3}','{4}' ) Selecct @@identity ",
                     this.CuentaId, this.CategoriaId, this.Monto, this.Descripcion, this.Fecha));
                 return retorno;
             }

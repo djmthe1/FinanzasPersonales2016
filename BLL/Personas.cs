@@ -49,16 +49,48 @@ namespace BLL
         }
         public override bool Eliminar()
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            try
+            {
+                retorno = conexion.Ejecutar(string.Format("delete from Personas where PersonaId=", this.PersonaId));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return retorno;
         }
         public override bool Buscar(int IdBuscado)
         {
-            throw new NotImplementedException();
+           
+            DataTable dt = new DataTable();
+            
+            try
+            {
+                dt = conexion.ObtenerDatos(string.Format("select * from Personas where PersonaId=" + IdBuscado));
+                if (dt.Rows.Count > 0)
+                {
+                    this.PersonaId = (int)dt.Rows[0]["PersonaId"];
+                    this.Nombre = dt.Rows[0]["Nombre"].ToString();
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return dt.Rows.Count > 0;
         }
 
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            throw new NotImplementedException();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Orden by  " + Orden;
+
+            return conexion.ObtenerDatos("Select " + Campos + " From Personas Where " + Condicion + Orden);
         }
     }
 }
