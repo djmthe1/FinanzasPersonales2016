@@ -68,25 +68,17 @@ namespace FinanzasPersonales.Registros
         private void ValidarTodo()
         {
             //Concepto TextBox
-            if (textBoxConcepto.Text.Equals(""))
+            if (textBoxConcepto.Text.Equals("") && TextBoxMonto.Text.Equals(""))
             {
                 errorProviderCuentasxCobrar.SetError(textBoxConcepto, "Diga el Concepto de la Cuenta!");
+                errorProviderCuentasxCobrar.SetError(TextBoxMonto, "Diga el Monto!");
                 textBoxConcepto.Focus();
             }
             else
             {
                 errorProviderCuentasxCobrar.Clear();
             }
-            //Monto TextBox
-            if (TextBoxMonto.Text.Equals(""))
-            {
-                errorProviderCuentasxCobrar.SetError(TextBoxMonto, "Diga el Monto!");
-                
-            }
-            else
-            {
-                errorProviderCuentasxCobrar.Clear();
-            }
+            
         }
         //1 Informacion...2 Error....3 Cuidado.
         private void Mensajes(int selec, string mensaje)
