@@ -65,3 +65,17 @@ Apellidos varchar(60),
 Parentesco varchar(20),
 )
 
+go
+create table PersonasTelefonos(
+	Id int identity(1,1) Primary key,
+	PersonaId int foreign key References Personas(PersonaId),
+	TipoId Int References TiposTelefonos(TipoId),
+	Telefono varchar(12)
+)
+
+go
+
+create table Personas(
+	PersonaId int identity(1,1) Primary key,
+	Nombres varchar(50)
+)
