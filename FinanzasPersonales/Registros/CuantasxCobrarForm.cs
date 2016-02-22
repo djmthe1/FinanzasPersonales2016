@@ -41,13 +41,47 @@ namespace FinanzasPersonales.Registros
             float.TryParse(TextBoxBalance.Text, out balance);
             CxC.Balance = balance;
 
-        }//Este Metodo sirve para validar los textbox
+        }
+        //Compara si los Campos estan llenos
+        private bool Compara()
+        {
+            if (!ComboBoxCuentaId.Text.Equals("") && !textBoxConcepto.Text.Equals("") && !TextBoxMonto.Text.Equals(""))
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+        //Este Metodo sirve para validar los textbox
         private void ValidarTexbox(TextBox tb)
         {
             if (tb.Text.Equals(""))
             {
                 errorProviderCuentasxCobrar.SetError(tb, "El Campo esta vacio!!");
                 tb.Focus();
+            }
+            else
+            {
+                errorProviderCuentasxCobrar.Clear();
+            }
+        }
+        private void ValidarTodo()
+        {
+            //Concepto TextBox
+            if (textBoxConcepto.Text.Equals(""))
+            {
+                errorProviderCuentasxCobrar.SetError(textBoxConcepto, "Diga el Concepto de la Cuenta!");
+                textBoxConcepto.Focus();
+            }
+            else
+            {
+                errorProviderCuentasxCobrar.Clear();
+            }
+            //Monto TextBox
+            if (TextBoxMonto.Text.Equals(""))
+            {
+                errorProviderCuentasxCobrar.SetError(TextBoxMonto, "Diga el Monto!");
+                
             }
             else
             {
@@ -85,6 +119,12 @@ namespace FinanzasPersonales.Registros
             ComboBoxCuentaId.DataSource = datos;
 
 
+        }
+        //Metodo para Validar Botones
+        public void ActivarBotones(bool btn)
+        {
+            GuardarButton.Enabled = btn;
+            EliminarButton.Enabled = btn;
         }
         private void CxcIdTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -161,8 +201,8 @@ namespace FinanzasPersonales.Registros
             try
             {
                 ValidarTexbox(CxcIdTextBox);
-                
-                if (CxcIdTextBox.Text != "" && CxC.Buscar(int.Parse(CxcIdTextBox.Text)))
+
+                if (!CxcIdTextBox.Text.Equals("") && CxC.Buscar(int.Parse(CxcIdTextBox.Text)))
                 {
                     CxcIdTextBox.Text=  CxC.CxcId.ToString();
                     dateTimePickerCuentasxCobrar.Text = CxC.Fecha.ToString();
@@ -170,15 +210,14 @@ namespace FinanzasPersonales.Registros
                     textBoxConcepto.Text = CxC.Concepto.ToString();
                     TextBoxMonto.Text = CxC.Monto.ToString();
                     TextBoxBalance.Text = CxC.Balance.ToString();
-                    EliminarButton.Enabled = true;
-                    GuardarButton.Enabled = true;
+                    ActivarBotones(true);
                     GuardarButton.Text = "Modificar";
                 }
                 else
                 {
                     Mensajes(2, "Id No Existe\nIntente Nuevamente!");
                     GuardarButton.Text = "Guardar";
-                    EliminarButton.Enabled = false;
+                    ActivarBotones(false);
                     Limpiar();
                 }
             }
@@ -199,21 +238,17 @@ namespace FinanzasPersonales.Registros
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {
+            bool comprobacion = Compara();
             try
             {
 
-                
-                ValidarTexbox(textBoxConcepto);
-                ValidarTexbox(TextBoxMonto);
-                ValidarTexbox(TextBoxBalance);
+
+                ValidarTodo();
                 LlenarDatos();
                 if (CxcIdTextBox.Text == "")
                 {
-                    if (ComboBoxCuentaId.Text != "" && textBoxConcepto.Text != "" && TextBoxMonto.Text != "" && TextBoxBalance.Text != "")
-                    {
-                        
-                        errorProviderCuentasxCobrar.Clear();
-                       
+                    if (comprobacion)
+                    {  
                         if (CxC.Insertar())
                         {
                             Mensajes(1, "Guardado Correctamente!");
@@ -235,10 +270,8 @@ namespace FinanzasPersonales.Registros
                 else
                 {
                     ValidarTexbox(CxcIdTextBox);
-                    ValidarTexbox(textBoxConcepto);
-                    ValidarTexbox(TextBoxMonto);
-                    ValidarTexbox(TextBoxBalance);
-                    if (CxC.Buscar(int.Parse(CxcIdTextBox.Text)) && ComboBoxCuentaId.Text != "" && textBoxConcepto.Text != "" && TextBoxMonto.Text != "" && TextBoxBalance.Text != "")
+                    ValidarTodo();
+                    if (CxC.Buscar(int.Parse(CxcIdTextBox.Text)) && comprobacion)
                     {
                         LlenarDatos();
                         if (CxC.Editar())
@@ -273,19 +306,19 @@ namespace FinanzasPersonales.Registros
                 LlenarDatos();
 
                 DialogResult resut;
-                //Dialogo para confirmar que se desea Eliminar...
-                resut = MessageBox.Show("¿Esta seguro que desea eliminar?", "Meensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (resut == DialogResult.Yes)
+                if (CxC.Buscar(int.Parse(CxcIdTextBox.Text)))
                 {
-                    
-                    if (CxC.Buscar(int.Parse(CxcIdTextBox.Text)))
+                    //Dialogo para confirmar que se desea Eliminar...
+                    resut = MessageBox.Show("¿Esta seguro que desea eliminar?", "Meensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (resut == DialogResult.Yes)
                     {
+
                         if (CxC.Eliminar())
                         {
                             Mensajes(1, "Eliminado Correctamente!");
                             Limpiar();
-                            EliminarButton.Enabled = false;
-                            GuardarButton.Enabled = false;
+                            ActivarBotones(false);
                             GuardarButton.Text = "Guardar";
 
                         }
@@ -295,12 +328,15 @@ namespace FinanzasPersonales.Registros
                             Limpiar();
                         }
                     }
-                    else
-                    {
-                        Mensajes(1, "Id No Encontrado!");
-                        CxcIdTextBox.Focus();
-                    }
                 }
+                else
+                {
+                    Mensajes(1, "Id No Encontrado!");
+                    ActivarBotones(false);
+                    Limpiar();
+                    CxcIdTextBox.Focus();
+                }
+                
             }
             catch (Exception ex)
             {
