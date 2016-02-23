@@ -58,6 +58,7 @@
     <Compile Include="EntradasTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransferenciasTests.cs" />
+    <Compile Include="PersonasTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
@@ -69,13 +70,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataBase\FinanzasPersonalesDb.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DataBase\FinanzasPersonalesDb_log.ldf">
-      <DependentUpon>FinanzasPersonalesDb.mdf</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Folder Include="DataBase\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -7,30 +7,55 @@ using DAL;
 
 namespace BLL
 {
-    class Personas : ClaseMaestra
+   public  class Personas : ClaseMaestra
     {
         public int PersonaId { get; set; }
         public string Nombre{ get; set; }
-        //List<PersonaTelefonos> Telefonos = new List<PersonaTelofon
+
+        public List<PersonasTelefonos> Telefonos { get; set; }
+
         ConexionDb conexion = new ConexionDb(); 
         public Personas()
         {
             this.PersonaId = 0;
             this.Nombre = "";
+            Telefonos = new List<PersonasTelefonos>();
         }
+
+        public void AgregarTelefono(TiposTelefonos tipo, string telefono)
+        {
+            Telefonos.Add(new PersonasTelefonos(tipo, telefono));
+
+        }
+
         public override bool Insertar()
         {
-            bool retorno = false;
+            int retorno = 0;
+            object identity;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Insert Into Personas(Nombre) values('{0}')", this.Nombre));
+                //obtengo el identity insertado en la tabla personas
+                identity = conexion.ObtenerValor(string.Format("Insert Into Personas(Nombre) values('{0}') select @@Identity()", this.Nombre));
+
+                //intento convertirlo a entero
+                int.TryParse(identity.ToString(), out retorno);
+
+                this.PersonaId = retorno;
+                if (this.PersonaId > 0)
+                {
+                    foreach (PersonasTelefonos numero in this.Telefonos)
+                    {
+                        conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono)" +
+                            " Values ({0},{1},'{2}')", retorno, numero.TipoTelefono, numero.Telefono));
+                    }
+                }
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
-            return retorno;
+            return retorno > 0 ;
         }
         public override bool Editar()
         {
