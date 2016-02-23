@@ -66,8 +66,6 @@ Parentesco varchar(20),
 )
 
 go
-create table TiposTelefonos(TipoId int identity(1,1) Primary key,Descripcion varchar(20));
-go
 create table Personas(
 	PersonaId int identity(1,1) Primary key,
 	Nombres varchar(50)
@@ -76,7 +74,7 @@ go
 create table PersonasTelefonos(
 	Id int identity(1,1) Primary key,
 	PersonaId int foreign key References Personas(PersonaId),
-	TipoId Int References TiposTelefonos(TipoId),
+	TipoId Int ,
 	Telefono varchar(12)
 )
 
