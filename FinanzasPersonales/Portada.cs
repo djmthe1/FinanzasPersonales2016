@@ -160,5 +160,11 @@ namespace FinanzasPersonales
             Registros.SalidasForm Salid = new Registros.SalidasForm();
             Salid.Show();
         }
+
+        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.rPersonas rPersona = new Registros.rPersonas();
+            rPersona.Show();
+        }
     }
 }

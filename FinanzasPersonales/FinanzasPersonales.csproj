@@ -172,6 +172,12 @@
     <Compile Include="Registros\RegistroUsuarios.designer.cs">
       <DependentUpon>RegistroUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros\rPersonas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\rPersonas.Designer.cs">
+      <DependentUpon>rPersonas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros\SalidasForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +263,9 @@
     <EmbeddedResource Include="Registros\RegistroUsuarios.resx">
       <DependentUpon>RegistroUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registros\rPersonas.resx">
+      <DependentUpon>rPersonas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registros\SalidasForm.resx">
       <DependentUpon>SalidasForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +277,7 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\DataSources\BLL.Personas.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

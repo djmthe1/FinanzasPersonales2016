@@ -46,6 +46,7 @@
     <Compile Include="CuentasxCobrar.cs" />
     <Compile Include="CuentasxPagar.cs" />
     <Compile Include="Entradas.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Miembros.cs" />
     <Compile Include="PersonasTelefonos.cs" />
     <Compile Include="Personas.cs" />

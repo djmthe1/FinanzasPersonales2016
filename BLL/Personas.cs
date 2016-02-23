@@ -7,14 +7,14 @@ using DAL;
 
 namespace BLL
 {
-   public  class Personas : ClaseMaestra
+    public class Personas : ClaseMaestra
     {
         public int PersonaId { get; set; }
-        public string Nombre{ get; set; }
+        public string Nombre { get; set; }
 
         public List<PersonasTelefonos> Telefonos { get; set; }
 
-        ConexionDb conexion = new ConexionDb(); 
+        ConexionDb conexion = new ConexionDb();
         public Personas()
         {
             this.PersonaId = 0;
@@ -35,34 +35,39 @@ namespace BLL
             try
             {
                 //obtengo el identity insertado en la tabla personas
-                identity = conexion.ObtenerValor(string.Format("Insert Into Personas(Nombre) values('{0}') select @@Identity()", this.Nombre));
+                identity = conexion.ObtenerValor(string.Format("Insert Into Personas(Nombres) values('{0}') select @@Identity", this.Nombre));
 
                 //intento convertirlo a entero
                 int.TryParse(identity.ToString(), out retorno);
 
                 this.PersonaId = retorno;
-                if (this.PersonaId > 0)
+                foreach (PersonasTelefonos numero in this.Telefonos)
                 {
-                    foreach (PersonasTelefonos numero in this.Telefonos)
-                    {
-                        conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono)" +
-                            " Values ({0},{1},'{2}')", retorno, numero.TipoTelefono, numero.Telefono));
-                    }
+                    conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono) Values ({0},{1},'{2}')", retorno, (int)numero.TipoTelefono, numero.Telefono));
                 }
+
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
-            return retorno > 0 ;
+            return retorno > 0;
         }
         public override bool Editar()
         {
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Update Personas set Nombre= '{0}' where PersonaId=",this.Nombre, this.PersonaId));
+                retorno = conexion.Ejecutar(string.Format("Update Personas set Nombre= '{0}' where PersonaId=", this.Nombre, this.PersonaId));
+                if (retorno)
+                {
+                    conexion.Ejecutar("Delete from PersonasTelefonos Where PersonaId=" + this.PersonaId.ToString());
+                    foreach (PersonasTelefonos numero in this.Telefonos)
+                    {
+                        conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono) Values ({0},{1},'{2}')", retorno, (int)numero.TipoTelefono, numero.Telefono));
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -78,6 +83,9 @@ namespace BLL
             try
             {
                 retorno = conexion.Ejecutar(string.Format("delete from Personas where PersonaId=", this.PersonaId));
+
+                if (retorno )
+                    conexion.Ejecutar("Delete from PersonasTelefonos Where PersonaId=" + this.PersonaId.ToString());
             }
             catch (Exception ex)
             {
@@ -88,9 +96,9 @@ namespace BLL
         }
         public override bool Buscar(int IdBuscado)
         {
-           
+
             DataTable dt = new DataTable();
-            
+
             try
             {
                 dt = conexion.ObtenerDatos(string.Format("select * from Personas where PersonaId=" + IdBuscado));
