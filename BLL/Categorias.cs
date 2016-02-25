@@ -68,17 +68,19 @@ namespace BLL
 
         public override bool Eliminar()
         {
+            bool retorno = false;
             try
             {
-                bool retorno = false;
+                
                 retorno = conexion.Ejecutar(String.Format(" delete from Categorias where CategoriaId = {0}  ", this.CategoriaId));
-                return retorno;
+                
             }
             catch (Exception ex)
             {
 
                 throw ex;
             }
+            return retorno;
         }
 
         public override bool Buscar(int IdBuscado)
