@@ -180,14 +180,25 @@ namespace FinanzasPersonales.Registros
         }
         private void AgregarTelefonobutton_Click(object sender, EventArgs e)
         {
-            persona.AgregarTelefono((TiposTelefonos)TipoTelefonocomboBox.SelectedValue, TelefonotextBox.Text);
-            //TelefonosdataGridView.AutoGenerateColumns = false;
-                        //TelefonosdataGridView.DataSource = persona.Telefonos;
+            if (ValidarTexbox(TelefonotextBox)==false)
+            {
+                if (TelefonotextBox.Text.Length > 9)
+                {
+                    persona.AgregarTelefono((TiposTelefonos)TipoTelefonocomboBox.SelectedValue, TelefonotextBox.Text);
+                    //TelefonosdataGridView.AutoGenerateColumns = false;
+                    //TelefonosdataGridView.DataSource = persona.Telefonos;
+                    TelefonosdataGridView.Rows.Add(TipoTelefonocomboBox.SelectedValue, TelefonotextBox.Text);
+                    TelefonotextBox.Clear();
+                    TelefonotextBox.Focus();
 
-            TelefonosdataGridView.Rows.Add(TipoTelefonocomboBox.SelectedValue,TelefonotextBox.Text );
-
-            TelefonotextBox.Clear();
-            TelefonotextBox.Focus();
+                }
+                else
+                {
+                    Mensajes(3, "El Numero de Telefono debe de Contener  por lo menos 10 digitos \n para agregar!");
+                    TelefonotextBox.Focus();
+                }
+            }
+            
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
