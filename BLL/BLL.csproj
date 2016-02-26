@@ -50,6 +50,7 @@
     <Compile Include="Miembros.cs" />
     <Compile Include="PersonasTelefonos.cs" />
     <Compile Include="Personas.cs" />
+    <Compile Include="PresupuestoDetalle.cs" />
     <Compile Include="Presupuestosj.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Salidas.cs" />

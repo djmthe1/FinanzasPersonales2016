@@ -1,4 +1,4 @@
-use FinanzasPersonales
+--use FinanzasPersonales
 
 Create table Cuentas(CuentaId int identity(1,1),
 Descripcion varchar(100),
@@ -78,4 +78,17 @@ create table PersonasTelefonos(
 	Telefono varchar(12)
 )
 
+go
+CREATE TABLE Presupuestos(
+	PresupuestoId int PRIMARY KEY IDENTITY(1,1),
+	Descripcion varchar(100)
+)
+
+go
+CREATE TABLE PresupuestosDetalle(
+	Id int PRIMARY KEY IDENTITY(1,1),
+	PresupuestoId int REFERENCES Presupuestos(PresupuestoId) NOT NULL,
+	CategoriaId int REFERENCES Categorias(CategoriaId ),
+	Monto float NOT NULL
+)
 go
