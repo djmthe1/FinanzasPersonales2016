@@ -166,6 +166,12 @@
     <Compile Include="Registros\MiembrosForm.Designer.cs">
       <DependentUpon>MiembrosForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registros\PresupuestosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\PresupuestosForm.Designer.cs">
+      <DependentUpon>PresupuestosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registros\RegistroUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,9 @@
     <EmbeddedResource Include="Registros\MiembrosForm.resx">
       <DependentUpon>MiembrosForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registros\PresupuestosForm.resx">
+      <DependentUpon>PresupuestosForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registros\RegistroUsuarios.resx">
       <DependentUpon>RegistroUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,6 +319,7 @@
     </Content>
     <Content Include="Resources\1453635934_ChirstmaxShop_transaction.ico" />
     <Content Include="Resources\1455521562_personal_loan.ico" />
+    <None Include="Resources\1456532440_06.png" />
     <None Include="Resources\1455583474_Log Out.png" />
     <None Include="Resources\1455583405_userconfig.png" />
     <None Include="Resources\1455099110_categories.png" />
