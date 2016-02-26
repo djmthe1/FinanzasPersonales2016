@@ -98,7 +98,7 @@ namespace BLL
         {
 
             DataTable dt = new DataTable();
-
+            DataTable dtTelefonos = new DataTable();
             try
             {
                 dt = conexion.ObtenerDatos(string.Format("select * from Personas where PersonaId=" + IdBuscado));
@@ -108,7 +108,14 @@ namespace BLL
                     this.Nombre = dt.Rows[0]["Nombre"].ToString();
                 }
 
+                TiposTelefonos Tipos= 0;
+            dtTelefonos = conexion.ObtenerDatos(string.Format("select * From PersonasTelefonos where PersonaId=" + IdBuscado));
+            foreach (PersonasTelefonos numero in this.Telefonos)
+            {
+                    AgregarTelefono(Tipos, dtTelefonos.Rows[0]["Telefonos"].ToString());
+
             }
+        }
             catch (Exception ex)
             {
 

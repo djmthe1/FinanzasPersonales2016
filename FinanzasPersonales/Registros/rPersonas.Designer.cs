@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.Eliminarbutton = new System.Windows.Forms.Button();
-            this.Guardarbutton = new System.Windows.Forms.Button();
-            this.Nuevobutton = new System.Windows.Forms.Button();
-            this.Buscarbutton = new System.Windows.Forms.Button();
+            this.EliminarButton = new System.Windows.Forms.Button();
+            this.GuardarButton = new System.Windows.Forms.Button();
+            this.NuevoButton = new System.Windows.Forms.Button();
+            this.BuscarButton = new System.Windows.Forms.Button();
             this.TelefonosdataGridView = new System.Windows.Forms.DataGridView();
             this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,55 +50,56 @@
             ((System.ComponentModel.ISupportInitialize)(this.PersonaErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // Eliminarbutton
+            // EliminarButton
             // 
-            this.Eliminarbutton.Image = global::FinanzasPersonales.Properties.Resources.fail;
-            this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(306, 310);
-            this.Eliminarbutton.Name = "Eliminarbutton";
-            this.Eliminarbutton.Size = new System.Drawing.Size(62, 56);
-            this.Eliminarbutton.TabIndex = 18;
-            this.Eliminarbutton.Text = "Eliminar";
-            this.Eliminarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Image = global::FinanzasPersonales.Properties.Resources.fail;
+            this.EliminarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.EliminarButton.Location = new System.Drawing.Point(306, 323);
+            this.EliminarButton.Name = "EliminarButton";
+            this.EliminarButton.Size = new System.Drawing.Size(62, 56);
+            this.EliminarButton.TabIndex = 18;
+            this.EliminarButton.Text = "Eliminar";
+            this.EliminarButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
-            // Guardarbutton
+            // GuardarButton
             // 
-            this.Guardarbutton.Image = global::FinanzasPersonales.Properties.Resources.Save;
-            this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Guardarbutton.Location = new System.Drawing.Point(169, 310);
-            this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(62, 56);
-            this.Guardarbutton.TabIndex = 17;
-            this.Guardarbutton.Text = "Guardar";
-            this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Guardarbutton.UseVisualStyleBackColor = true;
-            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
+            this.GuardarButton.Image = global::FinanzasPersonales.Properties.Resources.Save;
+            this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GuardarButton.Location = new System.Drawing.Point(175, 323);
+            this.GuardarButton.Name = "GuardarButton";
+            this.GuardarButton.Size = new System.Drawing.Size(62, 56);
+            this.GuardarButton.TabIndex = 17;
+            this.GuardarButton.Text = "Guardar";
+            this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
-            // Nuevobutton
+            // NuevoButton
             // 
-            this.Nuevobutton.Image = global::FinanzasPersonales.Properties.Resources.Add;
-            this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(40, 310);
-            this.Nuevobutton.Name = "Nuevobutton";
-            this.Nuevobutton.Size = new System.Drawing.Size(62, 56);
-            this.Nuevobutton.TabIndex = 16;
-            this.Nuevobutton.Text = "Nuevo";
-            this.Nuevobutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Nuevobutton.UseVisualStyleBackColor = true;
-            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
+            this.NuevoButton.Image = global::FinanzasPersonales.Properties.Resources.Add;
+            this.NuevoButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.NuevoButton.Location = new System.Drawing.Point(40, 323);
+            this.NuevoButton.Name = "NuevoButton";
+            this.NuevoButton.Size = new System.Drawing.Size(62, 56);
+            this.NuevoButton.TabIndex = 16;
+            this.NuevoButton.Text = "Nuevo";
+            this.NuevoButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
-            // Buscarbutton
+            // BuscarButton
             // 
-            this.Buscarbutton.Image = global::FinanzasPersonales.Properties.Resources.Search;
-            this.Buscarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Buscarbutton.Location = new System.Drawing.Point(231, 0);
-            this.Buscarbutton.Name = "Buscarbutton";
-            this.Buscarbutton.Size = new System.Drawing.Size(62, 46);
-            this.Buscarbutton.TabIndex = 15;
-            this.Buscarbutton.Text = "Buscar";
-            this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Image = global::FinanzasPersonales.Properties.Resources.Search;
+            this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BuscarButton.Location = new System.Drawing.Point(191, 3);
+            this.BuscarButton.Name = "BuscarButton";
+            this.BuscarButton.Size = new System.Drawing.Size(62, 46);
+            this.BuscarButton.TabIndex = 15;
+            this.BuscarButton.Text = "Buscar";
+            this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BuscarButton.UseVisualStyleBackColor = true;
             // 
             // TelefonosdataGridView
             // 
@@ -108,7 +109,7 @@
             this.TelefonosdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Tipo,
             this.Telefono});
-            this.TelefonosdataGridView.Location = new System.Drawing.Point(40, 142);
+            this.TelefonosdataGridView.Location = new System.Drawing.Point(40, 163);
             this.TelefonosdataGridView.Name = "TelefonosdataGridView";
             this.TelefonosdataGridView.ReadOnly = true;
             this.TelefonosdataGridView.Size = new System.Drawing.Size(328, 141);
@@ -130,7 +131,7 @@
             // 
             // AgregarTelefonobutton
             // 
-            this.AgregarTelefonobutton.Location = new System.Drawing.Point(297, 113);
+            this.AgregarTelefonobutton.Location = new System.Drawing.Point(297, 134);
             this.AgregarTelefonobutton.Name = "AgregarTelefonobutton";
             this.AgregarTelefonobutton.Size = new System.Drawing.Size(71, 23);
             this.AgregarTelefonobutton.TabIndex = 20;
@@ -140,7 +141,7 @@
             // 
             // TelefonotextBox
             // 
-            this.TelefonotextBox.Location = new System.Drawing.Point(191, 115);
+            this.TelefonotextBox.Location = new System.Drawing.Point(191, 136);
             this.TelefonotextBox.Name = "TelefonotextBox";
             this.TelefonotextBox.Size = new System.Drawing.Size(100, 20);
             this.TelefonotextBox.TabIndex = 21;
@@ -150,7 +151,7 @@
             // 
             this.TipoTelefonocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TipoTelefonocomboBox.FormattingEnabled = true;
-            this.TipoTelefonocomboBox.Location = new System.Drawing.Point(40, 115);
+            this.TipoTelefonocomboBox.Location = new System.Drawing.Point(40, 136);
             this.TipoTelefonocomboBox.Name = "TipoTelefonocomboBox";
             this.TipoTelefonocomboBox.Size = new System.Drawing.Size(120, 21);
             this.TipoTelefonocomboBox.TabIndex = 22;
@@ -158,7 +159,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 99);
+            this.label1.Location = new System.Drawing.Point(37, 113);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 23;
@@ -167,7 +168,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(188, 99);
+            this.label2.Location = new System.Drawing.Point(188, 113);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 23;
@@ -175,9 +176,9 @@
             // 
             // NombrestextBox
             // 
-            this.NombrestextBox.Location = new System.Drawing.Point(125, 61);
+            this.NombrestextBox.Location = new System.Drawing.Point(112, 65);
             this.NombrestextBox.Name = "NombrestextBox";
-            this.NombrestextBox.Size = new System.Drawing.Size(100, 20);
+            this.NombrestextBox.Size = new System.Drawing.Size(125, 20);
             this.NombrestextBox.TabIndex = 21;
             this.NombrestextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombrestextBox_KeyPress);
             // 
@@ -192,9 +193,9 @@
             // 
             // PersonaIdtextBox
             // 
-            this.PersonaIdtextBox.Location = new System.Drawing.Point(125, 13);
+            this.PersonaIdtextBox.Location = new System.Drawing.Point(112, 13);
             this.PersonaIdtextBox.Name = "PersonaIdtextBox";
-            this.PersonaIdtextBox.Size = new System.Drawing.Size(100, 20);
+            this.PersonaIdtextBox.Size = new System.Drawing.Size(65, 20);
             this.PersonaIdtextBox.TabIndex = 21;
             this.PersonaIdtextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PersonaIdtextBox_KeyPress);
             // 
@@ -226,10 +227,10 @@
             this.Controls.Add(this.TelefonotextBox);
             this.Controls.Add(this.AgregarTelefonobutton);
             this.Controls.Add(this.TelefonosdataGridView);
-            this.Controls.Add(this.Eliminarbutton);
-            this.Controls.Add(this.Guardarbutton);
-            this.Controls.Add(this.Nuevobutton);
-            this.Controls.Add(this.Buscarbutton);
+            this.Controls.Add(this.EliminarButton);
+            this.Controls.Add(this.GuardarButton);
+            this.Controls.Add(this.NuevoButton);
+            this.Controls.Add(this.BuscarButton);
             this.Name = "rPersonas";
             this.Text = "rPersonas";
             this.Load += new System.EventHandler(this.rPersonas_Load);
@@ -242,10 +243,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Eliminarbutton;
-        private System.Windows.Forms.Button Guardarbutton;
-        private System.Windows.Forms.Button Nuevobutton;
-        private System.Windows.Forms.Button Buscarbutton;
+        private System.Windows.Forms.Button EliminarButton;
+        private System.Windows.Forms.Button GuardarButton;
+        private System.Windows.Forms.Button NuevoButton;
+        private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.DataGridView TelefonosdataGridView;
         private System.Windows.Forms.Button AgregarTelefonobutton;
         private System.Windows.Forms.TextBox TelefonotextBox;

@@ -22,7 +22,7 @@ namespace FinanzasPersonales.Registros
         private void Limpiar()
         {
             this.CxcIdTextBox.Clear();
-            this.ComboBoxCuentaId.ResetText();
+            this.ComboBoxCuentaId.SelectedIndex=0;
             this.textBoxConcepto.Clear();
             this.TextBoxMonto.Clear();
             this.TextBoxBalance.Clear();
