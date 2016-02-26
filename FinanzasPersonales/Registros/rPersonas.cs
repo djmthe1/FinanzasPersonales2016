@@ -90,6 +90,22 @@ namespace FinanzasPersonales.Registros
                 
                 
         }
+        private bool ValidarTexbox(TextBox tb)
+        {
+            if (!tb.Text.Equals(""))
+            {
+               
+                PersonaErrorProvider.Clear();
+                return true;
+            }
+            else
+            {
+                PersonaErrorProvider.SetError(tb, "El Campo esta vacio!!");
+                tb.Focus();
+                return false;
+
+            }
+        }
         private void PersonaIdtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8))
@@ -134,7 +150,34 @@ namespace FinanzasPersonales.Registros
                 NombrestextBox.Focus();
             }
         }
+        private void BuscarButton_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            string filtro = "1=1";
+            int.TryParse(PersonaIdtextBox.Text, out id);
+            try
+            {
+                if (ValidarTexbox(PersonaIdtextBox) && persona.Buscar(id))
+                {
+                    PersonaIdtextBox.Text = persona.PersonaId.ToString();
+                    NombrestextBox.Text = persona.Nombre;
+                    TelefonosdataGridView.DataSource = persona.ListadoTeleFonos("TipoId, Telefono",filtro,"");
+                    ActivarBotones(true);
+                }
+                else
+                {
+                    Mensajes(2, "Id no Existe!");
+                    Limpiar();
+                    ActivarBotones(false);
+                }
+                
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+        }
         private void AgregarTelefonobutton_Click(object sender, EventArgs e)
         {
             persona.AgregarTelefono((TiposTelefonos)TipoTelefonocomboBox.SelectedValue, TelefonotextBox.Text);
@@ -242,5 +285,7 @@ namespace FinanzasPersonales.Registros
                 throw ex;
             }
         }
+
+       
     }
 }

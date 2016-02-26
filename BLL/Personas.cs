@@ -43,7 +43,7 @@ namespace BLL
                 this.PersonaId = retorno;
                 foreach (PersonasTelefonos numero in this.Telefonos)
                 {
-                    conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono) Values ({0},{1},'{2}')", retorno, (int)numero.TipoTelefono, numero.Telefono));
+                    conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono) Values ({0},{1},'{2}')", retorno, int.Parse(numero.TipoTelefono.ToString()), numero.Telefono));
                 }
 
             }
@@ -65,7 +65,7 @@ namespace BLL
                     conexion.Ejecutar("Delete from PersonasTelefonos Where PersonaId=" + this.PersonaId.ToString());
                     foreach (PersonasTelefonos numero in this.Telefonos)
                     {
-                        conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono) Values ({0},{1},'{2}')", retorno, (int)numero.TipoTelefono, numero.Telefono));
+                        conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono) Values ({0},{1},'{2}')", PersonaId, int.Parse(numero.TipoTelefono.ToString()), numero.Telefono));
                     }
                 }
             }
@@ -105,16 +105,8 @@ namespace BLL
                 if (dt.Rows.Count > 0)
                 {
                     this.PersonaId = (int)dt.Rows[0]["PersonaId"];
-                    this.Nombre = dt.Rows[0]["Nombre"].ToString();
+                    this.Nombre = dt.Rows[0]["Nombres"].ToString();
                 }
-
-                TiposTelefonos Tipos= 0;
-            dtTelefonos = conexion.ObtenerDatos(string.Format("select * From PersonasTelefonos where PersonaId=" + IdBuscado));
-            foreach (PersonasTelefonos numero in this.Telefonos)
-            {
-                    AgregarTelefono(Tipos, dtTelefonos.Rows[0]["Telefonos"].ToString());
-
-            }
         }
             catch (Exception ex)
             {
@@ -123,7 +115,14 @@ namespace BLL
             }
             return dt.Rows.Count > 0;
         }
+       public DataTable ListadoTeleFonos(string Campos, string Condicion, string Orden)
+        {
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Orden by  " + Orden;
 
+            return conexion.ObtenerDatos("Select " + Campos + " From Personas Where " + Condicion + Orden);
+        }
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             string ordenFinal = "";
