@@ -109,6 +109,11 @@ namespace FinanzasPersonales
             CategoriasForm categorias = new CategoriasForm();
             categorias.Show();
         }
+       private void PresupuestotoolStripButton_Click(object sender, EventArgs e)
+        {
+            Registros.PresupuestosForm presupuesto = new Registros.PresupuestosForm();
+            presupuesto.Show();
+        }
 
         private void cuentasPorCobrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -165,6 +170,18 @@ namespace FinanzasPersonales
         {
             Registros.rPersonas rPersona = new Registros.rPersonas();
             rPersona.Show();
+        }
+       
+        private void presupuestoToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Registros.PresupuestosForm presupuesto = new Registros.PresupuestosForm();
+            presupuesto.Show();
+        }
+
+        private void PresupuestotoolStripButton_Click_1(object sender, EventArgs e)
+        {
+            Registros.PresupuestosForm presupuesto = new Registros.PresupuestosForm();
+            presupuesto.Show();
         }
     }
 }

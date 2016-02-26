@@ -31,14 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PresupuestosForm));
             this.DescripcionTextBox = new System.Windows.Forms.TextBox();
-            this.PresupuestoIdTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.PresupuestoDataGridView = new System.Windows.Forms.DataGridView();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CategoriaComboBox = new System.Windows.Forms.ComboBox();
-            this.MontotextBox = new System.Windows.Forms.TextBox();
             this.CategoriaLabel = new System.Windows.Forms.Label();
             this.Montolabel = new System.Windows.Forms.Label();
             this.PresupuestoerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -47,6 +45,8 @@
             this.NuevoButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
+            this.PresupuestoIdtextboxNumerico = new FinanzasPersonales.TexboxNumerico();
+            this.MontotexboxNumerico = new FinanzasPersonales.TexboxNumerico();
             ((System.ComponentModel.ISupportInitialize)(this.PresupuestoDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PresupuestoerrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -58,14 +58,7 @@
             this.DescripcionTextBox.Name = "DescripcionTextBox";
             this.DescripcionTextBox.Size = new System.Drawing.Size(160, 20);
             this.DescripcionTextBox.TabIndex = 13;
-            // 
-            // PresupuestoIdTextBox
-            // 
-            this.PresupuestoIdTextBox.Location = new System.Drawing.Point(155, 34);
-            this.PresupuestoIdTextBox.MaxLength = 5;
-            this.PresupuestoIdTextBox.Name = "PresupuestoIdTextBox";
-            this.PresupuestoIdTextBox.Size = new System.Drawing.Size(81, 20);
-            this.PresupuestoIdTextBox.TabIndex = 12;
+            this.DescripcionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripcionTextBox_KeyPress);
             // 
             // label1
             // 
@@ -121,14 +114,6 @@
             this.CategoriaComboBox.Size = new System.Drawing.Size(121, 21);
             this.CategoriaComboBox.TabIndex = 15;
             // 
-            // MontotextBox
-            // 
-            this.MontotextBox.Location = new System.Drawing.Point(187, 144);
-            this.MontotextBox.MaxLength = 15;
-            this.MontotextBox.Name = "MontotextBox";
-            this.MontotextBox.Size = new System.Drawing.Size(97, 20);
-            this.MontotextBox.TabIndex = 16;
-            // 
             // CategoriaLabel
             // 
             this.CategoriaLabel.AutoSize = true;
@@ -156,10 +141,10 @@
             // AgregarButton
             // 
             this.AgregarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AgregarButton.Image = global::FinanzasPersonales.Properties.Resources._1456532440_06;
-            this.AgregarButton.Location = new System.Drawing.Point(299, 105);
+            this.AgregarButton.Image = global::FinanzasPersonales.Properties.Resources._1456532541_money_add;
+            this.AgregarButton.Location = new System.Drawing.Point(290, 113);
             this.AgregarButton.Name = "AgregarButton";
-            this.AgregarButton.Size = new System.Drawing.Size(66, 59);
+            this.AgregarButton.Size = new System.Drawing.Size(84, 51);
             this.AgregarButton.TabIndex = 19;
             this.AgregarButton.Text = "Agregar";
             this.AgregarButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -214,25 +199,42 @@
             this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BuscarButton.UseVisualStyleBackColor = true;
             // 
+            // PresupuestoIdtextboxNumerico
+            // 
+            this.PresupuestoIdtextboxNumerico.Location = new System.Drawing.Point(155, 34);
+            this.PresupuestoIdtextboxNumerico.MaxLength = 5;
+            this.PresupuestoIdtextboxNumerico.Name = "PresupuestoIdtextboxNumerico";
+            this.PresupuestoIdtextboxNumerico.Size = new System.Drawing.Size(82, 20);
+            this.PresupuestoIdtextboxNumerico.TabIndex = 20;
+            // 
+            // MontotexboxNumerico
+            // 
+            this.MontotexboxNumerico.Location = new System.Drawing.Point(178, 144);
+            this.MontotexboxNumerico.MaxLength = 5;
+            this.MontotexboxNumerico.Name = "MontotexboxNumerico";
+            this.MontotexboxNumerico.Size = new System.Drawing.Size(106, 20);
+            this.MontotexboxNumerico.TabIndex = 21;
+            // 
             // PresupuestosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 371);
+            this.Controls.Add(this.MontotexboxNumerico);
+            this.Controls.Add(this.PresupuestoIdtextboxNumerico);
             this.Controls.Add(this.AgregarButton);
             this.Controls.Add(this.Montolabel);
             this.Controls.Add(this.CategoriaLabel);
-            this.Controls.Add(this.MontotextBox);
             this.Controls.Add(this.CategoriaComboBox);
             this.Controls.Add(this.PresupuestoDataGridView);
             this.Controls.Add(this.DescripcionTextBox);
-            this.Controls.Add(this.PresupuestoIdTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.BuscarButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "PresupuestosForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -251,17 +253,17 @@
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.TextBox DescripcionTextBox;
-        private System.Windows.Forms.TextBox PresupuestoIdTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView PresupuestoDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.ComboBox CategoriaComboBox;
-        private System.Windows.Forms.TextBox MontotextBox;
         private System.Windows.Forms.Label CategoriaLabel;
         private System.Windows.Forms.Label Montolabel;
         private System.Windows.Forms.ErrorProvider PresupuestoerrorProvider;
         private System.Windows.Forms.Button AgregarButton;
+        private TexboxNumerico MontotexboxNumerico;
+        private TexboxNumerico PresupuestoIdtextboxNumerico;
     }
 }
