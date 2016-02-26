@@ -98,7 +98,7 @@ namespace BLL
         {
 
             DataTable dt = new DataTable();
-            DataTable dtTelefonos = new DataTable();
+            
             try
             {
                 dt = conexion.ObtenerDatos(string.Format("select * from Personas where PersonaId=" + IdBuscado));
@@ -123,13 +123,15 @@ namespace BLL
 
             return conexion.ObtenerDatos("Select " + Campos + " From Personas Where " + Condicion + Orden);
         }
+        
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
             string ordenFinal = "";
             if (!Orden.Equals(""))
                 ordenFinal = " Orden by  " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos + " From Personas Where " + Condicion + Orden);
+            return conexion.ObtenerDatos("Select " + Campos + " From Personas Where " + Condicion + ordenFinal);
         }
+      
     }
 }

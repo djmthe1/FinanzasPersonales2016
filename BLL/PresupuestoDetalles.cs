@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace BLL
 {
-    class PresupuestoDetalle
+    class PresupuestoDetalles
     {
         [Browsable(false)]
         public int PresupustoDetalleId { get; set; }
@@ -15,14 +15,14 @@ namespace BLL
         public float Monto { get; set; }
         public Categorias CategoriaId { get; set; }
 
-        public PresupuestoDetalle()
+        public PresupuestoDetalles()
         {
             this.PresupuestoId = 0;
             this.PresupuestoId = 0;
             this.Monto = 0;
             this.CategoriaId.CategoriaId = 0;
         }
-        public PresupuestoDetalle( float Monto, int CategoriaId)
+        public PresupuestoDetalles( float Monto, int CategoriaId)
         {
             this.Monto = Monto;
             this.CategoriaId.CategoriaId = CategoriaId;

@@ -13,11 +13,12 @@ namespace BLL
         public int PresupuestoId { get; set; }
         public string Descripcion { get; set; }
 
-        //public List<PersonasTelefonos> Detalle { get; set; }
+        List<PresupuestoDetalles> Presupuesto { get; set; }
 
         public Presupuestosj() {
             this.PresupuestoId = 0;
             this.Descripcion = "";
+            Presupuesto = new List<PresupuestoDetalles>();
         }
 
         public override bool Insertar()
@@ -33,9 +34,9 @@ namespace BLL
                 int.TryParse(identity.ToString(), out retorno);
 
                 this.PresupuestoId = retorno;
-                foreach (PersonasTelefonos numero in this.Telefonos)
+                foreach (PresupuestoDetalles monto in this.Presupuesto)
                 {
-                    conexion.Ejecutar(string.Format("Insert into PresupuestoDetalle(PresupuestoId,CategoriaId,Monto) Values ({0},{1},'{2}')", retorno, int.Parse(numero.TipoTelefono.ToString()), numero.Telefono));
+                    conexion.Ejecutar(string.Format("Insert into PresupuestoDetalle(PresupuestoId,CategoriaId,Monto) Values ({0},{1},'{2}')", retorno, monto.CategoriaId, monto.Monto));
                 }
 
             }
@@ -49,21 +50,84 @@ namespace BLL
 
         public override bool Editar()
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            try
+            {
+                retorno = conexion.Ejecutar(string.Format("update Presupuesto set Descripcion= '{0}' where PresupuestoId={1}", this.Descripcion, this.PresupuestoId));
+
+                if (retorno)
+                {
+                    conexion.Ejecutar(string.Format("delete from PresupuestoDetalle where PresupuestoId=" + this.PresupuestoId.ToString()));
+                    foreach (PresupuestoDetalles monto in Presupuesto)
+                    {
+                        conexion.Ejecutar(string.Format("insert int PresupuestoDetalle(PresupuestoId,CategoriaId,Monto) values({0},{1},{2})",PresupuestoId, monto.CategoriaId,monto.Monto));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
         }
 
         public override bool Eliminar()
         {
-            throw new NotImplementedException();
+            bool retorno = false;
+            try
+            {
+                retorno = conexion.Ejecutar(string.Format("delete from Presupuesto where PresupuestoId=" + this.PresupuestoId.ToString()));
+                if (retorno)
+                {
+                    conexion.Ejecutar(string.Format("delete from PresupuestoDetalle where PresupuestoId=" + this.PresupuestoId.ToString()));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return retorno;
         }
 
         public override bool Buscar(int IdBuscado)
         {
-            throw new NotImplementedException();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                dt = conexion.ObtenerDatos(string.Format("select * from Personas where PresupuestoId=" + IdBuscado));
+                if (dt.Rows.Count > 0)
+                {
+                    this.PresupuestoId = (int)dt.Rows[0]["PresupuestoId"];
+                    this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            return dt.Rows.Count > 0;
         }
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            throw new NotImplementedException();
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+            {
+                ordenFinal = "orden by" + Orden;
+
+            }
+
+            return conexion.ObtenerDatos(string.Format("select " + Campos + " Presupuesto where " + Condicion+ordenFinal));
+        }
+        public DataTable ListadoPresupuesto(string Campos, string Condicion, string Orden)
+        {
+            string ordenFinal = "";
+            if (!Orden.Equals(""))
+                ordenFinal = " Orden by  " + Orden;
+
+            return conexion.ObtenerDatos("Select " + Campos + " From PresupuestoDetalle Where " + Condicion + ordenFinal);
         }
     }
 }
