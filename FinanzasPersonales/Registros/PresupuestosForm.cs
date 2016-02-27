@@ -112,12 +112,54 @@ namespace FinanzasPersonales.Registros
                 MontotexboxNumerico.Focus();
             }
         }
-
-        private void NuevoButton_Click(object sender, EventArgs e)
+        private void PresupuestosForm_Load(object sender, EventArgs e)
         {
-            Limpiar();
-            GuardarButton.Enabled = true;
+            DataTable datos = new DataTable();
+            Categorias categoria = new Categorias();
+            datos = categoria.Listado("CategoriaId, Descripcion", "0=0", "ORDEN BY CategoriId");
+
+            CategoriaComboBox.ValueMember = "CategoriaId";
+            CategoriaComboBox.DisplayMember = "Descripcion";
+
+            CategoriaComboBox.DataSource = datos;
         }
+
+        private void CategoriaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CategoriaComboBox.SelectedValue != null)
+            {
+                DataRow row = (DataRow)CategoriaComboBox.SelectedItem;
+
+            }
+        }
+        private void BuscarButton_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            string filtro = "1=1";
+            try
+            {
+                int.TryParse(PresupuestoIdtexboxNumerico.Text, out id);
+                if (ValidarTexbox(PresupuestoIdtexboxNumerico) && presupuesto.Buscar(id))
+                {
+                    PresupuestoIdtexboxNumerico.Text = presupuesto.PresupuestoId.ToString();
+                    DescripcionTextBox.Text = presupuesto.Descripcion;
+                    PresupuestoDataGridView.DataSource = presupuesto.ListadoPresupuesto("CategoriaId,Monto", filtro, "");
+                    ActivarBotones(true);
+                }
+                else
+                {
+                    Mensajes(2, "Id no Existe!");
+                    Limpiar();
+                    ActivarBotones(false);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
         private void AgregarButton_Click(object sender, EventArgs e)
         {
@@ -133,8 +175,13 @@ namespace FinanzasPersonales.Registros
             {
                 MontotexboxNumerico.Focus();
             }
-            
 
+
+        }
+        private void NuevoButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+            GuardarButton.Enabled = true;
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
@@ -216,49 +263,6 @@ namespace FinanzasPersonales.Registros
             }
         }
 
-        private void BuscarButton_Click(object sender, EventArgs e)
-        {
-            int id = 0;
-            string filtro = "1=1";
-            try
-            {
-                int.TryParse(PresupuestoIdtexboxNumerico.Text, out id);
-                if (ValidarTexbox(PresupuestoIdtexboxNumerico) && presupuesto.Buscar(id))
-                {
-                    PresupuestoIdtexboxNumerico.Text = presupuesto.PresupuestoId.ToString();
-                    DescripcionTextBox.Text = presupuesto.Descripcion;
-                    PresupuestoDataGridView.DataSource = presupuesto.ListadoPresupuesto("CategoriaId,Monto", filtro, "");
-                    ActivarBotones(true);
-                }
-                else
-                {
-                    Mensajes(2, "Id no Existe!");
-                    Limpiar();
-                    ActivarBotones(false);
-                }
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void PresupuestosForm_Load(object sender, EventArgs e)
-        {
-            DataTable datos = new DataTable();
-            Categorias categoria = new Categorias();
-            datos = categoria.Listado("CategoriaId, Descripcion", "0=0", "ORDEN BY CategoriId");
-
-            CategoriaComboBox.ValueMember = "CategoriaId";
-            CategoriaComboBox.DisplayMember = "Descripcion";
-
-            CategoriaComboBox.DataSource = datos;
-        }
-
-        private void CategoriaComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
