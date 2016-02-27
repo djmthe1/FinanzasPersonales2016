@@ -31,6 +31,7 @@ namespace BLL
         public override bool Insertar()
         {
             int retorno = 0;
+         
             object identity;
             try
             {
@@ -38,7 +39,7 @@ namespace BLL
                 identity = conexion.ObtenerValor(string.Format("Insert Into Personas(Nombres) values('{0}') select @@Identity", this.Nombre));
 
                 //intento convertirlo a entero
-                int.TryParse(identity.ToString(), out retorno);
+              int.TryParse(identity.ToString(), out retorno);
 
                 this.PersonaId = retorno;
                 foreach (PersonasTelefonos numero in this.Telefonos)
@@ -59,10 +60,10 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("Update Personas set Nombre= '{0}' where PersonaId=", this.Nombre, this.PersonaId));
+                retorno = conexion.Ejecutar(string.Format("Update Personas set Nombre= '{0}' where PersonaId= {1}", this.Nombre, this.PersonaId));
                 if (retorno)
                 {
-                    conexion.Ejecutar("Delete from PersonasTelefonos Where PersonaId=" + this.PersonaId.ToString());
+                    conexion.Ejecutar(string.Format("Delete from PersonasTelefonos Where PersonaId= {0}",this.PersonaId));
                     foreach (PersonasTelefonos numero in this.Telefonos)
                     {
                         conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono) Values ({0},{1},'{2}')", PersonaId, int.Parse(numero.TipoTelefono.ToString()), numero.Telefono));
@@ -82,10 +83,10 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("delete from Personas where PersonaId=", this.PersonaId));
+                retorno = conexion.Ejecutar(string.Format("delete from Personas where PersonaId= {0}", this.PersonaId));
 
                 if (retorno )
-                    conexion.Ejecutar("Delete from PersonasTelefonos Where PersonaId=" + this.PersonaId.ToString());
+                    conexion.Ejecutar(string.Format("Delete from PersonasTelefonos Where PersonaId= {0}", this.PersonaId));
             }
             catch (Exception ex)
             {

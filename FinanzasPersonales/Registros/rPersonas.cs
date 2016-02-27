@@ -73,7 +73,7 @@ namespace FinanzasPersonales.Registros
         }
         private bool Validar()
         {
-            if (!NombrestextBox.Text.Equals("") && !TelefonotextBox.Text.Equals("") && TelefonosdataGridView.RowCount > 0)
+            if (!NombrestextBox.Text.Equals("") && TelefonotextBox.Text.Equals("") && TelefonosdataGridView.RowCount > 0)
             {
                 PersonaErrorProvider.Clear();
                 NombrestextBox.Focus();
@@ -180,9 +180,10 @@ namespace FinanzasPersonales.Registros
         }
         private void AgregarTelefonobutton_Click(object sender, EventArgs e)
         {
-            if (ValidarTexbox(TelefonotextBox)==false)
+            
+            if (!TelefonotextBox.Text.Equals(""))
             {
-                if (TelefonotextBox.Text.Length > 9)
+                if (TelefonotextBox.Text.Length >= 9)
                 {
                     persona.AgregarTelefono((TiposTelefonos)TipoTelefonocomboBox.SelectedValue, TelefonotextBox.Text);
                     //TelefonosdataGridView.AutoGenerateColumns = false;
