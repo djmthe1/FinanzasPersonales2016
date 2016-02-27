@@ -22,7 +22,7 @@ namespace BLL
             this.Monto = 0;
             this.CategoriaId.CategoriaId = 0;
         }
-        public PresupuestoDetalles( float Monto, int CategoriaId)
+        public PresupuestoDetalles( int CategoriaId, float Monto)
         {
             this.Monto = Monto;
             this.CategoriaId.CategoriaId = CategoriaId;

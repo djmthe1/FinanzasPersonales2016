@@ -43,7 +43,7 @@ namespace BLL
                 this.PersonaId = retorno;
                 foreach (PersonasTelefonos numero in this.Telefonos)
                 {
-                    conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono) Values ({0},{1},'{2}')", retorno, int.Parse(numero.TipoTelefono.ToString()), numero.Telefono));
+                    conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono) Values ({0},{1},'{2}')", retorno, (int)numero.TipoTelefono, numero.Telefono));
                 }
 
             }

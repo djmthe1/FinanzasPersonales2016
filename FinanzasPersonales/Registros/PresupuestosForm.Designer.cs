@@ -91,7 +91,7 @@
             this.PresupuestoDataGridView.Location = new System.Drawing.Point(39, 170);
             this.PresupuestoDataGridView.Name = "PresupuestoDataGridView";
             this.PresupuestoDataGridView.ReadOnly = true;
-            this.PresupuestoDataGridView.Size = new System.Drawing.Size(357, 111);
+            this.PresupuestoDataGridView.Size = new System.Drawing.Size(335, 111);
             this.PresupuestoDataGridView.TabIndex = 14;
             // 
             // Categoria
@@ -108,6 +108,7 @@
             // 
             // CategoriaComboBox
             // 
+            this.CategoriaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoriaComboBox.FormattingEnabled = true;
             this.CategoriaComboBox.Location = new System.Drawing.Point(39, 143);
             this.CategoriaComboBox.Name = "CategoriaComboBox";
@@ -155,7 +156,7 @@
             this.EliminarButton.Enabled = false;
             this.EliminarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EliminarButton.Image = ((System.Drawing.Image)(resources.GetObject("EliminarButton.Image")));
-            this.EliminarButton.Location = new System.Drawing.Point(243, 308);
+            this.EliminarButton.Location = new System.Drawing.Point(302, 308);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(72, 51);
             this.EliminarButton.TabIndex = 9;
@@ -180,7 +181,7 @@
             this.GuardarButton.Enabled = false;
             this.GuardarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
-            this.GuardarButton.Location = new System.Drawing.Point(155, 308);
+            this.GuardarButton.Location = new System.Drawing.Point(168, 308);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(68, 51);
             this.GuardarButton.TabIndex = 7;

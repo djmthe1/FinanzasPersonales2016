@@ -20,7 +20,10 @@ namespace BLL
             this.Descripcion = "";
             Presupuesto = new List<PresupuestoDetalles>();
         }
-
+        public void AgregarPresupuesto(int CategoriaId, float Monto)
+        {
+            Presupuesto.Add(new PresupuestoDetalles(CategoriaId, Monto));
+        }
         public override bool Insertar()
         {
             int retorno = 0;
@@ -76,10 +79,10 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(string.Format("delete from Presupuesto where PresupuestoId=" + this.PresupuestoId.ToString()));
+                retorno = conexion.Ejecutar(string.Format("delete from Presupuesto where PresupuestoId= {0}", this.PresupuestoId));
                 if (retorno)
                 {
-                    conexion.Ejecutar(string.Format("delete from PresupuestoDetalle where PresupuestoId=" + this.PresupuestoId.ToString()));
+                    conexion.Ejecutar(string.Format("delete from PresupuestoDetalle where PresupuestoId= {0}", this.PresupuestoId.ToString()));
                 }
             }
             catch (Exception ex)
