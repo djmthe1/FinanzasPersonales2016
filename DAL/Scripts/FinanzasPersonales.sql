@@ -79,3 +79,19 @@ create table PersonasTelefonos(
 )
 
 go
+
+CREATE TABLE Presupuestos(
+	PresupuestoId int PRIMARY KEY IDENTITY(1,1),
+	Descripcion varchar(100)
+)
+
+go
+
+CREATE TABLE PresupuestosDetalle(
+	Id int PRIMARY KEY IDENTITY(1,1),
+	PresupuestoId int REFERENCES Presupuestos(PresupuestoId) NOT NULL,
+	CategoriaId int REFERENCES Categorias(CategoriaId ),
+	Monto float NOT NULL
+)
+
+go
