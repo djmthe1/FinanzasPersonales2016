@@ -45,8 +45,8 @@
             this.NuevoButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
-            this.PresupuestoIdtextboxNumerico = new FinanzasPersonales.TexboxNumerico();
             this.MontotexboxNumerico = new FinanzasPersonales.TexboxNumerico();
+            this.PresupuestoIdtexboxNumerico = new FinanzasPersonales.TexboxNumerico();
             ((System.ComponentModel.ISupportInitialize)(this.PresupuestoDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PresupuestoerrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -110,6 +110,8 @@
             // 
             this.CategoriaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoriaComboBox.FormattingEnabled = true;
+            this.CategoriaComboBox.Items.AddRange(new object[] {
+            "-----"});
             this.CategoriaComboBox.Location = new System.Drawing.Point(39, 143);
             this.CategoriaComboBox.Name = "CategoriaComboBox";
             this.CategoriaComboBox.Size = new System.Drawing.Size(121, 21);
@@ -150,6 +152,7 @@
             this.AgregarButton.Text = "Agregar";
             this.AgregarButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.AgregarButton.UseVisualStyleBackColor = true;
+            this.AgregarButton.Click += new System.EventHandler(this.AgregarButton_Click);
             // 
             // EliminarButton
             // 
@@ -163,6 +166,7 @@
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // NuevoButton
             // 
@@ -175,6 +179,7 @@
             this.NuevoButton.Text = "Nuevo";
             this.NuevoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
             // GuardarButton
             // 
@@ -188,6 +193,7 @@
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // BuscarButton
             // 
@@ -200,14 +206,6 @@
             this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BuscarButton.UseVisualStyleBackColor = true;
             // 
-            // PresupuestoIdtextboxNumerico
-            // 
-            this.PresupuestoIdtextboxNumerico.Location = new System.Drawing.Point(155, 34);
-            this.PresupuestoIdtextboxNumerico.MaxLength = 5;
-            this.PresupuestoIdtextboxNumerico.Name = "PresupuestoIdtextboxNumerico";
-            this.PresupuestoIdtextboxNumerico.Size = new System.Drawing.Size(82, 20);
-            this.PresupuestoIdtextboxNumerico.TabIndex = 20;
-            // 
             // MontotexboxNumerico
             // 
             this.MontotexboxNumerico.Location = new System.Drawing.Point(178, 144);
@@ -216,13 +214,20 @@
             this.MontotexboxNumerico.Size = new System.Drawing.Size(106, 20);
             this.MontotexboxNumerico.TabIndex = 21;
             // 
+            // PresupuestoIdtexboxNumerico
+            // 
+            this.PresupuestoIdtexboxNumerico.Location = new System.Drawing.Point(155, 34);
+            this.PresupuestoIdtexboxNumerico.Name = "PresupuestoIdtexboxNumerico";
+            this.PresupuestoIdtexboxNumerico.Size = new System.Drawing.Size(90, 20);
+            this.PresupuestoIdtexboxNumerico.TabIndex = 23;
+            // 
             // PresupuestosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 371);
+            this.Controls.Add(this.PresupuestoIdtexboxNumerico);
             this.Controls.Add(this.MontotexboxNumerico);
-            this.Controls.Add(this.PresupuestoIdtextboxNumerico);
             this.Controls.Add(this.AgregarButton);
             this.Controls.Add(this.Montolabel);
             this.Controls.Add(this.CategoriaLabel);
@@ -265,6 +270,6 @@
         private System.Windows.Forms.ErrorProvider PresupuestoerrorProvider;
         private System.Windows.Forms.Button AgregarButton;
         private TexboxNumerico MontotexboxNumerico;
-        private TexboxNumerico PresupuestoIdtextboxNumerico;
+        private TexboxNumerico PresupuestoIdtexboxNumerico;
     }
 }

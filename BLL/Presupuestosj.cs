@@ -20,9 +20,9 @@ namespace BLL
             this.Descripcion = "";
             Presupuesto = new List<PresupuestoDetalles>();
         }
-        public void AgregarPresupuesto(int CategoriaId, float Monto)
+        public void AgregarPresupuesto( float Monto)
         {
-            Presupuesto.Add(new PresupuestoDetalles(CategoriaId, Monto));
+            Presupuesto.Add(new PresupuestoDetalles( Monto));
         }
         public override bool Insertar()
         {
@@ -60,10 +60,10 @@ namespace BLL
 
                 if (retorno)
                 {
-                    conexion.Ejecutar(string.Format("delete from PresupuestoDetalle where PresupuestoId=" + this.PresupuestoId.ToString()));
+                    conexion.Ejecutar(string.Format("delete from PresupuestoDetalle where PresupuestoId= {0}", this.PresupuestoId));
                     foreach (PresupuestoDetalles monto in Presupuesto)
                     {
-                        conexion.Ejecutar(string.Format("insert int PresupuestoDetalle(PresupuestoId,CategoriaId,Monto) values({0},{1},{2})",PresupuestoId, monto.CategoriaId,monto.Monto));
+                        conexion.Ejecutar(string.Format("insert int PresupuestoDetalle(PresupuestoId,CategoriaId,Monto) values({0},{1},{2})", PresupuestoId, monto.CategoriaId,monto.Monto));
                     }
                 }
             }

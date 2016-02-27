@@ -20,12 +20,11 @@ namespace BLL
             this.PresupuestoId = 0;
             this.PresupuestoId = 0;
             this.Monto = 0;
-            this.CategoriaId.CategoriaId = 0;
+            this.CategoriaId = new Categorias();
         }
-        public PresupuestoDetalles( int CategoriaId, float Monto)
+        public PresupuestoDetalles( float Monto)
         {
             this.Monto = Monto;
-            this.CategoriaId.CategoriaId = CategoriaId;
         }
     }
 }

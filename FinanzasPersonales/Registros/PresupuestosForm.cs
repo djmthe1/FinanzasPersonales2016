@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace FinanzasPersonales.Registros
 {
     public partial class PresupuestosForm : Form
     {
+        Presupuestosj presupuesto = new Presupuestosj();
         public PresupuestosForm()
         {
             InitializeComponent();
@@ -19,12 +21,20 @@ namespace FinanzasPersonales.Registros
         private void Limpiar() {
             PresupuestoDataGridView.Rows.Clear();
             PresupuestoerrorProvider.Clear();
-            CategoriaComboBox.SelectedIndex = 0;
-            PresupuestoIdtextboxNumerico.Clear();
+          //  CategoriaComboBox.SelectedIndex = 0;
+           PresupuestoIdtexboxNumerico.Clear();
             DescripcionTextBox.Clear();
             MontotexboxNumerico.Clear();
             DescripcionTextBox.Focus();
 
+        }
+        private void LLenarDatos()
+        {
+            int id = 0;
+            int.TryParse(PresupuestoIdtexboxNumerico.Text, out id);
+            presupuesto.PresupuestoId = id;
+            DescripcionTextBox.Text = presupuesto.Descripcion;
+            
         }
         private void Mensajes(int selec, string mensaje)
         {
@@ -52,7 +62,7 @@ namespace FinanzasPersonales.Registros
         //Metodos para validar Llos textbox y el DataGripView
         private bool Validar()
         {
-            if (!DescripcionTextBox.Text.Equals("") && !MontotexboxNumerico.Text.Equals("") && PresupuestoDataGridView.RowCount > 0)
+            if (!DescripcionTextBox.Text.Equals("") && MontotexboxNumerico.Text.Equals("") && PresupuestoDataGridView.RowCount > 0)
             {
                 PresupuestoerrorProvider.Clear();
                 DescripcionTextBox.Focus();
@@ -60,14 +70,40 @@ namespace FinanzasPersonales.Registros
             }
             else
             {
-                PresupuestoerrorProvider.SetError(DescripcionTextBox, "Introduzca Un Nombre!");
-                PresupuestoerrorProvider.SetError(MontotexboxNumerico, "Introduzca Un Numero de Teleno!");
-                PresupuestoerrorProvider.SetError(PresupuestoDataGridView, "Debe de Añadir por lo menos un Numero de Telefono!");
+                PresupuestoerrorProvider.SetError(DescripcionTextBox, "Introduzca Una Descripcion!");
+                PresupuestoerrorProvider.SetError(MontotexboxNumerico, "Este Campo debe de esta vacio!");
+                PresupuestoerrorProvider.SetError(PresupuestoDataGridView, "Debe de Añadir por lo menos un Presupusto!");
 
-                return true;
+                return false;
             }
 
 
+        }
+        //selecione la Accion 1= Insertar 2=Modificar 3= Eliminar
+        private void Accion(int selec)
+        {
+            switch (selec)
+            {
+                case 1:
+                    
+                    break;
+                case 2:
+                    
+                case 3: 
+                    if (presupuesto.Eliminar())
+                    {
+                        Mensajes(1, "Presupuesto eliminado Correctamente!");
+                        Limpiar();
+                    }
+                    else
+                    {
+                        Mensajes(2, "Error al elimnar Presupusto!");
+                        Limpiar();
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
         private bool ValidarTexbox(TextBox tb)
         {
@@ -95,6 +131,109 @@ namespace FinanzasPersonales.Registros
             if (e.KeyChar == 13)
             {
                 MontotexboxNumerico.Focus();
+            }
+        }
+
+        private void NuevoButton_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+            GuardarButton.Enabled = true;
+        }
+
+        private void AgregarButton_Click(object sender, EventArgs e)
+        {
+            if (ValidarTexbox(MontotexboxNumerico))
+            {
+                float monto = float.Parse(MontotexboxNumerico.Text);
+                presupuesto.AgregarPresupuesto(monto);
+                PresupuestoDataGridView.Rows.Add(CategoriaComboBox.SelectedValue, MontotexboxNumerico.Text);
+                MontotexboxNumerico.Clear();
+                MontotexboxNumerico.Focus();
+            }
+            else
+            {
+                MontotexboxNumerico.Focus();
+            }
+            
+
+        }
+
+        private void GuardarButton_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            LLenarDatos();
+            try
+            {
+                
+                if (PresupuestoIdtexboxNumerico.Equals("") && Validar()==false)
+                {
+                    if (presupuesto.Insertar())
+                    {
+                        Mensajes(1, "Presupuesto insertado Correctamente!");
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+                    else
+                    {
+                        Mensajes(2, "Error en Insertar!");
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+                }
+                else
+                {
+                    int.TryParse(PresupuestoIdtexboxNumerico.Text, out id);
+                    if (presupuesto.Buscar(id) &&Validar()==false)
+                    {
+                        if (presupuesto.Editar())
+                        {
+                            Mensajes(1, "Presupuesto Modificado Correctamente!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                        else
+                        {
+                            Mensajes(2, "Error en Modificar Presupuesto!");
+                            Limpiar();
+                            ActivarBotones(false);
+                        }
+                        
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void EliminarButton_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            try
+            {
+                int.TryParse(PresupuestoIdtexboxNumerico.Text, out id);
+                if (ValidarTexbox(PresupuestoIdtexboxNumerico) && presupuesto.Buscar(id))
+                {
+                    if (presupuesto.Eliminar())
+                    {
+                        Mensajes(1, "Presupuesto Eliminado!");
+                        Limpiar();
+                        ActivarBotones(false);
+                    }else
+                    {
+                        Mensajes(2, "Error en Eliminar!");
+                        Limpiar();
+                        ActivarBotones(false);
+                    }
+                }
+            }
+            catch ( Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
         }
     }
