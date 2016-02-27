@@ -45,8 +45,8 @@
             this.NuevoButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
-            this.MontotexboxNumerico = new FinanzasPersonales.TexboxNumerico();
             this.PresupuestoIdtexboxNumerico = new FinanzasPersonales.TexboxNumerico();
+            this.MontotexboxNumerico = new FinanzasPersonales.TexboxNumerico();
             ((System.ComponentModel.ISupportInitialize)(this.PresupuestoDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PresupuestoerrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -116,6 +116,7 @@
             this.CategoriaComboBox.Name = "CategoriaComboBox";
             this.CategoriaComboBox.Size = new System.Drawing.Size(121, 21);
             this.CategoriaComboBox.TabIndex = 15;
+            this.CategoriaComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoriaComboBox_SelectedIndexChanged);
             // 
             // CategoriaLabel
             // 
@@ -205,6 +206,14 @@
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
+            // 
+            // PresupuestoIdtexboxNumerico
+            // 
+            this.PresupuestoIdtexboxNumerico.Location = new System.Drawing.Point(155, 34);
+            this.PresupuestoIdtexboxNumerico.Name = "PresupuestoIdtexboxNumerico";
+            this.PresupuestoIdtexboxNumerico.Size = new System.Drawing.Size(90, 20);
+            this.PresupuestoIdtexboxNumerico.TabIndex = 23;
             // 
             // MontotexboxNumerico
             // 
@@ -213,13 +222,6 @@
             this.MontotexboxNumerico.Name = "MontotexboxNumerico";
             this.MontotexboxNumerico.Size = new System.Drawing.Size(106, 20);
             this.MontotexboxNumerico.TabIndex = 21;
-            // 
-            // PresupuestoIdtexboxNumerico
-            // 
-            this.PresupuestoIdtexboxNumerico.Location = new System.Drawing.Point(155, 34);
-            this.PresupuestoIdtexboxNumerico.Name = "PresupuestoIdtexboxNumerico";
-            this.PresupuestoIdtexboxNumerico.Size = new System.Drawing.Size(90, 20);
-            this.PresupuestoIdtexboxNumerico.TabIndex = 23;
             // 
             // PresupuestosForm
             // 
@@ -245,6 +247,7 @@
             this.Name = "PresupuestosForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Presupuestos";
+            this.Load += new System.EventHandler(this.PresupuestosForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PresupuestoDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PresupuestoerrorProvider)).EndInit();
             this.ResumeLayout(false);

@@ -34,6 +34,10 @@ namespace FinanzasPersonales.Registros
             int.TryParse(PresupuestoIdtexboxNumerico.Text, out id);
             presupuesto.PresupuestoId = id;
             DescripcionTextBox.Text = presupuesto.Descripcion;
+            foreach (DataGridViewRow row in PresupuestoDataGridView.Rows)
+            {
+                presupuesto.AgregarPresupuesto((float)row.Cells["Monto"].Value);
+            }
             
         }
         private void Mensajes(int selec, string mensaje)
@@ -79,32 +83,7 @@ namespace FinanzasPersonales.Registros
 
 
         }
-        //selecione la Accion 1= Insertar 2=Modificar 3= Eliminar
-        private void Accion(int selec)
-        {
-            switch (selec)
-            {
-                case 1:
-                    
-                    break;
-                case 2:
-                    
-                case 3: 
-                    if (presupuesto.Eliminar())
-                    {
-                        Mensajes(1, "Presupuesto eliminado Correctamente!");
-                        Limpiar();
-                    }
-                    else
-                    {
-                        Mensajes(2, "Error al elimnar Presupusto!");
-                        Limpiar();
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
+        
         private bool ValidarTexbox(TextBox tb)
         {
             if (!tb.Text.Equals(""))
@@ -235,6 +214,51 @@ namespace FinanzasPersonales.Registros
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void BuscarButton_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            string filtro = "1=1";
+            try
+            {
+                int.TryParse(PresupuestoIdtexboxNumerico.Text, out id);
+                if (ValidarTexbox(PresupuestoIdtexboxNumerico) && presupuesto.Buscar(id))
+                {
+                    PresupuestoIdtexboxNumerico.Text = presupuesto.PresupuestoId.ToString();
+                    DescripcionTextBox.Text = presupuesto.Descripcion;
+                    PresupuestoDataGridView.DataSource = presupuesto.ListadoPresupuesto("CategoriaId,Monto", filtro, "");
+                    ActivarBotones(true);
+                }
+                else
+                {
+                    Mensajes(2, "Id no Existe!");
+                    Limpiar();
+                    ActivarBotones(false);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void PresupuestosForm_Load(object sender, EventArgs e)
+        {
+            DataTable datos = new DataTable();
+            Categorias categoria = new Categorias();
+            datos = categoria.Listado("CategoriaId, Descripcion", "0=0", "ORDEN BY CategoriId");
+
+            CategoriaComboBox.ValueMember = "CategoriaId";
+            CategoriaComboBox.DisplayMember = "Descripcion";
+
+            CategoriaComboBox.DataSource = datos;
+        }
+
+        private void CategoriaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

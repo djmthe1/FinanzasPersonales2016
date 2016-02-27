@@ -73,7 +73,7 @@ namespace FinanzasPersonales.Registros
         }
         private bool Validar()
         {
-            if (!NombrestextBox.Text.Equals("") && !TelefonotextBox.Text.Equals("") && TelefonosdataGridView.RowCount > 0)
+            if (!NombrestextBox.Text.Equals("") && TelefonotextBox.Text.Equals("") && TelefonosdataGridView.RowCount > 0)
             {
                 PersonaErrorProvider.Clear();
                 NombrestextBox.Focus();
