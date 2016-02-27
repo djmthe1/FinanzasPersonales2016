@@ -40,12 +40,16 @@ namespace BLL
 
                 //intento convertirlo a entero
               int.TryParse(identity.ToString(), out retorno);
-
+                
                 this.PersonaId = retorno;
-                foreach (PersonasTelefonos numero in this.Telefonos)
+                if (retorno >0)
                 {
-                    conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono) Values ({0},{1},'{2}')", retorno, int.Parse(numero.TipoTelefono.ToString()), numero.Telefono));
+                    foreach (PersonasTelefonos numero in this.Telefonos)
+                    {
+                        conexion.Ejecutar(string.Format("Insert into PersonasTelefonos(PersonaId,TipoId,Telefono) Values ({0},{1},'{2}')", retorno, (int)numero.TipoTelefono, numero.Telefono));
+                    }
                 }
+                
 
             }
             catch (Exception ex)

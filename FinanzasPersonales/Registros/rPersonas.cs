@@ -212,8 +212,7 @@ namespace FinanzasPersonales.Registros
             Personas persona = new Personas();
 
             LlenarDatos( persona);
-            try
-            {
+           
                 if (PersonaIdtextBox.Text.Equals("") && Validar()==false)
                 {
                     if (persona.Insertar())
@@ -247,12 +246,7 @@ namespace FinanzasPersonales.Registros
                         }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+           
            
 
         }
