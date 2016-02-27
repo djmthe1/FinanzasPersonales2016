@@ -25,9 +25,9 @@ namespace BLL
             PresupuestosD = new List<PresupuestosDetalle>();
         }
 
-        public void AgregarPresupuesto(int id, int presupuestoId, int categoriaId, float monto)
+        public void AgregarPresupuesto(float monto)
         {
-            PresupuestosD.Add(new PresupuestosDetalle(id, presupuestoId, categoriaId, monto));
+            PresupuestosD.Add(new PresupuestosDetalle(monto));
         }
         
         public override bool Insertar()

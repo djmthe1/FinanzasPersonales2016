@@ -26,5 +26,10 @@ namespace BLL
         {
         }
 
+        public PresupuestosDetalle(float monto)
+        {
+            this.Monto = monto;
+        }
+
     }
 }
