@@ -37,7 +37,7 @@
             this.descripcionTextBox = new System.Windows.Forms.TextBox();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.buscarIdButton = new System.Windows.Forms.Button();
-            this.presupuestoDTextBox = new System.Windows.Forms.TextBox();
+            this.montoTextBox = new System.Windows.Forms.TextBox();
             this.agregarButton = new System.Windows.Forms.Button();
             this.montoLabel = new System.Windows.Forms.Label();
             this.CategoriaLabel = new System.Windows.Forms.Label();
@@ -147,13 +147,13 @@
             this.buscarIdButton.UseVisualStyleBackColor = true;
             this.buscarIdButton.Click += new System.EventHandler(this.buscarIdButton_Click);
             // 
-            // presupuestoDTextBox
+            // montoTextBox
             // 
-            this.presupuestoDTextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.presupuestoDTextBox.Location = new System.Drawing.Point(259, 127);
-            this.presupuestoDTextBox.Name = "presupuestoDTextBox";
-            this.presupuestoDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.presupuestoDTextBox.TabIndex = 29;
+            this.montoTextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.montoTextBox.Location = new System.Drawing.Point(259, 127);
+            this.montoTextBox.Name = "montoTextBox";
+            this.montoTextBox.Size = new System.Drawing.Size(100, 20);
+            this.montoTextBox.TabIndex = 29;
             // 
             // agregarButton
             // 
@@ -215,7 +215,7 @@
             this.Controls.Add(this.categoriaComboBox);
             this.Controls.Add(this.CategoriaLabel);
             this.Controls.Add(this.montoLabel);
-            this.Controls.Add(this.presupuestoDTextBox);
+            this.Controls.Add(this.montoTextBox);
             this.Controls.Add(this.agregarButton);
             this.Controls.Add(this.buscarIdButton);
             this.Controls.Add(this.descripcionLabel);
@@ -227,7 +227,7 @@
             this.Controls.Add(this.GuardarButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Presupuestos";
-            this.Text = "PresupuestosForm";
+            this.Text = "Presupuestos";
             this.Load += new System.EventHandler(this.Presupuestos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.presupuestosDataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -245,7 +245,7 @@
         private System.Windows.Forms.TextBox descripcionTextBox;
         private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.Button buscarIdButton;
-        private System.Windows.Forms.TextBox presupuestoDTextBox;
+        private System.Windows.Forms.TextBox montoTextBox;
         private System.Windows.Forms.Button agregarButton;
         private System.Windows.Forms.Label montoLabel;
         private System.Windows.Forms.Label CategoriaLabel;

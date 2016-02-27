@@ -166,5 +166,11 @@ namespace FinanzasPersonales
             Registros.rPersonas rPersona = new Registros.rPersonas();
             rPersona.Show();
         }
+
+        private void presupuestosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registros.Presupuestos presupuestos = new Registros.Presupuestos();
+            presupuestos.Show(); 
+        }
     }
 }
