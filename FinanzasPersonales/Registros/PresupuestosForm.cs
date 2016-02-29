@@ -22,21 +22,21 @@ namespace FinanzasPersonales.Registros
         private void TryParse()
         {
             int id;
-            int.TryParse(IdtextBox.Text, out id);
+            int.TryParse(Numerictexbox.Text, out id);
             presupuesto.Buscar(id);
         }
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            if (IdtextBox.Text.Trim() == "")
+            if (Numerictexbox.Text.Trim() == "")
             {
-                IderrorProvider.SetError(IdtextBox, "Debe especificar el ID ");
-                IdtextBox.Focus();
+                IderrorProvider.SetError(Numerictexbox, "Debe especificar el ID ");
+                Numerictexbox.Focus();
             }
             else
             {
                 IderrorProvider.Clear();
             }
-            if (IdtextBox.TextLength > 0)
+            if (Numerictexbox.TextLength > 0)
             {
                 TryParse();
                 DescripciontextBox.Text = presupuesto.Descripcion;
@@ -48,9 +48,9 @@ namespace FinanzasPersonales.Registros
             PresupuestosdataGridView.Rows.Clear();
             IderrorProvider.Clear();
             CategoriasIdcomboBox.SelectedIndex = 0;
-            IdtextBox.Clear();
+            Numerictexbox.Clear();
             DescripciontextBox.Clear();
-            MontotextBox.Clear();
+            MontomaskedTextBox.Clear();
             DescripciontextBox.Focus();
 
         }
@@ -71,10 +71,10 @@ namespace FinanzasPersonales.Registros
 
         private void AgregarPresupuestobutton_Click(object sender, EventArgs e)
         {
-            PresupuestosdataGridView.Rows.Add(CategoriasIdcomboBox.SelectedValue, MontotextBox.Text);
+            PresupuestosdataGridView.Rows.Add(CategoriasIdcomboBox.SelectedValue, MontomaskedTextBox.Text);
 
-            MontotextBox.Clear();
-            MontotextBox.Focus();
+            MontomaskedTextBox.Clear();
+            MontomaskedTextBox.Focus();
         }
 
         private void LlenarDatos(Presupuestos presupuesto)
@@ -86,12 +86,45 @@ namespace FinanzasPersonales.Registros
                 //presupuesto.AgregarPresupuesto((PresupuestosDetalle)row.Cells["CategoriaId"].Value, row.Cells["Monto"].ToString());
             }
         }
+
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             LlenarDatos(presupuesto);
             presupuesto.Insertar();
         }
 
-        
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            if (Numerictexbox.Text.Trim() == "")
+            {
+                IderrorProvider.SetError(Numerictexbox, "Debe especificar el ID ");
+                Numerictexbox.Focus();
+            }
+            else
+            {
+                IderrorProvider.Clear();
+                if (Numerictexbox.Text.Length > 0)
+                {
+                    presupuesto.PresupuestoId = int.Parse(Numerictexbox.Text);
+
+                    if (presupuesto.Eliminar())
+                    {
+                        MessageBox.Show("El Presupuesto se elimino Correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Presupuesto no ha sido eliminada Correctamente");
+                    }
+                }
+            }
+        }
+
+        private void Descripcion(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122) || (e.KeyChar >= 160 && e.KeyChar <= 163))
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
     }
 }
