@@ -103,12 +103,12 @@ namespace FinanzasPersonales.Registros
         {
             DataTable datos = new DataTable();
             datos = cuentas.Listado("CuentaId,Descripcion", "0=0", "ORDER BY CuentaId");
+            ComboBoxCuentaId.DataSource = datos;
 
-            
             ComboBoxCuentaId.ValueMember = "CuentaId";
             ComboBoxCuentaId.DisplayMember = "Descripcion";
             
-            ComboBoxCuentaId.DataSource = datos;
+            
 
 
         }
@@ -293,12 +293,14 @@ namespace FinanzasPersonales.Registros
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {
+            int id = 0;
+            int.TryParse(CxcIdTextBox.Text, out id);
             try
             {
                 LlenarDatos();
 
                 DialogResult resut;
-                if (CxC.Buscar(int.Parse(CxcIdTextBox.Text)))
+                if (CxC.Buscar(id))
                 {
                     //Dialogo para confirmar que se desea Eliminar...
                     resut = MessageBox.Show("¿Esta seguro que desea eliminar?", "Meensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
