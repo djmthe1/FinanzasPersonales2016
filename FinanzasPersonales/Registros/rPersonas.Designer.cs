@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.TelefonosdataGridView = new System.Windows.Forms.DataGridView();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AgregarTelefonobutton = new System.Windows.Forms.Button();
             this.TelefonotextBox = new System.Windows.Forms.TextBox();
             this.TipoTelefonocomboBox = new System.Windows.Forms.ComboBox();
@@ -42,9 +46,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.PersonaIdtextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.PersonasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.TelefonosdataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PersonasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Eliminarbutton
@@ -95,6 +100,7 @@
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // TelefonosdataGridView
             // 
@@ -107,8 +113,27 @@
             this.TelefonosdataGridView.Location = new System.Drawing.Point(12, 129);
             this.TelefonosdataGridView.Name = "TelefonosdataGridView";
             this.TelefonosdataGridView.ReadOnly = true;
+            this.TelefonosdataGridView.RowHeadersVisible = false;
+            this.TelefonosdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.TelefonosdataGridView.Size = new System.Drawing.Size(278, 141);
             this.TelefonosdataGridView.TabIndex = 19;
+            // 
+            // Tipo
+            // 
+            this.Tipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Tipo.DataPropertyName = "TipoTelefono";
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            this.Tipo.Width = 53;
+            // 
+            // Telefono
+            // 
+            this.Telefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Telefono.DataPropertyName = "Telefono";
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
             // 
             // AgregarTelefonobutton
             // 
@@ -186,25 +211,27 @@
             this.label4.TabIndex = 23;
             this.label4.Text = "Id";
             // 
-            // Tipo
+            // reportViewer1
             // 
-            this.Tipo.DataPropertyName = "TipoTelefono";
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
+            reportDataSource1.Name = "Contenedor";
+            reportDataSource1.Value = this.PersonasBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "FinanzasPersonales.Reportes.ListadoPersonas.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(373, 42);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
+            this.reportViewer1.TabIndex = 24;
             // 
-            // Telefono
+            // PersonasBindingSource
             // 
-            this.Telefono.DataPropertyName = "Telefono";
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
+            this.PersonasBindingSource.DataSource = (new BLL.Personas()).Listado("PersonaId, Nombres AS Nombre", "1=1", "PersonaId");
             // 
             // rPersonas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 391);
+            this.ClientSize = new System.Drawing.Size(851, 391);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -223,6 +250,7 @@
             this.Text = "rPersonas";
             this.Load += new System.EventHandler(this.rPersonas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TelefonosdataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PersonasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,7 +272,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox PersonaIdtextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource PersonasBindingSource;
     }
 }

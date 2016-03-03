@@ -316,7 +316,7 @@ namespace FinanzasPersonales.Registros
         {
             if (comboBoxCuentaOrigen.SelectedValue != null )
             {
-                DataRow row = (DataRow)comboBoxCuentaOrigen.SelectedItem;
+                DataRowView row = (DataRowView)comboBoxCuentaOrigen.SelectedItem;
 
                 textBoxMontoCuentaOrigen.Text = row["Balance"].ToString ();
             }

@@ -110,6 +110,8 @@ namespace BLL
                 {
                     this.PresupuestoId = (int)dt.Rows[0]["PresupuestoId"];
                     this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
+
+
                 }
 
             }

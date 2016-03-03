@@ -13,11 +13,22 @@ namespace FinanzasPersonales.Registros
 {
     public partial class PresupuestosForm : Form
     {
+        Presupuestos presupuesto = new Presupuestos();
+
         public PresupuestosForm()
         {
             InitializeComponent();
         }
-        Presupuestos presupuesto = new Presupuestos();
+
+        private void PresupuestosForm_Load(object sender, EventArgs e)
+        {
+            DataTable data = new DataTable();
+            Categorias categoria = new Categorias();
+            data = categoria.Listado("CategoriaId,Descripcion", "0=0", "ORDER BY CategoriaId");
+            CategoriaIdcomboBox.DataSource = data;
+            CategoriaIdcomboBox.ValueMember = "CategoriaId";
+            CategoriaIdcomboBox.DisplayMember = "Descripcion";
+        }
 
         private void TryParse()
         {
@@ -47,7 +58,7 @@ namespace FinanzasPersonales.Registros
         {
             PresupuestosdataGridView.Rows.Clear();
             IderrorProvider.Clear();
-            CategoriasIdcomboBox.SelectedIndex = 0;
+            CategoriaIdcomboBox.SelectedIndex = 0;
             Numerictexbox.Clear();
             DescripciontextBox.Clear();
             MontomaskedTextBox.Clear();
@@ -59,19 +70,9 @@ namespace FinanzasPersonales.Registros
             Limpiar();
         }
 
-        private void CategoriasIdcomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataTable data = new DataTable();
-            Categorias categoria = new Categorias();
-            data = categoria.Listado("CategoriaId,Descripcion", "0=0", "ORDER BY CategoriaId");
-            CategoriasIdcomboBox.DataSource = data;
-            CategoriasIdcomboBox.ValueMember = "CategoriaId";
-            CategoriasIdcomboBox.DisplayMember = "Descripcion";
-        }
-
         private void AgregarPresupuestobutton_Click(object sender, EventArgs e)
         {
-            PresupuestosdataGridView.Rows.Add(CategoriasIdcomboBox.SelectedValue, MontomaskedTextBox.Text);
+            PresupuestosdataGridView.Rows.Add(CategoriaIdcomboBox.SelectedValue, MontomaskedTextBox.Text);
 
             MontomaskedTextBox.Clear();
             MontomaskedTextBox.Focus();
@@ -79,12 +80,12 @@ namespace FinanzasPersonales.Registros
 
         private void LlenarDatos(Presupuestos presupuesto)
         {
-            presupuesto.Descripcion = DescripciontextBox.Text; ;
-
-            foreach (DataGridViewRow row in PresupuestosdataGridView.Rows)
-            {
-                //presupuesto.AgregarPresupuesto((PresupuestosDetalle)row.Cells["CategoriaId"].Value, row.Cells["Monto"].ToString());
-            }
+            //presupuesto.Descripcion = DescripciontextBox.Text; ;
+            //int
+            //foreach (DataGridViewRow row in PresupuestosdataGridView.Rows)
+            //{
+            //    presupuesto.AgregarPresupuesto(,(int)row.Cells["PresupuestoId"].Value, row.Cells["CategoriaId"].ToString() ,row.Cells["Monto"].ToString());
+            //}
         }
 
         private void Guardarbutton_Click(object sender, EventArgs e)

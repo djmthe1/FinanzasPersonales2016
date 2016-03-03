@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace FinanzasPersonales.Registros
 {
     public partial class rPersonas : Form
@@ -23,6 +24,7 @@ namespace FinanzasPersonales.Registros
         private void rPersonas_Load(object sender, EventArgs e)
         {
             TipoTelefonocomboBox.DataSource = Enum.GetValues(typeof(TiposTelefonos));
+            this.reportViewer1.RefreshReport();
         }
 
         private void AgregarTelefonobutton_Click(object sender, EventArgs e)
@@ -50,14 +52,33 @@ namespace FinanzasPersonales.Registros
 
         private void LlenarDatos(Personas persona)
         {
-            persona.PersonaId = 0;
-            persona.Nombre = "";
+            persona.Nombre = NombrestextBox.Text;
 
             foreach (DataGridViewRow  row in TelefonosdataGridView.Rows )
             {
                 persona.AgregarTelefono((TiposTelefonos )row.Cells["Tipo"].Value,row.Cells["Telefono"].ToString());
 
             }  
+        }
+
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            ////Validar el id no este vacio
+            //Personas persona = new Personas();
+            //if (persona.Buscar(int.Parse(PersonaIdtextBox.Text)))
+            //{
+            //    LlenarCampos(persona);
+            //}
+            
+        }
+
+        private void LlenarCampos(Personas persona)
+        {
+            NombrestextBox.Text = persona.Nombre;
+            foreach(PersonasTelefonos telefono in persona.Telefonos)
+            {
+                TelefonosdataGridView.Rows.Add(telefono.TipoTelefono, telefono.Telefono);
+            }
         }
     }
 }

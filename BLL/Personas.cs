@@ -98,6 +98,7 @@ namespace BLL
         {
 
             DataTable dt = new DataTable();
+            DataTable dtTelefonos = new DataTable();
 
             try
             {
@@ -105,7 +106,14 @@ namespace BLL
                 if (dt.Rows.Count > 0)
                 {
                     this.PersonaId = (int)dt.Rows[0]["PersonaId"];
-                    this.Nombre = dt.Rows[0]["Nombre"].ToString();
+                    this.Nombre = dt.Rows[0]["Nombres"].ToString();
+
+                    dtTelefonos = conexion.ObtenerDatos(string.Format("SELECT * FROM PersonasTelefonos WHERE PersonaId = " + IdBuscado));
+
+                    foreach (DataRow telefono in dtTelefonos.Rows)
+                    {
+                        AgregarTelefono((TiposTelefonos)telefono["TipoId"], telefono["Telefono"].ToString());
+                    }
                 }
 
             }
@@ -121,9 +129,9 @@ namespace BLL
         {
             string ordenFinal = "";
             if (!Orden.Equals(""))
-                ordenFinal = " Orden by  " + Orden;
+                ordenFinal = " Order by  " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos + " From Personas Where " + Condicion + Orden);
+            return conexion.ObtenerDatos("Select " + Campos + " From Personas Where " + Condicion + ordenFinal);
         }
     }
 }
