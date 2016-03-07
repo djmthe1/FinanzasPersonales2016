@@ -169,7 +169,7 @@
             this.ComboBoxCuentaId.Name = "ComboBoxCuentaId";
             this.ComboBoxCuentaId.Size = new System.Drawing.Size(81, 21);
             this.ComboBoxCuentaId.TabIndex = 13;
-            this.ComboBoxCuentaId.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCuentaId_SelectedIndexChanged);
+          
             // 
             // LabelConcepto
             // 

@@ -133,20 +133,7 @@ namespace FinanzasPersonales.Registros
                 textBoxConcepto.Focus();
             }
         }
-        private void ComboBoxCuentaId_SelectedIndexChanged(object sender, EventArgs e)
-        {
-             CxC.CuentaId = int.Parse(ComboBoxCuentaId.SelectedValue.ToString());
-            if (cuentas.Buscar(CxC.CuentaId))
-            {
-                TextBoxBalance.Text = cuentas.Balance.ToString();
-            }
-            else
-            {
-                Mensajes(2, "Id de Cuenta no Existe!");
-                Limpiar();
-            }
-
-        }
+       
         private void textBoxConcepto_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((e.KeyChar >= 48 && e.KeyChar <= 57) || (e.KeyChar == 8) || (e.KeyChar >= 65 && e.KeyChar <= 90) || (e.KeyChar >= 97 && e.KeyChar <= 122 || (e.KeyChar == 32)|| (e.KeyChar==130) || (e.KeyChar >= 160 && e.KeyChar <= 165)))
