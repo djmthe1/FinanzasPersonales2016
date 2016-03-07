@@ -98,7 +98,7 @@ namespace BLL
         {
 
             DataTable dt = new DataTable();
-            
+            DataTable dtTelefonos = new DataTable();
             try
             {
                 dt = conexion.ObtenerDatos(string.Format("select * from Personas where PersonaId=" + IdBuscado));
@@ -106,11 +106,22 @@ namespace BLL
                 {
                     this.PersonaId = (int)dt.Rows[0]["PersonaId"];
                     this.Nombre = dt.Rows[0]["Nombres"].ToString();
+
+                    dt = conexion.ObtenerDatos(string.Format("SELECT * FROM PerosnasTelefonos WHERE PersonaId=" + IdBuscado));
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        PersonasTelefonos telefono = new PersonasTelefonos();
+                        telefono.ID = (int)row["Id"];
+                        telefono.PersonaId = (int)row["PersonaId"];
+                        //telefono.TipoTelefono
+                        telefono.Telefono = row["Telefono"].ToString();
+                        Telefonos.Add(telefono);
+                    }
                 }
-        }
+            }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return dt.Rows.Count > 0;

@@ -143,6 +143,7 @@
             // TelefonotextBox
             // 
             this.TelefonotextBox.Location = new System.Drawing.Point(191, 136);
+            this.TelefonotextBox.MaxLength = 12;
             this.TelefonotextBox.Name = "TelefonotextBox";
             this.TelefonotextBox.Size = new System.Drawing.Size(100, 20);
             this.TelefonotextBox.TabIndex = 21;

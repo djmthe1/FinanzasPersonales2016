@@ -153,7 +153,7 @@ namespace FinanzasPersonales.Registros
         private void BuscarButton_Click(object sender, EventArgs e)
         {
             int id = 0;
-            string filtro = "1=1";
+            
             int.TryParse(PersonaIdtextBox.Text, out id);
             try
             {
@@ -161,7 +161,7 @@ namespace FinanzasPersonales.Registros
                 {
                     PersonaIdtextBox.Text = persona.PersonaId.ToString();
                     NombrestextBox.Text = persona.Nombre;
-                    TelefonosdataGridView.DataSource = persona.ListadoTeleFonos("TipoId, Telefono",filtro,"");
+                    
                     ActivarBotones(true);
                 }
                 else
