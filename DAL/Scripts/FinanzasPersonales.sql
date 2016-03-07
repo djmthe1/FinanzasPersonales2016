@@ -75,7 +75,7 @@ create table PersonasTelefonos(
 	Id int identity(1,1) Primary key,
 	PersonaId int foreign key References Personas(PersonaId),
 	TipoId Int ,
-	Telefono varchar(12)
+	Telefono varchar(15)
 )
 
 go
